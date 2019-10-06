@@ -31,7 +31,7 @@ const schema = new mongoose.Schema({
     {
       type: ObjectId,
       default: "",
-      ref: "DonationPost"
+      ref: "Donation"
     }
   ]
 });

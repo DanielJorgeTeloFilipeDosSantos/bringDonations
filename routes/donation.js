@@ -66,9 +66,9 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.get("/list", (req, res, next) => {
-  Donation.find()
-    .sort({ createdAt: -1 })
-    .populate("_creator")
+  Donation.find({})
+    // .sort({ createdAt: -1 })
+    //.populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: { donation } });
     })

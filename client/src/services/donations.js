@@ -20,6 +20,7 @@ export const list = () => {
     donationsApi
       .get("/list")
       .then(response => {
+        console.log(response);
         resolve(response.data.data.donation);
       })
       .catch(error => {

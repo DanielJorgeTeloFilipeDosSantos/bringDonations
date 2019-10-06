@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
+//-------React---------
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+//-------Components---------
 import CreateDonationForm from "../components/donations/CreateDonationForm";
+import ListDonations from "./ListDonations";
 
 import { create } from "./../services/donations";
 
@@ -56,6 +59,7 @@ export default class Create extends Component {
           >
             <Button type="submit">Create Donation</Button>
           </CreateDonationForm>
+          <ListDonations />
         </Container>
       </div>
     );

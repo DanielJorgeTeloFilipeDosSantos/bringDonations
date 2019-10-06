@@ -22,18 +22,18 @@ const donationSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
     default: ""
-  },
-  _creator: {
-    type: ObjectId,
-    ref: "User"
-  },
-  _requestedBy: {
-    type: ObjectId,
-    ref: "User"
-  },
-  _volunteer: {
-    type: ObjectId,
-    ref: "User"
   }
+  // _creator: {
+  //   type: ObjectId,
+  //   ref: "User"
+  // },
+  // _requestedBy: {
+  //   type: ObjectId,
+  //   ref: "User"
+  // },
+  // _volunteer: {
+  //   type: ObjectId,
+  //   ref: "User"
+  // }
 });
 module.exports = mongoose.model("Donation", donationSchema);
