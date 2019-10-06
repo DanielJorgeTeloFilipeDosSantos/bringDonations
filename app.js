@@ -15,6 +15,7 @@ const deserializeUserMiddleware = require("./middleware/deserialize-user");
 
 // const indexRouter = require("./routes/index");
 const apiRouter = require("./routes/api");
+const testRouter = require("./routes/testingRoute");
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use(
 app.use(deserializeUserMiddleware);
 
 app.use("/api", apiRouter);
+app.use("/test", testRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "./client/build/index.html"));
