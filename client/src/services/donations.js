@@ -14,18 +14,19 @@ export const create = donation => {
       });
   });
 };
-// export const list = () => {
-//   return new Promise((resolve, reject) => {
-//     donationsApi
-//       .get("/")
-//       .then(response => {
-//         resolve(response.data.data.post);
-//       })
-//       .catch(error => {
-//         reject(error);
-//       });
-//   });
-// };
+
+export const list = () => {
+  return new Promise((resolve, reject) => {
+    donationsApi
+      .get("/list")
+      .then(response => {
+        resolve(response.data.data.donation);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
 // export const load = id => {
 //   return new Promise((resolve, reject) => {
 //     donationsApi

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DonationView from "./views/Donation";
+import ListDonationView from "./views/ListDonations";
 
 import "./App.css";
 
@@ -121,6 +122,11 @@ export default class App extends Component {
                   )}
                 />
                 <Route path="/donation" exact component={DonationView} />
+                <Route
+                  path="/donation/list"
+                  exact
+                  component={ListDonationView}
+                />
                 <Route path="/error/:code" component={ErrorView} />
                 <Redirect path="/" to="/error/404" />
               </Switch>

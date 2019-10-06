@@ -1,83 +1,71 @@
 import React, { Component } from "react";
+
 import Form from "react-bootstrap/Form";
-import { create } from "../../services/donations";
-export default class CreateDonationForm extends Component {
+
+export default class PostForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      donationName: "",
-      category: "",
-      description: "",
-      location: ""
-    };
     this.onValueChange = this.onValueChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
+
   onValueChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState({
+    this.props.onValueChange({
       [name]: value
     });
   }
+
   onFormSubmit(event) {
     event.preventDefault();
-    const { donationName, category, description, location } = this.state;
-    create();
+    this.props.onFormSubmit();
   }
+
   render() {
     return (
       <Form onSubmit={this.onFormSubmit}>
         <Form.Group>
-          <Form.Label>Donation Name</Form.Label>
+          <Form.Label>Name your Donation</Form.Label>
           <Form.Control
             type="text"
             name="donationName"
-            placeholder="Give your Donation a Name"
-            value={this.state.donationName}
+            placeholder="Donation Name"
+            value={this.props.value.donationName}
             onChange={this.onValueChange}
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Choose a Donation Category</Form.Label>
+          <Form.Label>Pick a Category</Form.Label>
           <Form.Control
             type="text"
             name="category"
-            placeholder="Choose a Category"
-            value={this.state.category}
+            placeholder="Cathegory"
+            value={this.props.value.category}
             onChange={this.onValueChange}
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Location</Form.Label>
-          <Form.Control
-            type="text"
-            name="location"
-            placeholder="Pick up Address"
-            value={this.state.location}
-            onChange={this.onValueChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Take a photo</Form.Label>
-          <Form.Control
-            type="text"
-            name="imageUrl"
-            placeholder="add image url"
-            value={this.state.imageUrl}
-            onChange={this.onValueChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label></Form.Label>
+          <Form.Label>Give a brief description to your donation</Form.Label>
           <Form.Control
             type="text"
             name="description"
-            placeholder="Give a brief Describtion of your Donation"
-            value={this.state.description}
+            placeholder="Add a description"
+            value={this.props.value.description}
             onChange={this.onValueChange}
           />
         </Form.Group>
+        <Form.Group>
+          <Form.Label>Adress</Form.Label>
+          <Form.Control
+            type="text"
+            name="location"
+            placeholder="Add a location"
+            value={this.props.value.location}
+            onChange={this.onValueChange}
+          />
+        </Form.Group>
+        {this.props.children}
       </Form>
     );
   }
