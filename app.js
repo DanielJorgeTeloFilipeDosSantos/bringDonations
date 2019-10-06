@@ -15,11 +15,8 @@ const deserializeUserMiddleware = require("./middleware/deserialize-user");
 
 // const indexRouter = require("./routes/index");
 const apiRouter = require("./routes/api");
-<<<<<<< HEAD
 const donationRouter = require("./routes/donation");
-=======
 const testRouter = require("./routes/testingRoute");
->>>>>>> 338813580f5ebcf67e7e04acde9712c3b89bc21f
 
 const app = express();
 
@@ -45,11 +42,8 @@ app.use(
 app.use(deserializeUserMiddleware);
 
 app.use("/api", apiRouter);
-<<<<<<< HEAD
 app.use("/donation", donationRouter);
-=======
 app.use("/test", testRouter);
->>>>>>> 338813580f5ebcf67e7e04acde9712c3b89bc21f
 
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "./client/build/index.html"));
