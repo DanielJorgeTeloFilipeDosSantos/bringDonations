@@ -27,9 +27,6 @@ router.get("/test", (req, res, next) => {
   res.json({ msg: "donation works" });
 });
 router.post("/create", (req, res, next) => {
-  // Creating an event
-  //console.log("The event object:", req.body);
-  // const eventName = req.body.event;
   const donationName = req.body.donationName;
   const category = req.body.category;
   const description = req.body.description;
@@ -52,23 +49,17 @@ router.post("/create", (req, res, next) => {
       next(error);
     });
 });
+
+router.get("/list", (req, res) => {
+  Donation.find({}).then(donation => {
+    res.json({ type: "success", data: donation });
+  });
+});
 // Note: Whatever goes after ":"" in the route is being accessed
 // with the same name in req.params.THENAME
 router.get("/:id", (req, res, next) => {
   Donation.findById(req.params.id)
     .populate("_creator")
-    .then(donation => {
-      res.json({ type: "success", data: { donation } });
-    })
-    .catch(error => {
-      next(error);
-    });
-});
-
-router.get("/list", (req, res, next) => {
-  Donation.find({})
-    // .sort({ createdAt: -1 })
-    //.populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: { donation } });
     })
