@@ -7,7 +7,7 @@ export const create = donation => {
     donationsApi
       .post("/create", donation)
       .then(response => {
-        resolve(response.data.data.post);
+        resolve(response.data.data.donation);
       })
       .catch(error => {
         reject(error);
@@ -28,39 +28,39 @@ export const list = () => {
       });
   });
 };
-// export const load = id => {
-//   return new Promise((resolve, reject) => {
-//     donationsApi
-//       .get(`/${id}`)
-//       .then(response => {
-//         resolve(response.data.data.post);
-//       })
-//       .catch(error => {
-//         reject(error);
-//       });
-//   });
-// };
-// export const edit = (id, updatedDonation) => {
-//   return new Promise((resolve, reject) => {
-//     donationsApi
-//       .patch(`/${id}/edit`, updatedDonation)
-//       .then(response => {
-//         resolve(response.data.data.post);
-//       })
-//       .catch(error => {
-//         reject(error);
-//       });
-//   });
-// };
-// export const remove = id => {
-//   return new Promise((resolve, reject) => {
-//     donationsApi
-//       .delete(`/${id}/delete`)
-//       .then(() => {
-//         resolve();
-//       })
-//       .catch(error => {
-//         reject(error);
-//       });
-//   });
-// };
+export const load = id => {
+  return new Promise((resolve, reject) => {
+    donationsApi
+      .get(`/${id}`)
+      .then(response => {
+        resolve(response.data.data.donation);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+export const edit = (id, updatedDonation) => {
+  return new Promise((resolve, reject) => {
+    donationsApi
+      .patch(`/${id}/edit`, updatedDonation)
+      .then(response => {
+        resolve(response.data.data.donation);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
+export const remove = id => {
+  return new Promise((resolve, reject) => {
+    donationsApi
+      .delete(`/${id}/delete`)
+      .then(() => {
+        resolve();
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};

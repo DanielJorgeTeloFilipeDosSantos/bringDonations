@@ -31,7 +31,8 @@ export default class ListDonations extends Component {
   render() {
     return (
       <div>
-        {this.state.donations.map(donation => (
+        <h1>HELOOOOO</h1>
+        {/* {this.state.donations.map(donation => (
           <Card>
             <Card.Body>
               <Card.Title>{donation}</Card.Title>
@@ -41,7 +42,7 @@ export default class ListDonations extends Component {
               <Card.Text>Written by {donation._creator}</Card.Text>
             </Card.Body>
           </Card>
-        ))}
+        ))} */}
       </div>
     );
   }

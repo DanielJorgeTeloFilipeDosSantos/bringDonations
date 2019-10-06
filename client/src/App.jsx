@@ -46,15 +46,18 @@ export default class App extends Component {
   componentDidMount() {
     verifyService()
       .then(user => {
-        this.setState({
-          ...(user && { user }),
-          loaded: true
-        });
+        if (user) {
+          this.setState({
+            ...(user && { user }),
+            loaded: true
+          });
+        } else {
+          this.setState({
+            loaded: true
+          });
+        }
       })
       .catch(error => {
-        this.setState({
-          loaded: true
-        });
         console.log(error);
       });
   }
