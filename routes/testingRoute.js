@@ -9,7 +9,7 @@ const checkUser = require("../middleware/checkUser");
 
 router.post("/", (req, res) => {
   //   checkOrganization(req, res);
-  checkOrganization(req, res);
+  checkUser(req, res);
 });
 
 module.exports = router;
