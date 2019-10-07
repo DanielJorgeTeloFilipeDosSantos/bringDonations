@@ -4,6 +4,7 @@ import { list } from "../services/donations";
 
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import Map from "../components/map/Map";
 
 export default class List extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class List extends Component {
   render() {
     return (
       <div>
+        <Map />
         {this.state.donations.map(donation => (
           <Card key={donation.donationName}>
             <Card.Body>

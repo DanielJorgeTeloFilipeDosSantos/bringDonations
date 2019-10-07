@@ -16,8 +16,8 @@ class MapDemo extends Component {
     super(props);
 
     this.center = {
-      lat: 52.51,
-      lng: 13.4
+      lat: 52.516,
+      lng: 13.3779
     };
 
     this.bounds = {
@@ -51,6 +51,7 @@ class MapDemo extends Component {
           appCode="PWIfIjZYX7_LIxXbrXyjCw"
           useHTTPS={false}
           center={this.center}
+          zoom="14"
         >
           <Marker lat={52.516} lng={13.3779}>
             <div style={{ transform: "translate(-50%, -100%)" }}>
