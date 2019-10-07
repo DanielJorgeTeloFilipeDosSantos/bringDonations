@@ -6,8 +6,7 @@ import Container from "react-bootstrap/Container";
 
 //-------Components---------
 import CreateDonationForm from "../components/donations/CreateDonationForm";
-import ListDonations from "./ListDonations";
-
+import ListDonations from "../components/donations/ListDonations";
 import { create } from "./../services/donations";
 
 export default class Create extends Component {
@@ -40,7 +39,7 @@ export default class Create extends Component {
     const donation = this.state.donation;
     create(donation)
       .then(donation => {
-        this.props.history.push(`/donation/list`);
+        this.props.history.push(`/donation`);
       })
       .catch(error => {
         console.log(error);
@@ -50,14 +49,14 @@ export default class Create extends Component {
   render() {
     return (
       <div>
-        <h1>Add Donation to be pick up</h1>
+        <h3>Create a Donation Form</h3>
         <Container>
           <CreateDonationForm
             value={this.state.donation}
             onValueChange={this.onFormValueChange}
             onFormSubmit={this.createDonation}
           >
-            <Button type="submit">Create Donation</Button>
+            <Button type="submit">Post</Button>
           </CreateDonationForm>
           <ListDonations />
         </Container>

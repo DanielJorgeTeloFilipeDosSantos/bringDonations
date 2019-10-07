@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { list } from "./../services/donations";
+import { list } from "../../services/donations";
 
 //import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
@@ -31,7 +31,7 @@ export default class ListDonations extends Component {
   render() {
     return (
       <div>
-        <h1>HELOOOOO</h1>
+        <h3>List of all donations</h3>
         {console.log(this.state)}
         {this.state.donations.map(donation => (
           <Card key={donation.donationName}>
