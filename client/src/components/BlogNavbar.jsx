@@ -37,8 +37,8 @@ export class NavigationBar extends Component {
               <LinkContainer to="/foo/bar">
                 <Nav.Link href="#link">Parcipate as an institution</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/signin">
-                <Nav.Link href="#link">Logout</Nav.Link>
+              <LinkContainer to="/aaa">
+                <Nav.Link>Logout</Nav.Link>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
