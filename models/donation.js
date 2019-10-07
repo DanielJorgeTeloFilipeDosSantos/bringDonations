@@ -15,10 +15,6 @@ const donationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  location: {
-    type: String,
-    required: true
-  },
   imageUrl: {
     type: String,
     default: ""
@@ -26,6 +22,17 @@ const donationSchema = new mongoose.Schema({
   _creator: {
     type: ObjectId,
     ref: "User"
+  },
+
+  location: {
+    lat: {
+      type: Number,
+      required: true
+    },
+    lng: {
+      type: Number,
+      required: true
+    }
   }
   // _requestedBy: {
   //   type: ObjectId,
