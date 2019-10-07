@@ -19,7 +19,7 @@ export default ({ verify, render, component: ViewComponent, ...other }) => {
           console.log(
             "you need 1. restart npm run dev, 2. change something in the code 3. pray for jesus? 4. drink a coffee"
           );
-          return <Redirect to="/sign-in" />;
+          return <Redirect to="/" />;
         }
       }}
     />
