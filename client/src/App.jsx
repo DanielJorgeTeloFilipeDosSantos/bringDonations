@@ -125,17 +125,11 @@ export default class App extends Component {
                   )}
                 />
 
-                <Route
-                  path="/donation"
-                  exact
-                  component={DonationView}
-                  verify={this.verifyAuthenticated}
-                />
+                <Route path="/donation" exact component={DonationView} />
                 <Route
                   path="/donation/list"
                   exact
                   component={ListDonationView}
-                  verify={this.verifyAuthenticated}
                 />
 
                 <Route path="/error/:code" component={ErrorView} />

@@ -8,7 +8,7 @@ export default class ListDonations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donations: null
+      donations: []
     };
     this.listAll = this.listAll.bind(this);
   }
@@ -32,17 +32,18 @@ export default class ListDonations extends Component {
     return (
       <div>
         <h1>HELOOOOO</h1>
-        {/* {this.state.donations.map(donation => (
-          <Card>
+        {console.log(this.state)}
+        {this.state.donations.map(donation => (
+          <Card key={donation.donationName}>
             <Card.Body>
-              <Card.Title>{donation}</Card.Title>
+              <Card.Title>{donation.donationName}</Card.Title>
               <Card.Text>{donation.category}</Card.Text>
               <Card.Text>{donation.description}</Card.Text>
               <Card.Text>{donation.location}</Card.Text>
-              <Card.Text>Written by {donation._creator}</Card.Text>
+              <Card.Text>Written by {donation._creator.name}</Card.Text>
             </Card.Body>
           </Card>
-        ))} */}
+        ))}
       </div>
     );
   }
