@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import geolocation from "../../services/geolocation";
 
 export default class PostForm extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
     this.onValueChange = this.onValueChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
@@ -20,9 +23,11 @@ export default class PostForm extends Component {
   onFormSubmit(event) {
     event.preventDefault();
     this.props.onFormSubmit();
+    console.log("createDonationFOrm", this.props, event);
   }
 
   render() {
+    console.log("this.props", this.props.coords);
     return (
       <Form onSubmit={this.onFormSubmit}>
         <Form.Group>
@@ -55,7 +60,7 @@ export default class PostForm extends Component {
             onChange={this.onValueChange}
           />
         </Form.Group>
-        <Form.Group>
+        {/* <Form.Group>
           <Form.Label>Adress</Form.Label>
           <Form.Control
             type="text"
@@ -64,7 +69,7 @@ export default class PostForm extends Component {
             value={this.props.value.location}
             onChange={this.onValueChange}
           />
-        </Form.Group>
+        </Form.Group> */}
         {this.props.children}
       </Form>
     );

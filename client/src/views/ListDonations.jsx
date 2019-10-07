@@ -39,7 +39,7 @@ export default class ListDonations extends Component {
               <Card.Title>{donation.donationName}</Card.Title>
               <Card.Text>{donation.category}</Card.Text>
               <Card.Text>{donation.description}</Card.Text>
-              <Card.Text>{donation.location}</Card.Text>
+              {/* <Card.Text>{donation.location}</Card.Text> */}
               <Card.Text>Written by {donation._creator.name}</Card.Text>
             </Card.Body>
           </Card>

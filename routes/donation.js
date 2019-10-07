@@ -8,6 +8,7 @@ const Donation = require("../models/donation");
 // });
 
 router.post("/create", (req, res, next) => {
+  console.log("req.body", req.body);
   const donationName = req.body.donationName;
   const category = req.body.category;
   const description = req.body.description;
