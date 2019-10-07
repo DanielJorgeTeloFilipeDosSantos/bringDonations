@@ -20,10 +20,19 @@ export class Donation extends Component {
       description: "",
       location: "",
       imageUrl: "",
-      _creator: "",
       showForm: true
     };
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(this.state);
+    geolocation().then(({ coordinates }) => {
+      console.log(coordinates);
+      this.setState({ ...this.state, location: [coordinates] });
+      console.log("this.state", this.state);
+    });
   }
 
   handleNameChange(event) {
@@ -32,11 +41,19 @@ export class Donation extends Component {
     });
   }
 
-  handleFormSubmit(event) {
+  onFormSubmit(event) {
     event.preventDefault();
-    create(this.state)
-      .then(donation => {
-        console.log(donation);
+    const donation = {
+      donationName: this.state.donationName,
+      category: this.state.category,
+      description: this.state.description,
+      location: this.state.location,
+      imageUrl: this.state.imageUrl
+    };
+
+    create(donation)
+      .then(donations => {
+        console.log(donations);
         this.props.history.push("/donation");
       })
       .catch(error => {
@@ -79,7 +96,7 @@ export class Donation extends Component {
             />
           </Form.Group>
           <Button variant="primary" type="submit">
-            Submit
+            Create a donation
           </Button>
           {this.props.children}
         </Form>

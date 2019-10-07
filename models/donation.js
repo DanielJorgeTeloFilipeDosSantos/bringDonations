@@ -23,20 +23,20 @@ const donationSchema = new mongoose.Schema({
     type: ObjectId,
     ref: "User"
   },
-  location: {
-    type: {
-      type: String,
-      enum: ["Point"],
-      default: "Point"
-    },
-    coordinates: [
-      {
+  location: [
+    {
+      latitude: {
+        type: Number,
+        min: -180,
+        max: 180
+      },
+      longitude: {
         type: Number,
         min: -180,
         max: 180
       }
-    ]
-  }
+    }
+  ]
   // _requestedBy: {
   //   type: ObjectId,
   //   ref: "User"
@@ -46,4 +46,5 @@ const donationSchema = new mongoose.Schema({
   //   ref: "User"
   // }
 });
+donationSchema.index({ location: "2dsphere" });
 module.exports = mongoose.model("Donation", donationSchema);
