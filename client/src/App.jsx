@@ -107,11 +107,16 @@ export default class App extends Component {
                 {/*   goes to /home that is protected and only acessable if you
                 have a session initiated (you are loggedin)    */}
 
-                <ProtectedRoute
+                <Route
                   path="/profile"
-                  exact
-                  component={ProfileView}
-                  verify={this.verifyAuthenticated}
+                  render={props => (
+                    <ProfileView
+                      {...props}
+                      exact
+                      loadUser={this.loadUser}
+                      user={this.state.user}
+                    />
+                  )}
                 />
 
                 {/* here starts the app as a protected route*/}
