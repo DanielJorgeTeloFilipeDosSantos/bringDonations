@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 //-------Components---------
 
-import ListDonationsView from "./../views/ListDonations";
+import ListDonations from "../components/donations/ListDonations";
 import { create } from "./../services/donations";
 import geolocation from "../services/geolocation";
 
@@ -24,6 +24,8 @@ export class Donation extends Component {
     };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.toggleButton = this.toggleButton.bind(this);
+    this.showForm = this.showForm.bind(this);
   }
 
   componentDidMount() {
@@ -61,9 +63,15 @@ export class Donation extends Component {
       });
   }
 
-  render() {
-    return (
-      <div>
+  toggleButton() {
+    this.setState({
+      showForm: !this.state.showForm
+    });
+  }
+
+  showForm() {
+    if (this.state.showForm === false) {
+      return (
         <Form onSubmit={this.onFormSubmit}>
           <Form.Group>
             <Form.Label>Name your Donation</Form.Label>
@@ -100,6 +108,17 @@ export class Donation extends Component {
           </Button>
           {this.props.children}
         </Form>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Button onClick={this.toggleButton}>Add a Donation</Button>
+        {this.showForm()}
+
+        <ListDonations />
       </div>
     );
   }
