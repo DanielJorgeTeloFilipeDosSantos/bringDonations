@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import BlogNavbar from "./components/BlogNavbar";
+import Navbar from "./components/Navbar";
 
 import SignIn from "./views/SignIn";
 import SignUp from "./views/SignUp";
@@ -95,7 +95,7 @@ export default class App extends Component {
       <div className="App">
         <div style={{ marginTop: "10vh" }}>
           <Router>
-            <BlogNavbar user={this.state.user} signOut={this.signOut} />
+            <Navbar user={this.state.user} signOut={this.signOut} />
             {this.state.loaded && (
               <Switch>
                 {/* here starts the app as a protected route, only acessable if you are NOT logged in  */}
