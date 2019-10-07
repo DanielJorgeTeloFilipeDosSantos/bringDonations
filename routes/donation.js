@@ -2,30 +2,11 @@
 const { Router } = require("express");
 const router = Router();
 const Donation = require("../models/donation");
-//const checkCreator = require("../controllers/check-creator");
-// //-------cloudinary configurations--------
-// // const cloudinary = require("cloudinary");
-// // const cloudinaryStorage = require("multer-storage-cloudinary");
-// // const multer = require("multer");
-// // cloudinary.config({
-// //   cloud_name: process.env.CLOUDINARY_NAME,
-// //   api_key: process.env.CLOUDINARY_KEY,
-// //   api_secret: process.env.CLOUDINARY_SECRET
-// // });
-// // const storage = cloudinaryStorage({
-// //   cloudinary,
-// //   folder: "/gig-connect",
-// //   allowedFormats: ["jpg", "png"]
-// // });
-// // const upload = multer({ storage });
-// //----------------------------------------
-// // router.get("/donation", checkLogin, (req, res, next) => {
-// //   res.render("/");
-// //   console.log(req.body);
-// // });
+
 // router.get("/test", (req, res, next) => {
 //   res.json({ msg: "donation works" });
 // });
+
 router.post("/create", (req, res, next) => {
   const donationName = req.body.donationName;
   const category = req.body.category;
@@ -49,24 +30,11 @@ router.post("/create", (req, res, next) => {
       next(error);
     });
 });
-<<<<<<< HEAD
 // // Note: Whatever goes after ":"" in the route is being accessed
 // // with the same name in req.params.THENAME
 router.get("/list", (req, res, next) => {
-  Donation.find({})
+  Donation.find()
     // .sort({ createdAt: -1 })
-=======
-
-router.get("/list", (req, res) => {
-  Donation.find({}).then(donation => {
-    res.json({ type: "success", data: donation });
-  });
-});
-// Note: Whatever goes after ":"" in the route is being accessed
-// with the same name in req.params.THENAME
-router.get("/:id", (req, res, next) => {
-  Donation.findById(req.params.id)
->>>>>>> 7b28b424a1f4092043ac71bf6ed16765c2c67168
     .populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: { donation } });
@@ -76,10 +44,9 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
-<<<<<<< HEAD
 router.get("/:id", (req, res, next) => {
   Donation.findById(req.params.id)
-    //.populate("_creator")
+    .populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: { donation } });
     })
@@ -88,8 +55,6 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
-=======
->>>>>>> 7b28b424a1f4092043ac71bf6ed16765c2c67168
 router.patch("/:id/edit", (req, res, next) => {
   const {
     donationName,
