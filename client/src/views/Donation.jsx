@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 //-------Components---------
-import CreateDonationForm from "../components/donations/CreateDonationForm";
+
 import ListDonationsView from "./../views/ListDonations";
 import { create } from "./../services/donations";
 import geolocation from "../services/geolocation";
