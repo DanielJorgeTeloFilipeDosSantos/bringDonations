@@ -64,7 +64,7 @@ export default class Create extends Component {
     const donation = this.state.donation;
     create(donation)
       .then(donation => {
-        this.props.history.push(`/donation`);
+        this.props.history.push(`/donation/${donation._id}`);
       })
       .catch(error => {
         console.log(error);

@@ -23,16 +23,19 @@ const donationSchema = new mongoose.Schema({
     type: ObjectId,
     ref: "User"
   },
-
   location: {
-    lat: {
-      type: Number,
-      required: true
+    type: {
+      type: String,
+      enum: ["Point"],
+      default: "Point"
     },
-    lng: {
-      type: Number,
-      required: true
-    }
+    coordinates: [
+      {
+        type: Number,
+        min: -180,
+        max: 180
+      }
+    ]
   }
   // _requestedBy: {
   //   type: ObjectId,

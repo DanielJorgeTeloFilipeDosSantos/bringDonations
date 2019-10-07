@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DonationView from "./views/Donation";
+import LocationDonation from "./views/LocationDonation";
+import DetailsDonation from "./views/DetailsDonation";
 
 import "./App.css";
 
@@ -104,14 +106,16 @@ export default class App extends Component {
                 />
                 {/*   goes to /home that is protected and only acessable if you
                 have a session initiated (you are loggedin)    */}
+
                 <ProtectedRoute
                   path="/profile"
                   exact
                   component={ProfileView}
                   verify={this.verifyAuthenticated}
                 />
-                {/*   -------------------------------------------------------------   */}
+
                 {/* here starts the app as a protected route*/}
+
                 <ProtectedRoute
                   path="/sign-in"
                   verify={this.verifyUnauthenticated}
@@ -121,6 +125,16 @@ export default class App extends Component {
                 />
 
                 <Route path="/donation" exact component={DonationView} />
+                <Route
+                  path="/donation/:id"
+                  exact
+                  component={LocationDonation}
+                />
+                <Route
+                  path="/donation/:id/details"
+                  exact
+                  component={DetailsDonation}
+                />
 
                 <Route path="/error/:code" component={ErrorView} />
                 <Redirect path="/" to="/error/404" />

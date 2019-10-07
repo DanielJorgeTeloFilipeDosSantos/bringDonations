@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import { list } from "../services/donations";
-import { Link } from "react-router-dom";
 
-//import { Link } from "react-router-dom";
+import { list } from "../services/donations";
+
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
-export default class ListDonations extends Component {
+export default class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
       donations: []
     };
-    this.listAll = this.listAll.bind(this);
   }
 
-  listAll() {
+  componentDidMount() {
     list()
       .then(donations => {
         this.setState({
@@ -25,15 +24,10 @@ export default class ListDonations extends Component {
         console.log(error);
       });
   }
-  componentDidMount() {
-    this.listAll();
-  }
 
   render() {
     return (
       <div>
-        <h3>List of all donations</h3>
-        {console.log(this.state)}
         {this.state.donations.map(donation => (
           <Card key={donation.donationName}>
             <Card.Body>
@@ -42,7 +36,7 @@ export default class ListDonations extends Component {
               </Link>
               <Card.Text>{donation.category}</Card.Text>
               <Card.Text>{donation.description}</Card.Text>
-              <Card.Text>location here</Card.Text>
+              {/* <Card.Text>{donation.location}</Card.Text> */}
               <Card.Text>Written by {donation._creator.name}</Card.Text>
             </Card.Body>
           </Card>

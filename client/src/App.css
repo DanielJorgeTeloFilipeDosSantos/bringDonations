@@ -7,6 +7,10 @@
   width: 100vw;
   background-color: blue;
 }
+
+.margin-top {
+  margin-top: 100px;
+}
 /* 
 
 .App-logo {

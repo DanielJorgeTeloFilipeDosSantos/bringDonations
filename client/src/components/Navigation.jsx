@@ -11,7 +11,7 @@ import bringLogo from "../assets/bring2.svg";
 const Navigation = props => {
   return (
     <Navbar bg="light" fixed="top" expand="lg">
-      <Navbar.Brand href="/donations">
+      <Navbar.Brand href="/donation">
         <img
           src={bringLogo}
           width="40"
@@ -31,7 +31,10 @@ const Navigation = props => {
         </Fragment>
       )) || (
         <Fragment>
-          <span className="btn">{props.user.name}</span>
+          <Link className="btn" to="/profile">
+            {props.user.name}
+          </Link>
+
           <Link className="btn" to="/donation">
             Browse Donation
           </Link>
