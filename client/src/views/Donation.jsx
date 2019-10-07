@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 //-------React---------
 import Button from "react-bootstrap/Button";
@@ -6,7 +7,7 @@ import Container from "react-bootstrap/Container";
 
 //-------Components---------
 import CreateDonationForm from "../components/donations/CreateDonationForm";
-import ListDonations from "../components/donations/ListDonations";
+import ListDonationsView from "./../views/ListDonations";
 import { create } from "./../services/donations";
 
 export default class Create extends Component {
@@ -19,11 +20,14 @@ export default class Create extends Component {
         description: "",
         location: "",
         imageUrl: "",
-        _creator: ""
+        _creator: "",
+        showForm: true
       }
     };
     this.onFormValueChange = this.onFormValueChange.bind(this);
     this.createDonation = this.createDonation.bind(this);
+    this.buttonChange = this.buttonChange.bind(this);
+    this.renderForm = this.renderForm.bind(this);
   }
 
   onFormValueChange(data) {
@@ -33,6 +37,27 @@ export default class Create extends Component {
         ...data
       }
     });
+  }
+
+  buttonChange() {
+    this.setState({
+      ...this.state,
+      showForm: !this.state.showForm
+    });
+  }
+
+  renderForm() {
+    return (
+      <div>
+        <CreateDonationForm
+          value={this.state.donation}
+          onValueChange={this.onFormValueChange}
+          onFormSubmit={this.createDonation}
+        >
+          <Button type="submit">Post</Button>
+        </CreateDonationForm>
+      </div>
+    );
   }
 
   createDonation() {
@@ -49,16 +74,11 @@ export default class Create extends Component {
   render() {
     return (
       <div>
-        <h3>Create a Donation Form</h3>
+        <Button onClick={this.buttonChange}>Post Donation</Button>
+        {this.state.showForm && this.renderForm()}
+
         <Container>
-          <CreateDonationForm
-            value={this.state.donation}
-            onValueChange={this.onFormValueChange}
-            onFormSubmit={this.createDonation}
-          >
-            <Button type="submit">Post</Button>
-          </CreateDonationForm>
-          <ListDonations />
+          <ListDonationsView />
         </Container>
       </div>
     );

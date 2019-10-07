@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DonationView from "./views/Donation";
 
@@ -12,16 +12,13 @@ import {
 } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import Navbar from "./components/Navbar";
+import Navigation from "./components/Navigation";
 
 import SignIn from "./views/SignIn";
 import SignUp from "./views/SignUp";
 import ErrorView from "./views/Error";
-import CatchAll from "./views/CatchAll";
 
 import ProfileView from "./views/Profile";
-
-import Container from "react-bootstrap/Container";
 
 import {
   verify as verifyService,
@@ -89,12 +86,11 @@ export default class App extends Component {
   }
 
   render() {
-    console.log("console.log appp. jsx", this.state);
     return (
       <div className="App">
         <div style={{ marginTop: "10vh" }}>
           <Router>
-            <Navbar user={this.state.user} signOut={this.signOut} />
+            <Navigation user={this.state.user} signOut={this.signOut} />
             {this.state.loaded && (
               <Switch>
                 {/* here starts the app as a protected route, only acessable if you are NOT logged in  */}
