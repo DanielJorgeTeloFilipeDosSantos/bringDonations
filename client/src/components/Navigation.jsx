@@ -32,6 +32,9 @@ const Navigation = props => {
       )) || (
         <Fragment>
           <span className="btn">{props.user.name}</span>
+          <Link className="btn" to="/donation">
+            Browse Donation
+          </Link>
           <Form onSubmit={props.signOut}>
             <Button type="submit">Sign Out</Button>
           </Form>
