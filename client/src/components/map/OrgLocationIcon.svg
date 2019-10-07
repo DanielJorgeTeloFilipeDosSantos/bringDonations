@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#XMLID_4_);}
+	.st1{fill:#FFFFFF;}
+	.st2{font-family:'MyriadPro-Regular';}
+	.st3{font-size:12px;}
+</style>
+<g id="Layer_1">
+	<g id="XMLID_74_">
+		<g id="XMLID_75_">
+			<radialGradient id="XMLID_4_" cx="47.6879" cy="46.8736" r="38.6726" gradientUnits="userSpaceOnUse">
+				<stop  offset="0" style="stop-color:#DD8A37"/>
+				<stop  offset="0.77" style="stop-color:#C4472B"/>
+				<stop  offset="1" style="stop-color:#C4472B"/>
+			</radialGradient>
+			<path id="XMLID_44_" class="st0" d="M47.8,89.2l23.4-24.4l0.2-0.2c6.7-6.3,10.9-15.3,10.9-25.3c0-19.1-15.4-34.6-34.5-34.8v0
+				c-0.1,0,0.3,0,0.2,0c-0.1,0-0.2,0-0.3,0c-0.1,0-0.2,0-0.3,0c-0.1,0,0.3,0,0.2,0v0C28.5,4.7,13.1,20.2,13.1,39.3
+				c0,10,4.2,19,10.9,25.3l0.2,0.2l23.4,24.4H47.8L47.8,89.2z"/>
+			<path id="XMLID_43_" class="st1" d="M76.1,39c0,15.7-12.7,28.4-28.4,28.4C32,67.4,19.3,54.7,19.3,39c0-15.7,12.7-28.4,28.4-28.4
+				C63.4,10.6,76.1,23.4,76.1,39z"/>
+		</g>
+	</g>
+	<text id="XMLID_1_" transform="matrix(1 0 0 1 40.3633 35.2675)"><tspan x="0" y="0" class="st2 st3">Go</tspan><tspan x="-4.7" y="14.4" class="st2 st3">Here</tspan></text>
+</g>
+<g id="Layer_2">
+</g>
+</svg>
