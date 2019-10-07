@@ -5,6 +5,10 @@ export default class DetailsDonation extends Component {
     super(props);
   }
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <h1>Details dontaion in here </h1>
+      </div>
+    );
   }
 }

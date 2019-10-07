@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  HereMap,
-  Marker,
-  Polyline,
-  Polygon,
-  Circle,
-  Rectangle,
-  PathFinder
-} from "rc-here-maps";
+import { HereMap, Marker, PathFinder } from "rc-here-maps";
 import logo from "./UserLocationIcon.svg";
 import logo2 from "./OrgLocationIcon.svg";
 
