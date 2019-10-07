@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { list } from "../services/donations";
+import { list } from "../../services/donations";
 import { Link } from "react-router-dom";
 
 //import { Link } from "react-router-dom";
