@@ -45,7 +45,7 @@ export default class NewBeer extends Component {
       <Container>
         <Form onSubmit={this.handleFormSubmit}>
           <Form.Group>
-            <Form.Label>donationName</Form.Label>
+            <Form.Label>Donation Name</Form.Label>
             <Form.Control
               type="text"
               name="donationName"
@@ -53,7 +53,7 @@ export default class NewBeer extends Component {
               onChange={this.handleFormChange}
             />
 
-            <Form.Label>category</Form.Label>
+            <Form.Label>Category</Form.Label>
             <Form.Control
               type="text"
               name="category"
