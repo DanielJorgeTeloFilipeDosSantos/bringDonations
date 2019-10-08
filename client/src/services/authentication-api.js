@@ -4,11 +4,12 @@ const authenticationApi = axios.create({
   baseURL: "/api/authentication"
 });
 
-export const signUp = ({ email, name, password }) => {
+export const signUp = ({ email, name, password, role }) => {
   return new Promise((resolve, reject) => {
     authenticationApi
-      .post("/sign-up", { email, name, password })
+      .post("/sign-up", { email, name, password, role })
       .then(response => {
+        console.log(response);
         resolve(response.data.data.user);
       })
       .catch(error => {

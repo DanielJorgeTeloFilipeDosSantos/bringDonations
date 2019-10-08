@@ -18,6 +18,7 @@ export default class SignUp extends Component {
       email: "",
       name: "",
       password: "",
+      role: "",
       formSlides: true,
       formSignUp: false
     };
@@ -33,6 +34,7 @@ export default class SignUp extends Component {
     this.setState({
       ...this.state,
       buttonClicked: "volunteer",
+      role: "User",
       formSlides: !this.state.formSlides,
       formSignUp: !this.state.formSignUp
     });
@@ -43,6 +45,7 @@ export default class SignUp extends Component {
     this.setState({
       ...this.state,
       buttonClicked: "institution",
+      role: "Organization",
       formSlides: !this.state.formSlides,
       formSignUp: !this.state.formSignUp
     });
@@ -158,8 +161,8 @@ export default class SignUp extends Component {
 
   signUp = event => {
     event.preventDefault();
-    const { email, name, password } = this.state;
-    signUpService({ email, name, password })
+    const { email, name, password, role } = this.state;
+    signUpService({ email, name, password, role })
       .then(user => {
         this.props.loadUser(user);
         this.props.history.push("/profile");
