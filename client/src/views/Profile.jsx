@@ -16,6 +16,7 @@ export class Profile extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     // if (this.props.user.role === "Organization") {
     //   return (
     //     <div>
@@ -27,6 +28,18 @@ export class Profile extends Component {
       <div className="margin-top">
         {/* {this.props.user === null}
         <h1>Welcome {this.props.user.name}!</h1> */}
+=======
+    if (this.props.user.role === "Organization") {
+      return (
+        <div>
+          <h1>Organization Profile</h1>
+        </div>
+      );
+    } else if (this.props.user.role === "User") {
+      return (
+        <div className="margin-top">
+          <h1>Welcome {this.props.user.name}!</h1>
+>>>>>>> df74aee2dfe68812f2663d1b634678aeac76c0d9
 
         {!this.props.user ? (
           this.props.history.push("/")

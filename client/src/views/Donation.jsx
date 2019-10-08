@@ -19,6 +19,7 @@ export class Donation extends Component {
       description: "",
       location: "",
       imageUrl: "",
+      categoryOptions: ["Food", "Clothing", "Furniture", "Other"],
       showForm: true
     };
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -52,9 +53,16 @@ export class Donation extends Component {
     };
 
     create(donation)
+<<<<<<< HEAD
       .then(donations => {
         console.log(donations);
         console.log(this.props.history);
+=======
+      .then(donation => {
+        this.toggleButton();
+        // console.log(donations);
+        // console.log(this.props.history);
+>>>>>>> df74aee2dfe68812f2663d1b634678aeac76c0d9
         this.props.history.push("/donation");
       })
       .catch(error => {
@@ -82,7 +90,27 @@ export class Donation extends Component {
               onChange={this.handleNameChange}
             />
           </Form.Group>
+
           <Form.Group>
+            <Form.Label htmlFor="choose-category">Category </Form.Label>
+            <Form.Control
+              as="select"
+              placeholder="Choose a Category"
+              type="text"
+              name="category"
+              id="choose-category"
+              onChange={this.handleNameChange}
+              value={this.state.category}
+            >
+              {this.state.categoryOptions.map(category => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+
+          {/* <Form.Group>
             <Form.Label>Pick a Category</Form.Label>
             <Form.Control
               type="text"
@@ -91,7 +119,8 @@ export class Donation extends Component {
               value={this.state.category}
               onChange={this.handleNameChange}
             />
-          </Form.Group>
+          </Form.Group> */}
+
           <Form.Group>
             <Form.Label>Give a brief description to your donation</Form.Label>
             <Form.Control

@@ -53,6 +53,7 @@ export default class DetailsDonation extends Component {
   }
 
   render() {
+    console.log(this.state.donation._creator);
     const donation = this.state.donation;
     return (
       <div>
