@@ -40,6 +40,9 @@ export default class List extends Component {
               <Card.Text>{donation.description}</Card.Text>
               {/* <Card.Text>{donation.location}</Card.Text> */}
               <Card.Text>Written by {donation._creator.name}</Card.Text>
+              <Link to={`/donation/${donation._id}/details`}>
+                <Card.Text>See Details</Card.Text>
+              </Link>
             </Card.Body>
           </Card>
         ))}

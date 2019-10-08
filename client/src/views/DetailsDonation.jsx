@@ -49,9 +49,14 @@ export default class DetailsDonation extends Component {
             <Card.Text>{donation.category}</Card.Text>
             <Card.Text>{donation.description}</Card.Text>
 
-            <Link to={`/donation/${this.props.match.params.id}/edit`}>
+            <Link
+              className=""
+              btn
+              to={`/donation/${this.props.match.params.id}/edit`}
+            >
               Edit Donation
             </Link>
+
             {/*
             <Link to={`/donation/profile/${donation._creator.name}`}>
               Posted by {donation._creator.name}
