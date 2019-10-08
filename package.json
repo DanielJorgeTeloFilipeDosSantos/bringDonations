@@ -8,7 +8,9 @@
     "dev:debug": "DEBUG=react-blogging* npm run dev",
     "lint": "eslint .",
     "test": "mocha ./tests/api.spec.js",
-    "test:dev": "nodemon --exec \"mocha ./tests/api.spec.js || true\""
+    "test:dev": "nodemon --exec \"mocha ./tests/api.spec.js || true\"",
+    "build": "cd client && npm install --production=false && npm run build && cd ..",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
