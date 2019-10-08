@@ -7,9 +7,14 @@ class MapDemo extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      lat: this.props.latitude,
+      lng: this.props.longitude
+    };
+
     this.center = {
-      lat: 52.516,
-      lng: 13.3779
+      lat: this.props.location.latitude,
+      lng: this.props.location.longitude
     };
 
     this.bounds = {
@@ -36,21 +41,29 @@ class MapDemo extends Component {
   };
 
   render() {
+    console.log("map this state", this.state);
+    console.log("map this props latitude", this.props.location.latitude);
     return (
       <div className="map-wrapper" style={{ width: "100vw", height: "50vh" }}>
         <HereMap
           appId="PqzDeV7k7c2Udy6g2Fvc"
           appCode="PWIfIjZYX7_LIxXbrXyjCw"
           useHTTPS={false}
-          center={this.center}
+          center={{
+            lat: this.props.location.latitude,
+            lng: this.props.location.longitude
+          }}
           zoom="14"
         >
-          <Marker lat={52.516} lng={13.3779}>
+          <Marker lat={this.state.lat} lng={this.state.lng}>
             <div style={{ transform: "translate(-50%, -100%)" }}>
               <img src={logo} width="90vw" height="90vh" alt="Logo" />
             </div>
           </Marker>
-          <Marker lat={52.519} lng={13.4162}>
+          <Marker
+            lat={this.props.location.latitude}
+            lng={this.props.location.longitude}
+          >
             <div style={{ transform: "translate(-50%, -100%)" }}>
               <img src={logo2} width="90vw" height="90vh" alt="Logo" />
             </div>
@@ -94,8 +107,10 @@ class MapDemo extends Component {
           /> */}
           <PathFinder
             waypoints={[
-              { lat: 52.516, lng: 13.3779 },
-              { lat: 52.518, lng: 13.4062 },
+              {
+                lat: this.props.location.latitude,
+                lng: this.props.location.longitude
+              },
               { lat: 52.519, lng: 13.4162 }
             ]}
             style={{

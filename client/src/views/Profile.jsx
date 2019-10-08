@@ -25,9 +25,6 @@ export class Profile extends Component {
     // } else if (this.props.user.role === "User") {
     return (
       <div className="margin-top">
-        {/* {this.props.user === null}
-        <h1>Welcome {this.props.user.name}!</h1> */}
-
         {!this.props.user ? (
           this.props.history.push("/")
         ) : (

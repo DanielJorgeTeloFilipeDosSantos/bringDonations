@@ -10,8 +10,16 @@ export default class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donations: []
+      donations: [],
+      currentDonationClicked: {
+        _id: "5d9cbd06e12c582b6e3a1724",
+        latitude: 52.519,
+        longitude: -9.1529505
+      }
     };
+    this.currentLocationClickedMethod = this.currentLocationClickedMethod.bind(
+      this
+    );
   }
 
   componentDidMount() {
@@ -26,14 +34,44 @@ export default class List extends Component {
       });
   }
 
+  currentLocationClickedMethod(event) {
+    console.log("donation clicked");
+    console.log(event.target.value);
+    const ee = event.target.value;
+    console.log("ee", ee);
+    //do js to get location from the id
+    const array = this.state.donations;
+    function isCherries(donation) {
+      return donation._id === ee;
+    }
+
+    console.log("findddddd", array.find(isCherries).location[0]);
+
+    this.setState({
+      ...this.state,
+      currentDonationClicked: array.find(isCherries).location[0]
+    });
+    console.log("final.state", this.state);
+  }
+
+  //latitude: donation.location[0].latitude,
+  //longitude: donation.location[0].longitude
+  //donation.location[0]
+
   render() {
-    console.log(this.state.donation);
+    console.log("locationDonation", this.state.currentDonationClicked);
     return (
       <div>
-        <Map />
+        <Map location={this.state.currentDonationClicked} />
         {this.state.donations.map(donation => (
           <Card key={donation.donationName}>
             <Card.Body>
+              <button
+                onClick={this.currentLocationClickedMethod}
+                value={donation._id}
+              >
+                {donation.donationName}
+              </button>
               <Link to={`/donation/${donation._id}`} key={donation._id}>
                 <Card.Title>{donation.donationName}</Card.Title>
               </Link>

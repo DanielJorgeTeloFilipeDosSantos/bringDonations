@@ -15,7 +15,7 @@ export class Donation extends Component {
 
     this.state = {
       donationName: "",
-      category: "",
+      category: "Food",
       description: "",
       location: "",
       imageUrl: "",
