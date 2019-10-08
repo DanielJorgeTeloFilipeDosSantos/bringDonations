@@ -53,16 +53,10 @@ export class Donation extends Component {
     };
 
     create(donation)
-<<<<<<< HEAD
-      .then(donations => {
-        console.log(donations);
-        console.log(this.props.history);
-=======
       .then(donation => {
         this.toggleButton();
         // console.log(donations);
         // console.log(this.props.history);
->>>>>>> df74aee2dfe68812f2663d1b634678aeac76c0d9
         this.props.history.push("/donation");
       })
       .catch(error => {
