@@ -5,8 +5,6 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Figure from "react-bootstrap/Figure";
 import Container from "react-bootstrap/Container";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
 import DonationList from "../components/donations/ListDonations";
 
 export class Profile extends Component {
@@ -15,7 +13,6 @@ export class Profile extends Component {
   }
 
   render() {
-    console.log("aaaaaaaaaa", this.props.user.role);
     if (this.props.user.role === "Organization") {
       return (
         <div>

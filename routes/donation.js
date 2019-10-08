@@ -73,8 +73,8 @@ router.patch("/:id/edit", (req, res, next) => {
     category,
     description,
     location,
-    imageUrl
-    //_creator
+    imageUrl,
+    _creator
   } = req.body;
   const donationId = req.params.id;
   Donation.findByIdAndUpdate(

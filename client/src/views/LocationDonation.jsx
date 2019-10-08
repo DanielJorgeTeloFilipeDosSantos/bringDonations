@@ -27,6 +27,7 @@ export default class List extends Component {
   }
 
   render() {
+    console.log(this.state.donation);
     return (
       <div>
         <Map />
@@ -38,8 +39,6 @@ export default class List extends Component {
               </Link>
               <Card.Text>{donation.category}</Card.Text>
               <Card.Text>{donation.description}</Card.Text>
-              {/* <Card.Text>{donation.location}</Card.Text> */}
-              <Card.Text>Written by {donation._creator.name}</Card.Text>
               <Link to={`/donation/${donation._id}/details`}>
                 <Card.Text>See Details</Card.Text>
               </Link>
