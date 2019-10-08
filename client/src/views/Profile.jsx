@@ -15,46 +15,55 @@ export class Profile extends Component {
   }
 
   render() {
-    return (
-      <div className="margin-top">
-        <h1>Welcome {this.props.user.name}!</h1>
+    console.log("aaaaaaaaaa", this.props.user.role);
+    if (this.props.user.role === "Organization") {
+      return (
+        <div>
+          <h1>Organization Profile</h1>
+        </div>
+      );
+    } else if (this.props.user.role === "User") {
+      return (
+        <div className="margin-top">
+          <h1>Welcome {this.props.user.name}!</h1>
 
-        <Container>
-          <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-            <Tab eventKey="pick up" title="Donations to be Picked up">
-              {/* <Link className="btn" to="/donation">
-          Search donations
-        </Link>
-        <Link className="btn" to="/donation/requested">
-          See your requested donations
-        </Link> */}
-              <DonationList />
-            </Tab>
-            <Tab eventKey="donation" title="My posted Donation">
-              {/* <Link className="btn" to="/donation">
-          Search donations
-        </Link>
-        <Link className="btn" to="/donation/requested">
-          See your requested donations
-        </Link> */}
-              <DonationList />
-            </Tab>
-            <Tab eventKey="profile" title="Profile">
-              <Figure className="my-5">
-                <Figure.Image
-                  width={200}
-                  height={200}
-                  alt="userimage"
-                  src={placeholderimage}
-                  rounded
-                />
-                <Figure.Caption>{this.props.user.email}</Figure.Caption>
-              </Figure>
-            </Tab>
-          </Tabs>
-        </Container>
-      </div>
-    );
+          <Container>
+            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+              <Tab eventKey="pick up" title="Donations to be Picked up">
+                {/* <Link className="btn" to="/donation">
+            Search donations
+          </Link>
+          <Link className="btn" to="/donation/requested">
+            See your requested donations
+          </Link> */}
+                <DonationList />
+              </Tab>
+              <Tab eventKey="donation" title="My posted Donation">
+                {/* <Link className="btn" to="/donation">
+            Search donations
+          </Link>
+          <Link className="btn" to="/donation/requested">
+            See your requested donations
+          </Link> */}
+                <DonationList />
+              </Tab>
+              <Tab eventKey="profile" title="Profile">
+                <Figure className="my-5">
+                  <Figure.Image
+                    width={200}
+                    height={200}
+                    alt="userimage"
+                    src={placeholderimage}
+                    rounded
+                  />
+                  <Figure.Caption>{this.props.user.email}</Figure.Caption>
+                </Figure>
+              </Tab>
+            </Tabs>
+          </Container>
+        </div>
+      );
+    }
   }
 }
 
