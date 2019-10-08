@@ -89,6 +89,7 @@ router.patch("/:id/edit", (req, res, next) => {
     },
     { new: true }
   )
+    .populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: { donation } });
     })

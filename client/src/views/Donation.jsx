@@ -28,11 +28,10 @@ export class Donation extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
     geolocation().then(({ coordinates }) => {
-      console.log(coordinates);
+      //console.log(coordinates);
       this.setState({ ...this.state, location: [coordinates] });
-      console.log("this.state", this.state);
+      //console.log("this.state", this.state);
     });
   }
 
