@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DonationView from "./views/Donation";
 import LocationDonation from "./views/LocationDonation";
 import DetailsDonation from "./views/DetailsDonation";
+import EditDonation from "./views/EditDonation";
 
 import "./App.css";
 
@@ -141,11 +142,19 @@ export default class App extends Component {
                 />
 
                 <Route path="/donation" exact component={DonationView} />
+
                 <Route
                   path="/donation/:id/details"
                   exact
                   component={DetailsDonation}
                 />
+
+                <Route
+                  path="/donation/:id/edit"
+                  exact
+                  component={EditDonation}
+                />
+
                 <Route
                   path="/donation/:id"
                   exact

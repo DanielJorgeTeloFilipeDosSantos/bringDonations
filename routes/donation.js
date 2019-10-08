@@ -56,6 +56,17 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+router.get("/:id/details", (req, res, next) => {
+  Donation.findById(req.params.id)
+    .populate("_creator")
+    .then(donation => {
+      res.json({ type: "success", data: { donation } });
+    })
+    .catch(error => {
+      next(error);
+    });
+});
+
 router.patch("/:id/edit", (req, res, next) => {
   const {
     donationName,

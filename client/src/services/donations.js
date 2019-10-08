@@ -29,6 +29,7 @@ export const list = () => {
       });
   });
 };
+
 export const load = id => {
   return new Promise((resolve, reject) => {
     donationsApi
@@ -41,6 +42,7 @@ export const load = id => {
       });
   });
 };
+
 export const edit = (id, updatedDonation) => {
   return new Promise((resolve, reject) => {
     donationsApi

@@ -8,7 +8,7 @@ export default class DetailsDonation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donation: null
+      donation: ""
     };
     this.displayDonation = this.displayDonation.bind(this);
   }
@@ -16,7 +16,6 @@ export default class DetailsDonation extends Component {
   displayDonation() {
     load(this.props.match.params.id)
       .then(donation => {
-        console.log("inside the laod function: " + donation);
         this.setState({
           donation
         });
@@ -41,27 +40,24 @@ export default class DetailsDonation extends Component {
 
   render() {
     const donation = this.state.donation;
-    console.log(this.state);
-    console.log(donation);
-
     return (
       <div>
         <h1>Details dontaion in here </h1>
-        {/* <Card key={donation.donationName}>
+        <Card key={donation.donationName}>
           <Card.Body>
             <Card.Title>{donation.donationName}</Card.Title>
             <Card.Text>{donation.category}</Card.Text>
             <Card.Text>{donation.description}</Card.Text>
-           
 
             <Link to={`/donation/${this.props.match.params.id}/edit`}>
               Edit Donation
             </Link>
-            <Link to={`/donation/profile/${donation._creator._id}`}>
+            {/*
+            <Link to={`/donation/profile/${donation._creator.name}`}>
               Posted by {donation._creator.name}
-            </Link>
+            </Link> */}
           </Card.Body>
-        </Card> */}
+        </Card>
       </div>
     );
   }
