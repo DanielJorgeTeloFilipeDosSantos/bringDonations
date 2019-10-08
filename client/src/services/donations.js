@@ -32,7 +32,7 @@ export const list = () => {
 export const load = id => {
   return new Promise((resolve, reject) => {
     donationsApi
-      .get(`/${id}`)
+      .get(`/${id}/details`)
       .then(response => {
         resolve(response.data.data.donation);
       })

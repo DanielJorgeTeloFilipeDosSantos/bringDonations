@@ -4,6 +4,8 @@
   "private": true,
   "proxy": "http://localhost:3010",
   "dependencies": {
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.4.3",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "rc-here-maps": "^1.1.8",
@@ -14,7 +16,8 @@
     "react-geolocated": "^3.0.1",
     "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.1.0",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "typeface-roboto": "0.0.75"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -118,6 +118,17 @@ export default class App extends Component {
                     />
                   )}
                 />
+                <Route
+                  path="/profile/:id"
+                  render={props => (
+                    <ProfileView
+                      {...props}
+                      exact
+                      loadUser={this.loadUser}
+                      user={this.state.user}
+                    />
+                  )}
+                />
 
                 {/* here starts the app as a protected route*/}
 
@@ -131,14 +142,14 @@ export default class App extends Component {
 
                 <Route path="/donation" exact component={DonationView} />
                 <Route
-                  path="/donation/:id"
-                  exact
-                  component={LocationDonation}
-                />
-                <Route
                   path="/donation/:id/details"
                   exact
                   component={DetailsDonation}
+                />
+                <Route
+                  path="/donation/:id"
+                  exact
+                  component={LocationDonation}
                 />
 
                 <Route path="/error/:code" component={ErrorView} />
