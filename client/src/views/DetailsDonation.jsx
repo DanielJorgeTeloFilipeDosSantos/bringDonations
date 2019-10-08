@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { load } from "../services/donations";
+import { load, remove } from "../services/donations";
 import { Link } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 export default class DetailsDonation extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class DetailsDonation extends Component {
       donation: ""
     };
     this.displayDonation = this.displayDonation.bind(this);
+    this.deleteDonation = this.deleteDonation.bind(this);
   }
 
   displayDonation() {
@@ -19,6 +21,18 @@ export default class DetailsDonation extends Component {
         this.setState({
           donation
         });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  deleteDonation() {
+    const id = this.props.match.params.id;
+    //console.log("BUTTTTTTTOOON DELETE ME" + id);
+    remove(this.props.match.params.id)
+      .then(donation => {
+        this.props.history.push(`/donation`);
       })
       .catch(error => {
         console.log(error);
@@ -50,8 +64,13 @@ export default class DetailsDonation extends Component {
             <Card.Text>{donation.description}</Card.Text>
 
             <Link to={`/donation/${this.props.match.params.id}/edit`}>
-              Edit Donation
+              <Button className="btn">Edit Donation</Button>
             </Link>
+
+            <Button onClick={this.deleteDonation} className="btn">
+              Delete
+            </Button>
+
             {/*
             <Link to={`/donation/profile/${donation._creator.name}`}>
               Posted by {donation._creator.name}

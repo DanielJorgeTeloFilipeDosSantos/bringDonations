@@ -33,7 +33,6 @@ export default class ListDonations extends Component {
     return (
       <div>
         <h3>List of all donations</h3>
-        {console.log(this.state)}
         {this.state.donations.map(donation => (
           <Card key={donation.donationName}>
             <Card.Body>
@@ -44,6 +43,9 @@ export default class ListDonations extends Component {
               <Card.Text>{donation.description}</Card.Text>
               {/* <Card.Text>{donation.location}</Card.Text> */}
               <Card.Text>Written by {donation._creator.name}</Card.Text>
+              <Link to={`/donation/${donation._id}/details`}>
+                <Card.Text>See Details</Card.Text>
+              </Link>
             </Card.Body>
           </Card>
         ))}

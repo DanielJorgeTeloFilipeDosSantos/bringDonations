@@ -1,99 +1,79 @@
 import React, { Component } from "react";
+import { Form, Button, Container } from "react-bootstrap";
+import { edit } from "../services/donations";
 
-export default class EditDonation extends Component {
+export default class NewBeer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      donationName: "",
+      category: "",
+      description: ""
+    };
+
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this);
+  }
+
+  handleFormSubmit(event) {
+    event.preventDefault();
+    const id = this.props.match.params.id;
+    const donation = {
+      donationName: this.state.donationName,
+      category: this.state.category,
+      description: this.state.description
+    };
+
+    edit(id, donation)
+      .then(donations => {
+        console.log(donations);
+        this.props.history.push(`/donation/${id}/details`);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  handleFormChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
   render() {
     return (
-      <div>
-        <h1>EDIT VIEW</h1>
-      </div>
+      <Container>
+        <Form onSubmit={this.handleFormSubmit}>
+          <Form.Group>
+            <Form.Label>donationName</Form.Label>
+            <Form.Control
+              type="text"
+              name="donationName"
+              placeholder="donationName"
+              onChange={this.handleFormChange}
+            />
+
+            <Form.Label>category</Form.Label>
+            <Form.Control
+              type="text"
+              name="category"
+              placeholder="category"
+              onChange={this.handleFormChange}
+            />
+
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="textarea"
+              name="description"
+              placeholder="description"
+              onChange={this.handleFormChange}
+            />
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form.Group>
+        </Form>
+      </Container>
     );
   }
 }
-
-// import React, { Component } from "react";
-
-// import Button from "react-bootstrap/Button";
-
-// import PostForm from "./../components/PostForm";
-
-// import { edit, load, remove } from "./../services/post-api";
-
-// export default class Edit extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       post: {
-//         title: "",
-//         body: ""
-//       }
-//     };
-//     this.onFormValueChange = this.onFormValueChange.bind(this);
-//     this.editPost = this.editPost.bind(this);
-//     this.deletePost = this.deletePost.bind(this);
-//   }
-
-//   componentDidMount() {
-//     const id = this.props.match.params.id;
-//     load(id)
-//       .then(post => {
-//         this.setState({
-//           post: {
-//             ...post
-//           }
-//         });
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   }
-
-//   onFormValueChange(data) {
-//     this.setState({
-//       post: {
-//         ...this.state.post,
-//         ...data
-//       }
-//     });
-//   }
-
-//   editPost() {
-//     const id = this.props.match.params.id;
-//     const post = this.state.post;
-//     edit(id, post)
-//       .then(post => {
-//         this.props.history.push(`/post/${post._id}`);
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   }
-
-//   deletePost() {
-//     const id = this.props.match.params.id;
-//     remove(id)
-//       .then(post => {
-//         this.props.history.push("/");
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <h1>Edit Post</h1>
-//         <PostForm
-//           value={this.state.post}
-//           onValueChange={this.onFormValueChange}
-//           onFormSubmit={this.editPost}
-//         >
-//           <Button type="submit">Edit Post</Button>
-//         </PostForm>
-//         <Button onClick={this.deletePost} className="btn-danger">
-//           Delete Post
-//         </Button>
-//       </div>
-//     );
-//   }
-// }

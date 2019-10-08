@@ -73,8 +73,8 @@ router.patch("/:id/edit", (req, res, next) => {
     category,
     description,
     location,
-    imageUrl
-    //_creator
+    imageUrl,
+    _creator
   } = req.body;
   const donationId = req.params.id;
   Donation.findByIdAndUpdate(
@@ -89,6 +89,7 @@ router.patch("/:id/edit", (req, res, next) => {
     },
     { new: true }
   )
+    .populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: { donation } });
     })

@@ -28,11 +28,10 @@ export class Donation extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
     geolocation().then(({ coordinates }) => {
-      console.log(coordinates);
+      //console.log(coordinates);
       this.setState({ ...this.state, location: [coordinates] });
-      console.log("this.state", this.state);
+      //console.log("this.state", this.state);
     });
   }
 
@@ -55,6 +54,7 @@ export class Donation extends Component {
     create(donation)
       .then(donations => {
         console.log(donations);
+        console.log(this.props.history);
         this.props.history.push("/donation");
       })
       .catch(error => {
