@@ -54,6 +54,7 @@ export class Donation extends Component {
     create(donation)
       .then(donations => {
         console.log(donations);
+        console.log(this.props.history);
         this.props.history.push("/donation");
       })
       .catch(error => {

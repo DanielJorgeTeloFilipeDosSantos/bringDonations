@@ -25,8 +25,8 @@ export default class NewBeer extends Component {
     };
 
     edit(id, donation)
-      .then(beers => {
-        console.log(beers);
+      .then(donations => {
+        console.log(donations);
         this.props.history.push(`/donation/${id}/details`);
       })
       .catch(error => {
