@@ -68,7 +68,7 @@ class MapDemo extends Component {
     // console.log("storage", de2);
     // console.log("storage", de3);
     // console.log("storage", de4);
-    console.log(this.props);
+    console.log("this.props", this.props);
     return (
       <div className="map-wrapper" style={{ width: "100vw", height: "50vh" }}>
         {!this.props.myLocation[0] ? (
