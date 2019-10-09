@@ -77,7 +77,7 @@ class MapDemo extends Component {
           <HereMap
             appId="PqzDeV7k7c2Udy6g2Fvc"
             appCode="PWIfIjZYX7_LIxXbrXyjCw"
-            useHTTPS={false}
+            useHTTPS={true}
             center={{
               lat: this.props.location.latitude,
               lng: this.props.location.longitude
