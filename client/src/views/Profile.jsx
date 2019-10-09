@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import placeholderimage from "../assets/images/edward-cisneros-_H6wpor9mjs-unsplash.jpg";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
 import Figure from "react-bootstrap/Figure";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

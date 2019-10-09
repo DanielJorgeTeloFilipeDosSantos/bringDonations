@@ -9,7 +9,9 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 
-import bringLogo from "../assets/bring2.svg";
+import bringLogo from "../assets/images/BringLogo1.png";
+import bringLogoLeaf from "../assets/images/BringLeaf.png";
+import profileIcon from "../assets/images/ProfileIcon.png";
 
 const Navigation = props => {
   if (props.user) {
@@ -18,18 +20,16 @@ const Navigation = props => {
       return (
         <div>
           <Navbar
-            fixed="top"
             collapseOnSelect
             expand="lg"
             bg="*"
+            sticky="top"
             variant="dark"
           >
             <Navbar.Brand href="#home">
-              {" "}
               <img
-                src={bringLogo}
-                width="40"
-                height="40"
+                src={bringLogoLeaf}
+                width="70"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
               />
@@ -52,10 +52,12 @@ const Navigation = props => {
                   <Nav.Link href="#features">My picked Donations</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/profile">
-                  <Nav.Link href="#features">My User profile</Nav.Link>
+                  <Nav.Link href="#features">My Profile</Nav.Link>
                 </LinkContainer>
                 <Form onSubmit={props.signOut}>
-                  <Button type="submit">Sign Out</Button>
+                  <Button className="sign-out btn" type="submit">
+                    Sign Out
+                  </Button>
                 </Form>
               </Nav>
             </Navbar.Collapse>
@@ -70,10 +72,11 @@ const Navigation = props => {
             fixed="top"
             collapseOnSelect
             expand="lg"
-            bg="dark"
+            bg="*"
+            sticky="top"
             variant="dark"
           >
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
               {" "}
               <img
                 src={bringLogo}
@@ -87,7 +90,7 @@ const Navigation = props => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
                 <LinkContainer to="/profile">
-                  <Nav.Link href="#features">Home</Nav.Link>
+                  <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/donationOrg">
                   <Nav.Link href="#features">Request Donation</Nav.Link>
@@ -99,7 +102,7 @@ const Navigation = props => {
                   <Nav.Link href="#features">Volunteer News</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/profile">
-                  <Nav.Link href="#features">My Organization profile</Nav.Link>
+                  <Nav.Link href="#features">{profileIcon}</Nav.Link>
                 </LinkContainer>
                 <Form onSubmit={props.signOut}>
                   <Button type="submit">Sign Out</Button>

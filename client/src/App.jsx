@@ -94,7 +94,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <div style={{ marginTop: "17vh" }}>
+        <div>
           <Router>
             <Navigation user={this.state.user} signOut={this.signOut} />
             {this.state.loaded && (

@@ -1,28 +1,42 @@
 body {
-  margin: auto 0;
-  background-image: url("./assets/images/BackgroundImage.png");
-
+  background-image: url("./assets/images/backgroundmint.png");
   color: white;
 }
 
-.topbar {
+.center {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+}
+.remove-margin-top {
+  margin-top: 0;
+}
+
+/* .topbar {
   height: 10vh;
-  width: 200vw;
-}
+  width: -200vh;
+} */
 
-.nav {
-  background: black;
-}
-
-.margin-top {
+/* .margin-top {
   margin-top: 100px;
-}
+} */
 
-.btn {
+.profile.btn {
   background: #ec5959;
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.3);
-  border-radius: 30px;
+  border-radius: 10px;
   margin: 10px;
-  padding: 15px 20px;
+  padding: 10px 15px;
+  color: white;
+}
+
+.sign-out.btn {
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px;
   color: white;
 }
