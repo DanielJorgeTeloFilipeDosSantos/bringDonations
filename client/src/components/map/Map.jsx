@@ -7,12 +7,6 @@ class MapDemo extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      count: 0,
-      clear: this.props.clear,
-      childKey: 0
-    };
-
     this.center = {
       lat: this.props.location.latitude,
       lng: this.props.location.longitude
@@ -40,24 +34,24 @@ class MapDemo extends Component {
   onRectangleDrawn = () => {
     console.log("rectangle drawn");
   };
-  updateCanvas() {
-    this.setState({
-      childKey: this.state.childKey + 1
-    });
-    // console.log("hello");
-    // localStorage.setItem("locationLat", this.props.location.latitude);
-    // localStorage.setItem("locationLng", this.props.location.longitude);
-    // localStorage.setItem("MyLocationLat", this.props.myLocation[0].latitude);
-    // localStorage.setItem("MyLocationLng", this.props.myLocation[0].longitude);
-    // window.location.reload(false);
-  }
+  // updateCanvas() {
+  //   this.setState({
+  //     childKey: this.state.childKey + 1
+  //   });
+  // console.log("hello");
+  // localStorage.setItem("locationLat", this.props.location.latitude);
+  // localStorage.setItem("locationLng", this.props.location.longitude);
+  // localStorage.setItem("MyLocationLat", this.props.myLocation[0].latitude);
+  // localStorage.setItem("MyLocationLng", this.props.myLocation[0].longitude);
+  // window.location.reload(false);
+  // }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.clear !== this.props.clear) {
-      this.updateCanvas();
-      console.log("newPorps", this.state);
-    }
-  }
+  // componentWillReceiveProps(newProps) {
+  //   if (newProps.clear !== this.props.clear) {
+  //     this.updateCanvas();
+  //     console.log("newPorps", this.state);
+  //   }
+  // }
 
   render() {
     // const de = localStorage.getItem("locationLat");
@@ -68,16 +62,15 @@ class MapDemo extends Component {
     // console.log("storage", de2);
     // console.log("storage", de3);
     // console.log("storage", de4);
-    console.log("this.props", this.props);
     return (
-      <div className="map-wrapper" style={{ width: "100vw", height: "50vh" }}>
+      <div className="map-wrapper" style={{ width: "100vw", height: "100vh" }}>
         {!this.props.myLocation[0] ? (
           <div>loading...</div>
         ) : (
           <HereMap
             appId="PqzDeV7k7c2Udy6g2Fvc"
             appCode="PWIfIjZYX7_LIxXbrXyjCw"
-            useHTTPS={false}
+            useHTTPS={true}
             center={{
               lat: this.props.location.latitude,
               lng: this.props.location.longitude
@@ -177,7 +170,6 @@ class MapDemo extends Component {
               />
             )} */}
             <PathFinder
-              key={this.state.childkey}
               waypoints={[
                 {
                   lat: this.props.location.latitude,

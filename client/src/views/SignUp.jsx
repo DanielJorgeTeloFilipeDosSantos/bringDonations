@@ -3,11 +3,8 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import HomeSlides from "../components/HomeSlides";
 
 import { signUp as signUpService } from "../services/authentication-api";
-
-import Frame from "react-frame-component";
 
 export default class SignUp extends Component {
   constructor() {

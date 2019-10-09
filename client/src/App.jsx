@@ -28,6 +28,8 @@ import {
   verify as verifyService,
   signOut as signOutService
 } from "./services/authentication-api";
+import { HowItWorks } from "./views/HowItWorks";
+import { ChooseDonation } from "./views/ChooseDonation";
 
 export default class App extends Component {
   constructor(props) {
@@ -164,10 +166,13 @@ export default class App extends Component {
                 />
 
                 {/*    ORGANIZATION FRONT END ROUTES ------------------------------    */}
-
                 <Route path="/donationOrg" exact component={OrgDonationView} />
 
-                {/*    ORGANIZATION FRONT END ROUTES ------------------------------    */}
+                {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
+                <Route path="/HowItWorks" exact component={HowItWorks} />
+                <Route path="/chooseDon" exact component={ChooseDonation} />
+
+                {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
 
                 <Route path="/error/:code" component={ErrorView} />
                 <Redirect path="/" to="/error/404" />

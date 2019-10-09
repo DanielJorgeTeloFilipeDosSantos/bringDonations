@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export class HowItWorks extends Component {
   render() {
@@ -14,6 +17,9 @@ export class HowItWorks extends Component {
             dassdsdasdadssadasdasd asdasdasdasdasdasdasdasdasd
           </p>
         </Container>
+        <Link to="/chooseDon">
+          <Button>Deliver a donation to a Organization</Button>
+        </Link>
       </div>
     );
   }
