@@ -67,3 +67,16 @@ export const remove = id => {
       });
   });
 };
+
+export const pickup = updatedUser => {
+  return new Promise((resolve, reject) => {
+    donationsApi
+      .patch(`/pickup`, updatedUser)
+      .then(response => {
+        resolve(response.data.data.user);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
