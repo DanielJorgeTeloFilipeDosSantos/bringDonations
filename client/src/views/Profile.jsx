@@ -98,6 +98,11 @@ export class Profile extends Component {
               </Tab>
             </Tabs>
           </Container>
+          <Button>donate</Button>
+          <br></br>
+          <Link to="/howItWorks">
+            <Button>Deliver a donation to a Organization</Button>
+          </Link>
         </div>
       );
       //---------------------------ORGANIZATION !! FOR STYLING---------------------------------

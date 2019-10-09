@@ -46,7 +46,6 @@ export default class List extends Component {
   }
 
   currentLocationClickedMethod(event) {
-    ++this.childkey;
     console.log("donation clicked");
     console.log(event.target.value);
     const ee = event.target.value;
@@ -68,17 +67,16 @@ export default class List extends Component {
   }
 
   render() {
+    if (this.state.location !== null && this.state.location != "") {
+      console.log("is empty erororrororororororoororororoorororoor");
+    }
     return (
       <div>
-        {(!this.childkey && (
-          <Map
-            location={this.state.currentDonationClicked}
-            myLocation={this.state.location}
-            clear={this.state.clear}
-            key={this.UNSAFE_componentWillMount}
-          />
-        )) || <div>nojentice...</div>}
-        <div style={{ maxHeight: "40vh", overflow: "scroll" }}>
+        <Map
+          location={this.state.currentDonationClicked}
+          myLocation={this.state.location}
+        />
+        {/* <div style={{ maxHeight: "40vh", overflow: "scroll" }}>
           {this.state.donations.map(donation => (
             <Card key={donation.donationName}>
               <Card.Body>
@@ -99,7 +97,7 @@ export default class List extends Component {
               </Card.Body>
             </Card>
           ))}
-        </div>
+        </div> */}
       </div>
     );
   }
