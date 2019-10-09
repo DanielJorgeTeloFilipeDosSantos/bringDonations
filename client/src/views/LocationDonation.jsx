@@ -5,6 +5,7 @@ import { list } from "../services/donations";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Map from "../components/map/Map";
+import geolocation from "../services/geolocation";
 
 export default class List extends Component {
   constructor(props) {
@@ -15,7 +16,10 @@ export default class List extends Component {
         _id: "5d9cbd06e12c582b6e3a1724",
         latitude: 52.519,
         longitude: -9.1529505
-      }
+      },
+      location: { latitude: 38.7107145, longitude: -9.1529484 },
+      clear: 0,
+      loading: true
     };
     this.currentLocationClickedMethod = this.currentLocationClickedMethod.bind(
       this
@@ -29,12 +33,20 @@ export default class List extends Component {
           donations
         });
       })
+      .then(() => {
+        geolocation().then(({ coordinates }) => {
+          console.log("coordinates", coordinates);
+          this.setState({ ...this.state, location: [coordinates] });
+          //console.log("this.state", this.state);
+        });
+      })
       .catch(error => {
         console.log(error);
       });
   }
 
   currentLocationClickedMethod(event) {
+    ++this.childkey;
     console.log("donation clicked");
     console.log(event.target.value);
     const ee = event.target.value;
@@ -49,20 +61,23 @@ export default class List extends Component {
 
     this.setState({
       ...this.state,
-      currentDonationClicked: array.find(isCherries).location[0]
+      currentDonationClicked: array.find(isCherries).location[0],
+      clear: this.state.clear + 1
     });
     console.log("final.state", this.state);
   }
 
-  //latitude: donation.location[0].latitude,
-  //longitude: donation.location[0].longitude
-  //donation.location[0]
-
   render() {
-    console.log("locationDonation", this.state.currentDonationClicked);
     return (
       <div>
-        <Map location={this.state.currentDonationClicked} />
+        {(!this.childkey && (
+          <Map
+            location={this.state.currentDonationClicked}
+            myLocation={this.state.location}
+            clear={this.state.clear}
+            key={this.UNSAFE_componentWillMount}
+          />
+        )) || <div>nojentice...</div>}
         {this.state.donations.map(donation => (
           <Card key={donation.donationName}>
             <Card.Body>
