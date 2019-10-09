@@ -154,9 +154,7 @@ export class Donation extends Component {
                   style={{ width: "50%", marginLeft: "25%" }}
                   src={charity}
                 />
-                <Card.Body>
-                  <Card.Title>Request Donation</Card.Title>
-                </Card.Body>
+                <Card.Body></Card.Body>
               </Card>
             </Col>
           </Row>

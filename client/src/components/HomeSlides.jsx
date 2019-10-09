@@ -3,7 +3,7 @@ import "../App.css";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
-import bringLogo from "../assets/bring2.svg";
+import bringLogo from "../assets/vo.png";
 
 export class HomeSlides extends Component {
   render() {
@@ -25,17 +25,16 @@ export class HomeSlides extends Component {
           >
             <img
               src={bringLogo}
-              width="40"
-              height="40"
+              style={{ width: "100%", height: "auto" }}
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-            <h1>Our Mission</h1>
+            {/* <h1>Our Mission</h1>
             <p>
               Our mission is to help to connect people that have objects that
               they can donate, to institutions that will send them to people who
               need it.
-            </p>
+            </p> */}
           </div>
         </div>
         <div

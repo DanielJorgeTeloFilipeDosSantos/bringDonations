@@ -175,11 +175,7 @@ export default class SignUp extends Component {
   render() {
     return (
       <div>
-        {this.state.formSlides && (
-          <Frame frameBorder="0" style={{ width: "100%", height: "70vh" }}>
-            <HomeSlides />
-          </Frame>
-        )}
+        you put your scroll here paula
         <div>
           <Button
             onClick={this.buttonClickChangeStateVolunteer}
