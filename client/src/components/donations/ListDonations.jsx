@@ -1,15 +1,21 @@
 import React, { Component } from "react";
-import { list } from "../../services/donations";
+import { list, pickup } from "../../services/donations";
 import { Link } from "react-router-dom";
 
+import PickUpDonation from "../PickUpDonation";
 //import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 export default class ListDonations extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donations: []
+      donations: [],
+      _donationPost: [],
+      donationId: ""
     };
     this.listAll = this.listAll.bind(this);
   }
@@ -25,6 +31,7 @@ export default class ListDonations extends Component {
         console.log(error);
       });
   }
+
   componentDidMount() {
     this.listAll();
   }
