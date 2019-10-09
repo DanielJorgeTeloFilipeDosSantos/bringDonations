@@ -21,7 +21,7 @@ const Navigation = props => {
             fixed="top"
             collapseOnSelect
             expand="lg"
-            bg="dark"
+            bg="*"
             variant="dark"
           >
             <Navbar.Brand href="#home">

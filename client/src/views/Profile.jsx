@@ -48,18 +48,6 @@ export class Profile extends Component {
         console.log("Error while uploading the file: ", error);
       });
   };
-
-  // componentDidMount() {
-  //   verifyService()
-  //     .then(user => {
-  //       console.log(user);
-  //       this.setState({ user });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
-
   ShowPageVolunteerOrOrganization() {
     console.log(this.props);
     if (this.props.user.role === "User") {
@@ -68,35 +56,31 @@ export class Profile extends Component {
         <div>
           <h1>Welcome {this.props.user.name}!</h1>
           <Container>
-            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-              <Tab eventKey="pick up" title="Donations to be Picked up">
-                <DonationList />
-              </Tab>
-              <Tab eventKey="donation" title="My posted Donation">
-                <DonationList />
-              </Tab>
-              <Tab eventKey="profile" title="Profile">
-                <Figure className="my-5">
-                  <Figure.Image
-                    width={200}
-                    height={200}
-                    alt="userimage"
-                    src={this.props.user.imageUrl}
-                    rounded
-                  />
-                </Figure>
+            <Link className="btn profile" to="/donation">
+              Donate
+            </Link>
+            <Link className="btn profile" to="/donation/list">
+              Pick up Donation
+            </Link>
+            <Figure className="my-5">
+              <Figure.Image
+                width={200}
+                height={200}
+                alt="userimage"
+                src={this.props.user.imageUrl}
+                rounded
+              />
+            </Figure>
 
-                <Form>
-                  <Form.Group>
-                    <Form.Control
-                      name="profileImage"
-                      type="file"
-                      onChange={this.handleFileUpload}
-                    />
-                  </Form.Group>
-                </Form>
-              </Tab>
-            </Tabs>
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  name="profileImage"
+                  type="file"
+                  onChange={this.handleFileUpload}
+                />
+              </Form.Group>
+            </Form>
           </Container>
         </div>
       );
@@ -148,7 +132,7 @@ export class Profile extends Component {
                       src={addVolunteer}
                     />
                     <Card.Body>
-                      <Card.Title>Add Volunteer</Card.Title>
+                      <Card.Title>Add Volunteer</Card.Title>{" "}
                     </Card.Body>
                   </Card>
                 </Link>

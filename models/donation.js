@@ -38,14 +38,6 @@ const donationSchema = new mongoose.Schema(
         }
       }
     ]
-    // _requestedBy: {
-    //   type: ObjectId,
-    //   ref: "User"
-    // },
-    // _volunteer: {
-    //   type: ObjectId,
-    //   ref: "User"
-    // }
   },
   {
     timestamps: true
