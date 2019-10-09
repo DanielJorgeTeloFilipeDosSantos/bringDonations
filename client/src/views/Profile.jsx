@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
 import placeholderimage from "../assets/images/edward-cisneros-_H6wpor9mjs-unsplash.jpg";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
@@ -15,6 +14,8 @@ import charity from "./charity.svg";
 import newspaper from "./newspaper.svg";
 import settings from "./settings.svg";
 
+import { Link } from "react-router-dom";
+
 export class Profile extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +25,6 @@ export class Profile extends Component {
   }
 
   ShowPageVolunteerOrOrganization() {
-    console.log(this.props.user.role);
     if (this.props.user.role === "User") {
       //---------------------------VOLUNTEER/DONOR!! FOR STYLING---------------------------------
       return (
@@ -33,21 +33,9 @@ export class Profile extends Component {
           <Container>
             <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
               <Tab eventKey="pick up" title="Donations to be Picked up">
-                {/* <Link className="btn" to="/donation">
-            Search donations
-          </Link>
-          <Link className="btn" to="/donation/requested">
-            See your requested donations
-          </Link> */}
                 <DonationList />
               </Tab>
               <Tab eventKey="donation" title="My posted Donation">
-                {/* <Link className="btn" to="/donation">
-            Search donations
-          </Link>
-          <Link className="btn" to="/donation/requested">
-            See your requested donations
-          </Link> */}
                 <DonationList />
               </Tab>
               <Tab eventKey="profile" title="Profile">
@@ -59,7 +47,6 @@ export class Profile extends Component {
                     src={placeholderimage}
                     rounded
                   />
-                  {/* <Figure.Caption>{this.props.user.email}</Figure.Caption> */}
                 </Figure>
               </Tab>
             </Tabs>
@@ -76,54 +63,62 @@ export class Profile extends Component {
           <Container style={{ marginTop: "8vh" }}>
             <Row>
               <Col>
-                <Card style={{ width: "10rem", border: "none" }}>
-                  <Card.Img
-                    variant="top"
-                    style={{ width: "50%", marginLeft: "25%" }}
-                    src={charity}
-                  />
-                  <Card.Body>
-                    <Card.Title>Request Donation</Card.Title>
-                  </Card.Body>
-                </Card>
+                <Link to="/donation">
+                  <Card style={{ width: "10rem", border: "none" }}>
+                    <Card.Img
+                      variant="top"
+                      style={{ width: "50%", marginLeft: "25%" }}
+                      src={charity}
+                    />
+                    <Card.Body>
+                      <Card.Title>Request Donation</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </Col>
               <Col>
-                <Card style={{ width: "10rem", border: "none" }}>
-                  <Card.Img
-                    variant="top"
-                    style={{ width: "50%", marginLeft: "25%" }}
-                    src={add}
-                  />
-                  <Card.Body>
-                    <Card.Title>Sugest Donation</Card.Title>
-                  </Card.Body>
-                </Card>
+                <Link to="/donation">
+                  <Card style={{ width: "10rem", border: "none" }}>
+                    <Card.Img
+                      variant="top"
+                      style={{ width: "50%", marginLeft: "25%" }}
+                      src={add}
+                    />
+                    <Card.Body>
+                      <Card.Title>Sugest Donation</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </Col>
             </Row>
             <Row>
               <Col>
-                <Card style={{ width: "10rem", border: "none" }}>
-                  <Card.Img
-                    variant="top"
-                    style={{ width: "50%", marginLeft: "25%" }}
-                    src={newspaper}
-                  />
-                  <Card.Body>
-                    <Card.Title>News Feed</Card.Title>
-                  </Card.Body>
-                </Card>
+                <Link to="/donation">
+                  <Card style={{ width: "10rem", border: "none" }}>
+                    <Card.Img
+                      variant="top"
+                      style={{ width: "50%", marginLeft: "25%" }}
+                      src={newspaper}
+                    />
+                    <Card.Body>
+                      <Card.Title>News Feed</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </Col>
               <Col>
-                <Card style={{ width: "10rem", border: "none" }}>
-                  <Card.Img
-                    variant="top"
-                    style={{ width: "50%", marginLeft: "25%" }}
-                    src={settings}
-                  />
-                  <Card.Body>
-                    <Card.Title>Edit Profile</Card.Title>
-                  </Card.Body>
-                </Card>
+                <Link to="/donation">
+                  <Card style={{ width: "10rem", border: "none" }}>
+                    <Card.Img
+                      variant="top"
+                      style={{ width: "50%", marginLeft: "25%" }}
+                      src={settings}
+                    />
+                    <Card.Body>
+                      <Card.Title>Edit Profile</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </Col>
             </Row>
           </Container>
@@ -134,13 +129,6 @@ export class Profile extends Component {
   }
 
   render() {
-    // if (this.props.user.role === "Organization") {
-    //   return (
-    //     <div>
-    //       <h1>Organization Profile</h1>
-    //     </div>
-    //   );
-    // } else if (this.props.user.role === "User") {
     return (
       <div className="margin-top">
         {!this.props.user ? (
@@ -148,18 +136,9 @@ export class Profile extends Component {
         ) : (
           <div>{this.ShowPageVolunteerOrOrganization()}</div>
         )}
-
-        {/* {this.props.user ? (
-          <div>
-            <h1>Welcome {this.props.user.name}!</h1>
-          </div>
-        ) : (
-          this.props.history.push("/")
-        )} */}
       </div>
     );
   }
-  // }
 }
 
 export default Profile;
