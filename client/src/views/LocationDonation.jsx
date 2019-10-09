@@ -5,6 +5,7 @@ import { list } from "../services/donations";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Map from "../components/map/Map";
+import ErrorBoundary from "../views/ErrorBoundary";
 import geolocation from "../services/geolocation";
 
 export default class List extends Component {
@@ -72,10 +73,12 @@ export default class List extends Component {
     }
     return (
       <div>
-        <Map
-          location={this.state.currentDonationClicked}
-          myLocation={this.state.location}
-        />
+        <ErrorBoundary>
+          <Map
+            location={this.state.currentDonationClicked}
+            myLocation={this.state.location}
+          />
+        </ErrorBoundary>
         {/* <div style={{ maxHeight: "40vh", overflow: "scroll" }}>
           {this.state.donations.map(donation => (
             <Card key={donation.donationName}>
