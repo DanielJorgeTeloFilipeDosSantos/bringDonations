@@ -17,9 +17,17 @@ const deserializeUserMiddleware = require("./middleware/deserialize-user");
 const apiRouter = require("./routes/api");
 const donationRouter = require("./routes/donation");
 const testRouter = require("./routes/testingRoute");
+const profileRouter = require("./routes/profile");
+const cors = require("cors");
 
 const app = express();
-
+// allow access to the API from different domains/origins
+app.use(
+  cors({
+    // this could be multiple domains/origins, but we will allow just our React app
+    origin: ["http://localhost:3000"]
+  })
+);
 app.use(serveFavicon(join(__dirname, "public/images", "favicon.ico")));
 app.use(express.static(join(__dirname, "client/build")));
 app.use(logger("dev"));
@@ -44,6 +52,7 @@ app.use(deserializeUserMiddleware);
 app.use("/api", apiRouter);
 app.use("/donation", donationRouter);
 app.use("/test", testRouter);
+app.use("/upload", profileRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "./client/build/index.html"));
