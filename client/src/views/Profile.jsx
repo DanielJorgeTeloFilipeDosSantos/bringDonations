@@ -9,10 +9,11 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import DonationList from "../components/donations/ListDonations";
 
-import add from "./add.svg";
-import charity from "./charity.svg";
-import newspaper from "./newspaper.svg";
-import settings from "./settings.svg";
+import add from "../assets/images/add.svg";
+import charity from "../assets/images/charity.svg";
+import newspaper from "../assets/images/newspaper.svg";
+import settings from "../assets/images/settings.svg";
+import addVolunteer from "../assets/images/user.svg";
 
 import { Link } from "react-router-dom";
 
@@ -71,7 +72,7 @@ export class Profile extends Component {
                       src={charity}
                     />
                     <Card.Body>
-                      <Card.Title>Request Donation</Card.Title>
+                      <Card.Title>See the Donations</Card.Title>
                     </Card.Body>
                   </Card>
                 </Link>
@@ -98,10 +99,10 @@ export class Profile extends Component {
                     <Card.Img
                       variant="top"
                       style={{ width: "50%", marginLeft: "25%" }}
-                      src={newspaper}
+                      src={addVolunteer}
                     />
                     <Card.Body>
-                      <Card.Title>News Feed</Card.Title>
+                      <Card.Title>Add Volunteer</Card.Title>
                     </Card.Body>
                   </Card>
                 </Link>
