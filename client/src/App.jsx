@@ -22,6 +22,7 @@ import SignUp from "./views/SignUp";
 import ErrorView from "./views/Error";
 
 import ProfileView from "./views/Profile";
+import OrgDonationView from "./views/OrgDonationView";
 
 import {
   verify as verifyService,
@@ -141,6 +142,7 @@ export default class App extends Component {
                   )}
                 />
 
+                {/*    DONATION FRONT END ROUTES ------------------------------    */}
                 <Route path="/donation" exact component={DonationView} />
 
                 <Route
@@ -160,6 +162,12 @@ export default class App extends Component {
                   exact
                   component={LocationDonation}
                 />
+
+                {/*    ORGANIZATION FRONT END ROUTES ------------------------------    */}
+
+                <Route path="/donationOrg" exact component={OrgDonationView} />
+
+                {/*    ORGANIZATION FRONT END ROUTES ------------------------------    */}
 
                 <Route path="/error/:code" component={ErrorView} />
                 <Redirect path="/" to="/error/404" />

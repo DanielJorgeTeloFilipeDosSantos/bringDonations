@@ -63,7 +63,7 @@ export class Profile extends Component {
           <Container style={{ marginTop: "8vh" }}>
             <Row>
               <Col>
-                <Link to="/donation">
+                <Link to="/donationOrg">
                   <Card style={{ width: "10rem", border: "none" }}>
                     <Card.Img
                       variant="top"

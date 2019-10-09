@@ -77,7 +77,7 @@ export default class List extends Component {
             clear={this.state.clear}
             key={this.UNSAFE_componentWillMount}
           />
-        )) || <div>nojentice...</div>}
+        )) || <div>not working...</div>}
         {this.state.donations.map(donation => (
           <Card key={donation.donationName}>
             <Card.Body>
