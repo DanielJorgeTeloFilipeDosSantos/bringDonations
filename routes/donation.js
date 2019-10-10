@@ -35,7 +35,7 @@ router.post("/create", (req, res, next) => {
 // // with the same name in req.params.THENAME
 router.get("/list", (req, res, next) => {
   Donation.find()
-    // .sort({ createdAt: -1 })
+    //.sort({ createdAt: -1 })
     .populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: { donation } });

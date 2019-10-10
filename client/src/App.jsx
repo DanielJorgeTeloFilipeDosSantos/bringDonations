@@ -4,6 +4,7 @@ import DonationView from "./views/Donation";
 import LocationDonation from "./views/LocationDonation";
 import DetailsDonation from "./views/DetailsDonation";
 import EditDonation from "./views/EditDonation";
+import Map from "./components/map/Map";
 
 import "./App.css";
 
@@ -162,7 +163,7 @@ export default class App extends Component {
                 <Route
                   path="/donation/:id"
                   exact
-                  component={LocationDonation}
+                  render={props => <Map {...props} loadUser={this.loadUser} />}
                 />
 
                 {/*    ORGANIZATION FRONT END ROUTES ------------------------------    */}
