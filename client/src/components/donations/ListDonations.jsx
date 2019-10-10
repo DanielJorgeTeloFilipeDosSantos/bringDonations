@@ -39,45 +39,44 @@ export default class ListDonations extends Component {
     return (
       <div>
         <h3>Search Donations</h3>
-        <div style={{ height: "500px", overflow: "scroll" }}>
-          {this.state.donations.map(donation => (
-            <Card className="donation-card" key={donation.donationName}>
-              <Card.Img maxHeiht="20px" src={placeholderImg} alt="Card image" />
-              <Card.ImgOverlay>
-                <Link
-                  className="overlay-button link-overwrite pink-btn btn"
-                  to={`/donation/${donation._id}/details`}
-                >
-                  <Card.Text> ♥ Details</Card.Text>
-                </Link>
-              </Card.ImgOverlay>
 
-              {/* <Link
+        {this.state.donations.map(donation => (
+          <Card className="donation-card" key={donation.donationName}>
+            <Card.Img maxHeiht="20px" src={placeholderImg} alt="Card image" />
+            <Card.ImgOverlay>
+              <Link
+                className="overlay-button link-overwrite pink-btn btn"
+                to={`/donation/${donation._id}/details`}
+              >
+                <Card.Text> ♥ Details</Card.Text>
+              </Link>
+            </Card.ImgOverlay>
+
+            {/* <Link
               className="link-overwrite"
               to={`/donation/${donation._id}`}
               key={donation._id}
             >
               <Card.Title>{donation.donationName}</Card.Title>
             </Link> */}
-              <div className="inside-donation-card">
-                <Row>
-                  <Card.Title>{donation.donationName}</Card.Title>
-                </Row>
-                <Row>
-                  <Card.Text>
-                    This Donation is under the Category {donation.category}
-                  </Card.Text>
-                  <Card.Text>
-                    About this Donation: {donation.description}
-                  </Card.Text>
-                  <Card.Text>
-                    <small>Posted by {donation._creator.name}</small>
-                  </Card.Text>
-                </Row>
-              </div>
-            </Card>
-          ))}
-        </div>
+            <div className="inside-donation-card">
+              <Row>
+                <Card.Title>{donation.donationName}</Card.Title>
+              </Row>
+              <Row>
+                <Card.Text>
+                  This Donation is under the Category {donation.category}
+                </Card.Text>
+                <Card.Text>
+                  About this Donation: {donation.description}
+                </Card.Text>
+                <Card.Text>
+                  <small>Posted by {donation._creator.name}</small>
+                </Card.Text>
+              </Row>
+            </div>
+          </Card>
+        ))}
       </div>
     );
   }

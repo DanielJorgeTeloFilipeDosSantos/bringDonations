@@ -3,23 +3,11 @@ import Carousel from "react-bootstrap/Carousel";
 import foodImg from "../assets/images/calle-macarone-Vl78eNdiJaQ-unsplash.jpg";
 import organisationImg from "../assets/images/peopelorganisation.jpg";
 import childrenImg from "../assets/images/childeren.jpg";
-import Image from "react-bootstrap/Image";
-import Container from "react-bootstrap/Container";
-
-import bringLogoTagline from "../assets/images/BringTagline.png";
 
 const LandingPage = () => {
   return (
     <div>
-      {/* <Container className="center my-3">
-        <Image
-          width="20%"
-          ClassName="logo-tagline"
-          src={bringLogoTagline}
-          fluid
-        />
-      </Container> */}
-      <Carousel wrap height="80%" className="carousel">
+      <Carousel wrap className="carousel">
         <Carousel.Item>
           <img className="d-block w-100" src={foodImg} alt="First slide" />
           <Carousel.Caption>
