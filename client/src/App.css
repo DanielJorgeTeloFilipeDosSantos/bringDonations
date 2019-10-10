@@ -53,13 +53,13 @@ a {
   border-color: #ec5959;
 }
 .pink-btn.btn:hover {
-  background: #ec5959;
+  background: #b44444;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
   padding: 8px 15px;
   color: white;
-  border-color: #ec5959;
+  border-color: #b44444;
 }
 
 .sign-out.btn {
@@ -176,6 +176,9 @@ a {
   position: relative;
   border-radius: 50%;
 }
+.img-org {
+  border-radius: 50%;
+}
 
 .img {
   position: absolute;
@@ -191,7 +194,24 @@ a {
   padding: 2px;
 }
 
+.upload-btn {
+  padding: 2px;
+  max-width: 80px;
+  margin: 0 auto;
+  font-size: 0.7em;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+}
+.upload-btn:hover {
+  border: 1px solid #8fdbd4;
+  background-color: white;
+  color: #4fc4bc;
+}
+
 .profile-div {
+  display: flex;
+  justify-content: center;
   background-color: rgba(240, 226, 226, 0.8);
   padding: 10px;
   border-radius: 20px;
@@ -214,18 +234,12 @@ a {
   color: #4fc4bc;
 }
 
-div .section .organisation-icons {
-  display: flex;
-  justify-content: space-around;
-  border: red;
-}
-
 .request-btn {
   background: #4fc4bc;
-  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+
   border-radius: 10px;
   margin: 20px;
-  padding: 8px 15px;
+  padding: 5px 10px;
   color: white;
   border-color: #4fc4bc;
 }

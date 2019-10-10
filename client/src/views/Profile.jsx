@@ -79,27 +79,30 @@ export class Profile extends Component {
             <h3>Welcome {this.props.user.name}!</h3>
           </Container>
 
+          <Link to="/donation">
+            <Button className="pink-btn d-flex justify-content-end">
+              + New Donation
+            </Button>
+          </Link>
+
           <Container className="profile-form">
             <div className="round">
               <Card.Img className="img" src={this.props.user.imageUrl} />
             </div>
 
-            <Button className="upload-image btn" onClick={this.toggleButton}>
-              Upload Image
+            <Button className="upload-btn" onClick={this.toggleButton}>
+              Edit Image
             </Button>
             {this.showForm()}
 
-            <Link to="/donation">
-              <Button className="pink-btn btn">+ New Donation</Button>
-            </Link>
-            <Link to="/donation">
-              <Button className="pink-btn btn">My Donations</Button>
-            </Link>
-            <Link to="/howItWorks">
-              <Button className="pink-btn btn">
-                Deliver a donation to an Organization
-              </Button>
-            </Link>
+            <Container className="profile-div my-4">
+              <Link to="/donation">
+                <Button className="request-btn mx-4 mr-2">My Donations</Button>
+              </Link>
+              <Link to="/howItWorks">
+                <Button className="request-btn mx-4">Deliver a Donation</Button>
+              </Link>
+            </Container>
           </Container>
         </div>
       );
@@ -107,21 +110,21 @@ export class Profile extends Component {
     } else if (this.props.user.role === "Organization") {
       return (
         <div>
-          {/* <Container className="center">
+          <Container className="center">
             <h3>Welcome {this.props.user.name}!</h3>
-          </Container> */}
+          </Container>
           <Container>
             <Media>
               <img
                 width={60}
                 height={60}
-                className="mr-3"
+                className="mr-3 img-org"
                 src={this.props.user.imageUrl}
                 alt={this.props.user.name}
               />
               <Media.Body>
-                <Button className="submit-btn" onClick={this.toggleButton}>
-                  Upload your Logo
+                <Button className="upload-btn" onClick={this.toggleButton}>
+                  Upload Logo
                 </Button>
                 {this.showForm()}
               </Media.Body>
@@ -180,69 +183,6 @@ export class Profile extends Component {
               </Col>
             </Row>
           </Container>
-
-          {/* <Container style={{ marginTop: "8vh" }}>
-            <Row>
-              <Col>
-                <Link to="/donationOrg">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={charity}
-                    />
-                    <Card.Body>
-                      <Card.Title>See the Donations</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </Link>
-              </Col>
-              <Col>
-                <Link to="/donation">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={add}
-                    />
-                    <Card.Body>
-                      <Card.Title>Sugest Donation</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </Link>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Link to="/donation">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={addVolunteer}
-                    />
-                    <Card.Body>
-                      <Card.Title>Add Volunteer</Card.Title>{" "}
-                    </Card.Body>
-                  </Card>
-                </Link>
-              </Col>
-              <Col>
-                <Link to="/donation">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={settings}
-                    />
-                    <Card.Body>
-                      <Card.Title>Edit Profile</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </Link>
-              </Col>
-            </Row>
-          </Container> */}
         </div>
       );
     }
