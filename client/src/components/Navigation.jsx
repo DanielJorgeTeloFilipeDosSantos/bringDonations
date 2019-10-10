@@ -116,12 +116,11 @@ const Navigation = props => {
     //------------------------------------------------------------------
   } else {
     return (
-      <Navbar fixed="top" collapseOnSelect expand="lg" bg="light">
-        <Navbar.Brand href="#home">
+      <Navbar sticky="top" collapseOnSelect expand="lg" bg="*">
+        <Navbar.Brand>
           <img
             src={bringLogo}
-            width="40"
-            height="40"
+            width="100"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
           />
