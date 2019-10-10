@@ -95,9 +95,11 @@ export class Profile extends Component {
             </Button>
             {this.showForm()}
 
-            <Container className="profile-div my-4">
-              <Link to="/donation">
-                <Button className="request-btn mx-4 mr-2">My Donations</Button>
+            <Container className="profile-div my-4 ">
+              <Link to="/chooseDon">
+                <Button className="request-btn mx-4 mr-2">
+                  Search Donations
+                </Button>
               </Link>
               <Link to="/howItWorks">
                 <Button className="request-btn mx-4">Deliver a Donation</Button>
