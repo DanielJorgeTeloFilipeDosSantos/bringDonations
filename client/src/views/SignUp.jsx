@@ -56,12 +56,11 @@ export default class SignUp extends Component {
     if (this.state.buttonClicked === "volunteer") {
       return (
         <div>
-          <Container>
-            <h3>Volunteer's Sign Up</h3>
-          </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-email">Email</Form.Label>
+              <Form.Label htmlFor="sign-up-email">
+                Sign up as a Donor & Volunteer
+              </Form.Label>
               <Form.Control
                 id="sign-up-email"
                 name="email"
@@ -73,18 +72,16 @@ export default class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-name">Name</Form.Label>
               <Form.Control
                 id="sign-up-name"
                 name="name"
                 required
-                placeholder="Name"
+                placeholder="Username"
                 onChange={this.onValueChange}
                 value={this.state.name}
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-password">Password</Form.Label>
               <Form.Control
                 id="sign-up-password"
                 name="password"
@@ -95,19 +92,20 @@ export default class SignUp extends Component {
                 value={this.state.password}
               />
             </Form.Group>
-            <Button type="submit">Sign Up</Button>
+            <Button className="submit-btn" type="submit">
+              Sign Up
+            </Button>
           </Form>
         </div>
       );
     } else if (this.state.buttonClicked === "institution") {
       return (
         <div>
-          <Container>
-            <h3>Organisation's Sign Up</h3>
-          </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-email">Email</Form.Label>
+              <Form.Label htmlFor="sign-up-email">
+                Sign up your Organisation
+              </Form.Label>
               <Form.Control
                 id="sign-up-email"
                 name="email"
@@ -119,18 +117,16 @@ export default class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-name">Name</Form.Label>
               <Form.Control
                 id="sign-up-name"
                 name="name"
                 required
-                placeholder="Name"
+                placeholder="Username"
                 onChange={this.onValueChange}
                 value={this.state.name}
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-password">Password</Form.Label>
               <Form.Control
                 id="sign-up-password"
                 name="password"
@@ -141,7 +137,9 @@ export default class SignUp extends Component {
                 value={this.state.password}
               />
             </Form.Group>
-            <Button type="submit">Sign Up</Button>
+            <Button className="submit-btn" type="submit">
+              Sign Up
+            </Button>
           </Form>
         </div>
       );
@@ -182,25 +180,19 @@ export default class SignUp extends Component {
             </Col>
           </Row>
           <Row>
-            <Col>
-              <Button
-                className="pink-btn mx-2"
-                onClick={this.buttonClickChangeStateVolunteer}
-                variant="primary"
-              >
-                Volunteer
-              </Button>
-            </Col>
+            <Button
+              className="pink-btn mx-4 mr-2"
+              onClick={this.buttonClickChangeStateVolunteer}
+            >
+              Volunteer
+            </Button>
 
-            <Col>
-              <Button
-                className="pink-btn btn mx-4"
-                onClick={this.buttonClickChangeStateInstitution}
-                variant="primary"
-              >
-                Organisation
-              </Button>
-            </Col>
+            <Button
+              className="pink-btn mx-4"
+              onClick={this.buttonClickChangeStateInstitution}
+            >
+              Organisation
+            </Button>
           </Row>
           {this.state.formSignUp && this.changeButton()}
           {/* {this.changeButton()} */}

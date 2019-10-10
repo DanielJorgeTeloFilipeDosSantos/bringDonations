@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import BringLogoTagline from "../assets/images/BringTagline.png";
 
 import { signIn as signInService } from "../services/authentication-api";
 
@@ -40,13 +42,13 @@ export default class SignUp extends Component {
   render() {
     return (
       <div>
-        <Row className="center my-4">
-          <h3>Sign in to your Account</h3>
-        </Row>
+        <Container className="center my-4">
+          {" "}
+          <h2>Log In to your Account</h2>
+        </Container>
         <Container my-4 className="form-margin">
           <Form onSubmit={this.signIn}>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-email">Email</Form.Label>
               <Form.Control
                 id="sign-up-email"
                 name="email"
@@ -58,7 +60,6 @@ export default class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-password">Password</Form.Label>
               <Form.Control
                 id="sign-up-password"
                 name="password"
@@ -74,7 +75,9 @@ export default class SignUp extends Component {
                 Not registered yet? Sign up here
               </a>
             </p>
-            <Button type="submit">Sign In</Button>
+            <Button className="submit-btn" type="submit">
+              Sign In
+            </Button>
           </Form>
         </Container>
       </div>

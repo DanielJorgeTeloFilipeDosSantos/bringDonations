@@ -47,6 +47,15 @@ body {
   color: white;
   border-color: #ec5959;
 }
+.pink-btn.btn:hover {
+  background: #ec5959;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 8px 15px;
+  color: white;
+  border-color: #ec5959;
+}
 
 .sign-out.btn {
   background: transparent;
@@ -186,4 +195,21 @@ body {
 .display-flex {
   display: flex;
   flex-direction: column;
+}
+
+.submit-btn {
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+}
+.submit-btn:hover {
+  border: 1px solid #8fdbd4;
+  background-color: white;
+  color: #4fc4bc;
+}
+
+div .section .organisation-icons {
+  display: flex;
+  justify-content: space-around;
+  border: red;
 }

@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import DonationList from "../components/donations/ListDonations";
-//import ImageUpload from "../components/upload/ImageUpload";
+import Image from "react-bootstrap/Image";
 
 import add from "../assets/images/add.svg";
 import charity from "../assets/images/charity.svg";
@@ -109,7 +109,39 @@ export class Profile extends Component {
           <Container className="center">
             <h3>Welcome {this.props.user.name}!</h3>
           </Container>
-          <Container style={{ marginTop: "8vh" }}>
+
+          {/* <Container className="organisation-icons">
+            <Image src={charity} width="20%" rounded />
+            <Image src={add} width="20%" rounded />
+            <Image src={addVolunteer} width="20%" rounded />
+            <Image src={settings} width="20%" rounded />
+          </Container> */}
+
+          <Container ClassName="d-flex justify-content-center">
+            <Row className="text-center">
+              <Col md={6}>
+                <Image className="mt-3" src={charity} width="30%" rounded />
+              </Col>
+              <Col md={6}>
+                <Image className="mt-3" src={add} width="30%" rounded />
+              </Col>
+            </Row>
+            <Row className="text-center">
+              <Col md={6}>
+                <Image
+                  className="mt-3"
+                  src={addVolunteer}
+                  width="30%"
+                  rounded
+                />
+              </Col>
+              <Col md={6}>
+                <Image className="mt-3" src={settings} width="30%" rounded />
+              </Col>
+            </Row>
+          </Container>
+
+          {/* <Container style={{ marginTop: "8vh" }}>
             <Row>
               <Col>
                 <Link to="/donationOrg">
@@ -170,7 +202,7 @@ export class Profile extends Component {
                 </Link>
               </Col>
             </Row>
-          </Container>
+          </Container> */}
         </div>
       );
     }

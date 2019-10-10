@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { list } from "../../services/donations";
 import { Link } from "react-router-dom";
-import placeholderImg from "../../assets/images/peopelorganisation.jpg";
+import Container from "react-bootstrap/Container";
 
 //import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
@@ -38,11 +38,17 @@ export default class ListDonations extends Component {
   render() {
     return (
       <div>
-        <h3>Search Donations</h3>
+        <Container>
+          <h3>Search Donations</h3>
+        </Container>
         <div style={{ height: "500px", overflow: "scroll" }}>
           {this.state.donations.map(donation => (
             <Card className="donation-card" key={donation.donationName}>
-              <Card.Img maxHeiht="20px" src={placeholderImg} alt="Card image" />
+              <Card.Img
+                maxHeiht="20px"
+                src={donation.imageUrl}
+                alt="Card image"
+              />
               <Card.ImgOverlay>
                 <Link
                   className="overlay-button link-overwrite pink-btn btn"

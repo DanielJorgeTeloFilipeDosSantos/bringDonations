@@ -174,8 +174,8 @@ export class Donation extends Component {
               />
             </Form.Group>
             {/* <Link to="/createSuccess"> */}
-            <Button variant="primary" type="submit">
-              Create a donation
+            <Button className="submit-btn" type="submit">
+              Post
             </Button>
             {/* </Link> */}
             {this.props.children}
@@ -189,9 +189,13 @@ export class Donation extends Component {
     console.log("sattee2", this.state);
     return (
       <div>
-        <Button onClick={this.toggleButton}>Add a Donation</Button>
-        {this.showForm()}
-
+        <Container>
+          <Button className="direction" onClick={this.toggleButton}>
+            {" "}
+            + Donation
+          </Button>
+          {this.showForm()}
+        </Container>
         <ListDonations />
       </div>
     );
