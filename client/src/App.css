@@ -176,6 +176,7 @@ a {
   position: relative;
   border-radius: 50%;
 }
+
 .img {
   position: absolute;
   top: 40%;
@@ -217,4 +218,23 @@ div .section .organisation-icons {
   display: flex;
   justify-content: space-around;
   border: red;
+}
+
+.request-btn {
+  background: #4fc4bc;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 8px 15px;
+  color: white;
+  border-color: #4fc4bc;
+}
+.request-btn:hover {
+  background: #30746f;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 8px 15px;
+  color: white;
+  border-color: #30746f;
 }
