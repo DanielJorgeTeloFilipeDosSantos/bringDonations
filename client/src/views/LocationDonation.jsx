@@ -7,7 +7,6 @@ import Card from "react-bootstrap/Card";
 import Map from "../components/map/Map";
 import ErrorBoundary from "../views/ErrorBoundary";
 import geolocation from "../services/geolocation";
-import ListDonation from "../components/donations/ListDonations";
 
 export default class List extends Component {
   constructor(props) {

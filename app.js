@@ -19,7 +19,6 @@ const donationRouter = require("./routes/donation");
 const testRouter = require("./routes/testingRoute");
 const profileRouter = require("./routes/profile");
 const getlocationRouter = require("./routes/getlocation");
-const donationPicRouter = require("./routes/donationPic");
 const cors = require("cors");
 
 const app = express();
@@ -56,7 +55,6 @@ app.use("/donation", donationRouter);
 app.use("/test", testRouter);
 app.use("/upload", profileRouter);
 app.use("/getlocation", getlocationRouter);
-app.use("/donationpic", donationPicRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "./client/build/index.html"));

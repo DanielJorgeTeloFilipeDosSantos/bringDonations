@@ -1,13 +1,9 @@
 import React, { Component } from "react";
 import { list } from "../../services/donations";
 import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 
 //import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 export default class ListDonations extends Component {
   constructor(props) {
@@ -39,39 +35,23 @@ export default class ListDonations extends Component {
   render() {
     return (
       <div>
-        <div style={{ height: "500px", overflow: "scroll" }}>
-          {this.state.donations.map(donation => (
-            <Card className="donation-card" key={donation.donationName}>
-              <Card.Img
-                maxHeiht="20px"
-                src={donation.imageUrl}
-                alt="Card image"
-              />
-              <Card.ImgOverlay>
-                <Link to={`/donation/${donation._id}/details`}>
-                  <Button className="request-btn"> ♥ Request Donation</Button>
-                </Link>
-              </Card.ImgOverlay>
-
-              <div className="inside-donation-card">
-                <Row>
-                  <Card.Title>{donation.donationName}</Card.Title>
-                </Row>
-                <Row>
-                  <Card.Text>
-                    This Donation is under the Category {donation.category}
-                  </Card.Text>
-                  <Card.Text>
-                    About this Donation: {donation.description}
-                  </Card.Text>
-                  <Card.Text>
-                    <small>Posted by {donation._creator.name}</small>
-                  </Card.Text>
-                </Row>
-              </div>
-            </Card>
-          ))}
-        </div>
+        <h3>List of all donations</h3>
+        {this.state.donations.map(donation => (
+          <Card key={donation.donationName}>
+            <Card.Body>
+              <Link to={`/donation/${donation._id}`} key={donation._id}>
+                <Card.Title>{donation.donationName}</Card.Title>
+              </Link>
+              <Card.Text>{donation.category}</Card.Text>
+              <Card.Text>{donation.description}</Card.Text>
+              {/* <Card.Text>{donation.location}</Card.Text> */}
+              <Card.Text>Written by {donation._creator.name}</Card.Text>
+              <Link to={`/donation/${donation._id}/details`}>
+                <Card.Text>See Details</Card.Text>
+              </Link>
+            </Card.Body>
+          </Card>
+        ))}
       </div>
     );
   }

@@ -1,32 +1,25 @@
 import React, { Component } from "react";
 import { load, remove } from "../services/donations";
 import { Link } from "react-router-dom";
-import { verify as verifyService } from "../services/authentication-api";
-import placeholderImg from "../assets/images/childeren.jpg";
 
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 export default class DetailsDonation extends Component {
   constructor(props) {
     super(props);
     this.state = {
       donation: ""
-      //user: null
     };
     this.displayDonation = this.displayDonation.bind(this);
     this.deleteDonation = this.deleteDonation.bind(this);
-    this.loadUser = this.loadUser.bind(this);
   }
 
   displayDonation() {
     load(this.props.match.params.id)
       .then(donation => {
         this.setState({
-          donation: donation
+          donation
         });
       })
       .catch(error => {
@@ -48,7 +41,6 @@ export default class DetailsDonation extends Component {
 
   componentDidMount() {
     this.displayDonation();
-    //this.loadUser();
   }
 
   componentDidUpdate(previousProps, previousState) {
@@ -60,51 +52,32 @@ export default class DetailsDonation extends Component {
     }
   }
 
-  loadUser() {
-    verifyService()
-      .then(user => {
-        this.setState({
-          user
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
   render() {
-    //console.log(this.state.donation._creator);
-    //console.log(this.props);
+    console.log(this.state.donation._creator);
     const donation = this.state.donation;
-    // if (this.props.user._id !== donation._creator._id) {
-    //   console.log(donation);
-    // }
     return (
-      <div className="display-flex">
-        <h3>Details dontaion in here </h3>
+      <div>
+        <h1>Details dontaion in here </h1>
+        <Card key={donation.donationName}>
+          <Card.Body>
+            <Card.Title>{donation.donationName}</Card.Title>
+            <Card.Text>{donation.category}</Card.Text>
+            <Card.Text>{donation.description}</Card.Text>
 
-        <Row>
-          <Col>
-            <Card className="details" style={{ width: "18rem" }}>
-              <Card.Img src={donation.imageUrl} alt="Card image" />
-              <Card.Body>
-                <Card.Title>{donation.donationName}</Card.Title>
-                <Card.Text>
-                  This Donation is under the Category {donation.category}
-                </Card.Text>
-                <Card.Text>
-                  About this Donation: {donation.description}
-                </Card.Text>
-                <Link to={`/donation/${this.props.match.params.id}/edit`}>
-                  <Button className="edit btn">Edit</Button>
-                </Link>
-                <Button onClick={this.deleteDonation} className="btn edit">
-                  Delete
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+            <Link to={`/donation/${this.props.match.params.id}/edit`}>
+              <Button className="btn">Edit Donation</Button>
+            </Link>
+
+            <Button onClick={this.deleteDonation} className="btn">
+              Delete
+            </Button>
+
+            {/*
+            <Link to={`/donation/profile/${donation._creator.name}`}>
+              Posted by {donation._creator.name}
+            </Link> */}
+          </Card.Body>
+        </Card>
       </div>
     );
   }

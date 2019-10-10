@@ -8,11 +8,11 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import DonationList from "../components/donations/ListDonations";
-import Image from "react-bootstrap/Image";
-import Media from "react-bootstrap/Media";
+//import ImageUpload from "../components/upload/ImageUpload";
 
 import add from "../assets/images/add.svg";
 import charity from "../assets/images/charity.svg";
+import newspaper from "../assets/images/newspaper.svg";
 import settings from "../assets/images/settings.svg";
 import addVolunteer from "../assets/images/user.svg";
 
@@ -24,33 +24,9 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user,
-      showForm: true
+      user: this.props.user
     };
     this.handleFileUpload = this.handleFileUpload.bind(this);
-    this.toggleButton = this.toggleButton.bind(this);
-  }
-
-  toggleButton() {
-    this.setState({
-      showForm: !this.state.showForm
-    });
-  }
-
-  showForm() {
-    if (this.state.showForm === false) {
-      return (
-        <Form>
-          <Form.Group>
-            <Form.Control
-              name="profileImage"
-              type="file"
-              onChange={this.handleFileUpload}
-            />
-          </Form.Group>
-        </Form>
-      );
-    }
   }
 
   handleFileUpload = event => {
@@ -62,126 +38,63 @@ export class Profile extends Component {
 
     upload(uploadData)
       .then(user => {
+        console.log(user);
         this.setState({ user });
-        this.toggleButton();
-        this.props.history.push("/profile");
+        console.log("AFTER UPLOAD", user);
       })
       .catch(error => {
         console.log("Error while uploading the file: ", error);
       });
   };
   ShowPageVolunteerOrOrganization() {
+    console.log(this.props);
     if (this.props.user.role === "User") {
       //---------------------------VOLUNTEER/DONOR!! FOR STYLING---------------------------------
       return (
         <div>
-          <Container className="center">
-            <h3>Welcome {this.props.user.name}!</h3>
+          <h1>Welcome {this.props.user.name}!</h1>
+          <Container>
+            <Link className="btn profile" to="/donation">
+              Donate
+            </Link>
+            <Link className="btn profile" to="/donation/list">
+              Pick up Donation
+            </Link>
+            <Figure className="my-5">
+              <Figure.Image
+                width={200}
+                height={200}
+                alt="userimage"
+                src={this.props.user.imageUrl}
+                rounded
+              />
+            </Figure>
+
+            <Form>
+              <Form.Group>
+                <Form.Control
+                  name="profileImage"
+                  type="file"
+                  onChange={this.handleFileUpload}
+                />
+              </Form.Group>
+            </Form>
           </Container>
-
-          <Container className="profile-form">
-            <div className="round">
-              <Card.Img className="img" src={this.props.user.imageUrl} />
-            </div>
-
-            <Button className="upload-image btn" onClick={this.toggleButton}>
-              Upload Image
-            </Button>
-            {this.showForm()}
-
-            <Link to="/donation">
-              <Button className="pink-btn btn">+ New Donation</Button>
-            </Link>
-            <Link to="/donation">
-              <Button className="pink-btn btn">My Donations</Button>
-            </Link>
-            <Link to="/howItWorks">
-              <Button className="pink-btn btn">
-                Deliver a donation to an Organization
-              </Button>
-            </Link>
-          </Container>
+          <Button>donate</Button>
+          <br></br>
+          <Link to="/howItWorks">
+            <Button>Deliver a donation to a Organization</Button>
+          </Link>
         </div>
       );
       //---------------------------ORGANIZATION !! FOR STYLING---------------------------------
     } else if (this.props.user.role === "Organization") {
       return (
         <div>
-          {/* <Container className="center">
-            <h3>Welcome {this.props.user.name}!</h3>
-          </Container> */}
           <Container>
-            <Media>
-              <img
-                width={60}
-                height={60}
-                className="mr-3"
-                src={this.props.user.imageUrl}
-                alt={this.props.user.name}
-              />
-              <Media.Body>
-                <Button className="submit-btn" onClick={this.toggleButton}>
-                  Upload your Logo
-                </Button>
-                {this.showForm()}
-              </Media.Body>
-            </Media>
+            <h1>Welcome {this.props.user.name}!</h1>
           </Container>
-
-          {/* <Container className="center">
-            <div>
-              <Card.Img
-                width="30%"
-                height="30%"
-                src={this.props.user.imageUrl}
-              />
-            </div>
-
-            <Button className="upload-image btn" onClick={this.toggleButton}>
-              Upload Image
-            </Button>
-            {this.showForm()}
-          </Container> */}
-
-          {/* <Container className="organisation-icons">
-            <Image src={charity} width="20%" rounded />
-            <Image src={add} width="20%" rounded />
-            <Image src={addVolunteer} width="20%" rounded />
-            <Image src={settings} width="20%" rounded />
-          </Container> */}
-
-          <Container ClassName="d-flex justify-content-center">
-            <Row className="text-center">
-              <Col className="my-4" md={6}>
-                <Link to="/donationOrg">
-                  <Image className="mb-3" src={charity} width="20%" />
-                  <p>Search Donations</p>
-                </Link>
-              </Col>
-              <Col className="my-4" md={6}>
-                <Link>
-                  <Image className="mb-3" src={add} width="20%" />
-                  <p>Request Donation</p>
-                </Link>
-              </Col>
-            </Row>
-            <Row className="text-center">
-              <Col className="my-4" md={6}>
-                <Link>
-                  <Image className="mb-3" src={addVolunteer} width="20%" />
-                  <p>Add Volunteer</p>
-                </Link>
-              </Col>
-              <Col className="my-4" md={6}>
-                <Link>
-                  <Image className="mb-3" src={settings} width="20%" />
-                  <p>Settings</p>
-                </Link>
-              </Col>
-            </Row>
-          </Container>
-
-          {/* <Container style={{ marginTop: "8vh" }}>
+          <Container style={{ marginTop: "8vh" }}>
             <Row>
               <Col>
                 <Link to="/donationOrg">
@@ -242,7 +155,7 @@ export class Profile extends Component {
                 </Link>
               </Col>
             </Row>
-          </Container> */}
+          </Container>
         </div>
       );
     }
