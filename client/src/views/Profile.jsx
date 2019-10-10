@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import DonationList from "../components/donations/ListDonations";
 import Image from "react-bootstrap/Image";
+import Media from "react-bootstrap/Media";
 
 import add from "../assets/images/add.svg";
 import charity from "../assets/images/charity.svg";
@@ -106,9 +107,41 @@ export class Profile extends Component {
     } else if (this.props.user.role === "Organization") {
       return (
         <div>
-          <Container className="center">
+          {/* <Container className="center">
             <h3>Welcome {this.props.user.name}!</h3>
+          </Container> */}
+          <Container>
+            <Media>
+              <img
+                width={60}
+                height={60}
+                className="mr-3"
+                src={this.props.user.imageUrl}
+                alt={this.props.user.name}
+              />
+              <Media.Body>
+                <Button className="submit-btn" onClick={this.toggleButton}>
+                  Upload your Logo
+                </Button>
+                {this.showForm()}
+              </Media.Body>
+            </Media>
           </Container>
+
+          {/* <Container className="center">
+            <div>
+              <Card.Img
+                width="30%"
+                height="30%"
+                src={this.props.user.imageUrl}
+              />
+            </div>
+
+            <Button className="upload-image btn" onClick={this.toggleButton}>
+              Upload Image
+            </Button>
+            {this.showForm()}
+          </Container> */}
 
           {/* <Container className="organisation-icons">
             <Image src={charity} width="20%" rounded />
