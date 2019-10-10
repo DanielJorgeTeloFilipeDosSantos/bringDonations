@@ -9,8 +9,8 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 
-import bringLogo from "../assets/images/BringLogo1.png";
 import bringLogoLeaf from "../assets/images/BringLeaf.png";
+import Home from "../assets/images/home.svg";
 
 const Navigation = props => {
   if (props.user) {
@@ -25,14 +25,16 @@ const Navigation = props => {
             sticky="top"
             variant="dark"
           >
-            <Navbar.Brand href="/">
-              <img
-                src={bringLogoLeaf}
-                width="70"
-                className="d-inline-block align-top"
-                alt="React Bootstrap logo"
-              />
-            </Navbar.Brand>
+            <LinkContainer to="/profile">
+              <Navbar.Brand>
+                <img
+                  src={bringLogoLeaf}
+                  width="60"
+                  className="d-inline-block align-top"
+                  alt="React Bootstrap logo"
+                />{" "}
+              </Navbar.Brand>
+            </LinkContainer>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
@@ -70,7 +72,7 @@ const Navigation = props => {
             <Navbar.Brand href="/">
               <img
                 src={bringLogoLeaf}
-                width="70"
+                width="60"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
               />
@@ -115,9 +117,9 @@ const Navigation = props => {
         </Navbar.Brand>
         {(!props.user && (
           <Nav className="justify-content-end" activeKey="/home">
-            <Nav.Item>
-              <Nav.Link href="/sign-in">Log-In</Nav.Link>
-            </Nav.Item>
+            <LinkContainer className="text-white" to="/sign-in">
+              <Nav.Link>Log-in</Nav.Link>
+            </LinkContainer>
           </Nav>
         )) || <div>{this.ShowPageVolunteerOrOrganization()}</div>}
       </Navbar>
