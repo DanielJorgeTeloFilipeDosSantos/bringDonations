@@ -9,11 +9,13 @@ const User = require("../models/user");
 // });
 
 router.post("/create", (req, res, next) => {
+  console.log("req.bodyyyyy", req.body);
+
   const donationName = req.body.donationName;
   const category = req.body.category;
   const description = req.body.description;
   const location = req.body.location;
-  const imageUrl = req.file && req.file.url;
+  const imageUrl = req.body.imageUrl;
   const _creator = req.session.user._id;
 
   Donation.create({

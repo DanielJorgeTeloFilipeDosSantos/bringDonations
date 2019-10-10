@@ -42,32 +42,6 @@ export class Donation extends Component {
     });
   }
 
-  handleNameChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-
-  onFormSubmit(event) {
-    event.preventDefault();
-    const donation = {
-      donationName: this.state.donationName,
-      category: this.state.category,
-      description: this.state.description,
-      location: this.state.location,
-      imageUrl: this.state.imageUrl
-    };
-
-    create(donation)
-      .then(donation => {
-        this.toggleButton();
-        this.props.history.push("/donation");
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
   //----------------------------------------- upload picture donation ---------------------------------------------
 
   toggleButton() {
@@ -94,7 +68,7 @@ export class Donation extends Component {
     donationPic(uploadData)
       .then(url => {
         console.log("PLOADEDPIC", url);
-        this.setState({ imageUrl: url });
+        this.setState({ ...this.state, imageUrl: url });
         console.log("stateeeeee", this.state.imageUrl);
       })
       .catch(error => {
@@ -104,10 +78,37 @@ export class Donation extends Component {
 
   //--------------------------------------------------- upload picture donation --------------------------------------------------
 
+  handleNameChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault();
+    const donation = {
+      donationName: this.state.donationName,
+      category: this.state.category,
+      description: this.state.description,
+      location: this.state.location,
+      imageUrl: this.state.imageUrl
+    };
+
+    create(donation)
+      .then(donation => {
+        console.log("createeddddddddddddddddd", donation);
+        this.toggleButton();
+        this.props.history.push("/donation");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   showForm() {
     if (this.state.showForm === false) {
       return (
-        <Fragment>
+        <div>
           <Container>
             <Card style={{ width: "10rem" }}>
               <Card.Img src={this.state.imageUrl} />
@@ -172,14 +173,14 @@ export class Donation extends Component {
                 onChange={this.handleNameChange}
               />
             </Form.Group>
-            <Link to="/createSuccess">
-              <Button variant="primary" type="submit">
-                Create a donation
-              </Button>
-            </Link>
+            {/* <Link to="/createSuccess"> */}
+            <Button variant="primary" type="submit">
+              Create a donation
+            </Button>
+            {/* </Link> */}
             {this.props.children}
           </Form>
-        </Fragment>
+        </div>
       );
     }
   }

@@ -3,7 +3,7 @@ const donationsApi = axios.create({
   baseURL: "/donation"
 });
 export const create = donation => {
-  console.log("create service", donation);
+  console.log("create serviceeeeeeeeeeee", donation);
   return new Promise((resolve, reject) => {
     donationsApi
       .post("/create", donation)
