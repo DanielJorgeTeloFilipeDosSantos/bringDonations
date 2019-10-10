@@ -8,6 +8,7 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { list } from "../services/donations";
 import placeholderImg from "../assets/images/peopelorganisation.jpg";
+import { LinkContainer } from "react-router-bootstrap";
 
 export class ChooseDonation extends Component {
   constructor(props) {
@@ -81,12 +82,12 @@ export class ChooseDonation extends Component {
                   alt="Card image"
                 />
                 <Card.ImgOverlay>
-                  <Link
+                  <LinkContainer
                     className="overlay-button link-overwrite pink-btn btn"
                     to={`/donation/${donation._id}/details`}
                   >
                     <Card.Text> ♥ Details</Card.Text>
-                  </Link>
+                  </LinkContainer>
                 </Card.ImgOverlay>
 
                 {/* <Link
@@ -118,13 +119,15 @@ export class ChooseDonation extends Component {
                       </Card.Text>
                     </Row>
                     <Row>
-                      <Button
-                        className="btn direction"
-                        onClick={this.currentLocationClickedMethod}
-                        value={donation._id}
-                      >
-                        Get direction ➤
-                      </Button>
+                      <LinkContainer to={`/donation/${donation._id}`}>
+                        <Button
+                          className="btn direction"
+                          onClick={this.currentLocationClickedMethod}
+                          value={donation._id}
+                        >
+                          Get direction ➤
+                        </Button>
+                      </LinkContainer>
                     </Row>
                   </div>
                 </Card.Body>
