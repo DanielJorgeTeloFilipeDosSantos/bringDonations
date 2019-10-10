@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DonationView from "./views/Donation";
 import LocationDonation from "./views/LocationDonation";
+import HomeLogged from "./components/HomeLogged";
 import DetailsDonation from "./views/DetailsDonation";
 import EditDonation from "./views/EditDonation";
 import createDonSucess from "./views/createDonSucess";
@@ -102,13 +103,10 @@ export default class App extends Component {
             <Navigation user={this.state.user} signOut={this.signOut} />
             {this.state.loaded && (
               <Switch>
-                <Route exact path="/home">
-                  <LandingPage />
-                </Route>
                 {/* here starts the app as a protected route, only acessable if you are NOT logged in  */}
                 <ProtectedRoute
-                  path="/"
                   exact
+                  path="/"
                   verify={this.verifyUnauthenticated}
                   render={props => (
                     <SignUp {...props} exact loadUser={this.loadUser} />
@@ -119,9 +117,9 @@ export default class App extends Component {
                 have a session initiated (you are loggedin)    */}
 
                 <Route
-                  path="/profile"
+                  path="/home"
                   render={props => (
-                    <ProfileView
+                    <HomeLogged
                       {...props}
                       exact
                       loadUser={this.loadUser}
@@ -130,7 +128,7 @@ export default class App extends Component {
                   )}
                 />
                 <Route
-                  path="/profile/:id"
+                  path="/profile"
                   render={props => (
                     <ProfileView
                       {...props}
@@ -152,9 +150,9 @@ export default class App extends Component {
                 />
 
                 {/*    DONATION FRONT END ROUTES ------------------------------    */}
-                {/* <Route path="/donation" exact component={DonationView} /> */}
+                <Route path="/donation" exact component={DonationView} />
 
-                <Route
+                {/* <Route
                   path="/donation"
                   render={props => (
                     <DonationView
@@ -164,7 +162,7 @@ export default class App extends Component {
                       user={this.state.user}
                     />
                   )}
-                />
+                /> */}
 
                 <Route
                   path="/donation/:id/details"

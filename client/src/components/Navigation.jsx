@@ -11,7 +11,6 @@ import { LinkContainer } from "react-router-bootstrap";
 
 import bringLogo from "../assets/images/BringLogo1.png";
 import bringLogoLeaf from "../assets/images/BringLeaf.png";
-import profileIcon from "../assets/images/ProfileIcon.png";
 
 const Navigation = props => {
   if (props.user) {
@@ -37,8 +36,8 @@ const Navigation = props => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
-                <LinkContainer to="/profile">
-                  <Nav.Link href="/">Home</Nav.Link>
+                <LinkContainer to="/home">
+                  <Nav.Link href="/home">Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/donation">
                   <Nav.Link href="/donation">Browse Donations</Nav.Link>
@@ -62,7 +61,6 @@ const Navigation = props => {
       return (
         <div>
           <Navbar
-            fixed="top"
             collapseOnSelect
             expand="lg"
             bg="*"
@@ -70,11 +68,9 @@ const Navigation = props => {
             variant="dark"
           >
             <Navbar.Brand href="/">
-              {" "}
               <img
-                src={bringLogo}
-                width="40"
-                height="40"
+                src={bringLogoLeaf}
+                width="70"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
               />
@@ -82,23 +78,22 @@ const Navigation = props => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
+                <LinkContainer to="/home">
+                  <Nav.Link href="/home">Home</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/donationOrg">
+                  <Nav.Link href="/donationOrg">
+                    Search and Request Donation
+                  </Nav.Link>
+                </LinkContainer>
+
                 <LinkContainer to="/profile">
-                  <Nav.Link>Home</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/donationOrg">
-                  <Nav.Link href="#features">Request Donation</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/donationOrg">
-                  <Nav.Link href="#features">Sugest Donation</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/donationOrg">
-                  <Nav.Link href="#features">Volunteer News</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/profile">
-                  <Nav.Link href="#features">{profileIcon}</Nav.Link>
+                  <Nav.Link href="/profile">Organisation Profile</Nav.Link>
                 </LinkContainer>
                 <Form onSubmit={props.signOut}>
-                  <Button type="submit">Sign Out</Button>
+                  <Button className="sign-out btn" type="submit">
+                    Sign Out
+                  </Button>
                 </Form>
               </Nav>
             </Navbar.Collapse>
@@ -112,8 +107,8 @@ const Navigation = props => {
       <Navbar sticky="top" collapseOnSelect expand="lg" bg="*">
         <Navbar.Brand href="/">
           <img
-            src={bringLogo}
-            width="200"
+            src={bringLogoLeaf}
+            width="70"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
           />

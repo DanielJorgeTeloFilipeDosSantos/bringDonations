@@ -45,6 +45,7 @@ body {
   margin: 20px;
   padding: 8px 15px;
   color: white;
+  border-color: #ec5959;
 }
 
 .sign-out.btn {
@@ -119,7 +120,7 @@ body {
 
 @media (max-width: 640px) {
   .donation-card {
-    background-color: rgba(148, 128, 128, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     color: rgb(165, 160, 160);
     margin: 30px;
     border: none;

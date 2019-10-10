@@ -91,7 +91,7 @@ export class Profile extends Component {
             <Link to="/donation">
               <Button className="pink-btn btn">+ New Donation</Button>
             </Link>
-            <Link to="/donation/list">
+            <Link to="/donation">
               <Button className="pink-btn btn">My Donations</Button>
             </Link>
             <Link to="/howItWorks">
