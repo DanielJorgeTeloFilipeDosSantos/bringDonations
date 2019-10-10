@@ -101,7 +101,7 @@ export default class App extends Component {
             <Navigation user={this.state.user} signOut={this.signOut} />
             {this.state.loaded && (
               <Switch>
-                <Route exact path="/">
+                <Route exact path="/home">
                   <LandingPage />
                 </Route>
                 {/* here starts the app as a protected route, only acessable if you are NOT logged in  */}

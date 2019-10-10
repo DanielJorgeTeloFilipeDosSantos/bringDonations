@@ -144,3 +144,42 @@ body {
     border-color: #ffd900;
   }
 }
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.round {
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 60%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+.img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  /* transition: 1s ease; */
+}
+.img:hover {
+  height: 110%;
+}
+
+.upload-image {
+  margin: 10px 110px;
+  padding: 2px;
+}
+
+.profile-div {
+  background-color: rgba(240, 226, 226, 0.8);
+  padding: 10px;
+  border-radius: 20px;
+  max-height: 60%;
+}
