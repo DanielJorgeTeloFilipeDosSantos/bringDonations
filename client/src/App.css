@@ -6,15 +6,14 @@ body {
 
 .center {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
   align-content: center;
 }
 
 .carousel {
-  margin: 80px 20px;
+  margin: 20px;
 }
 
 .image-overlay {
@@ -78,7 +77,7 @@ body {
 
 .link-overwrite {
   text-decoration-style: none;
-  color: black;
+  color: white;
 }
 
 .overlay-button {
@@ -100,4 +99,14 @@ body {
   margin: 10px;
   margin-left: 120px;
   font-size: 0.8em;
+}
+
+.logo-tagline {
+  max-width: 50%;
+  margin: 40px;
+}
+
+.form-margin {
+  display: flex;
+  justify-content: center;
 }

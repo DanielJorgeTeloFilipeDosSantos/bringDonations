@@ -26,7 +26,7 @@ const Navigation = props => {
             sticky="top"
             variant="dark"
           >
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
               <img
                 src={bringLogoLeaf}
                 width="70"
@@ -37,22 +37,15 @@ const Navigation = props => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
-                <LinkContainer to="/profile">
-                  <Nav.Link href="#features">Home</Nav.Link>
+                <LinkContainer to="/">
+                  <Nav.Link href="/">Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/donation">
-                  <Nav.Link href="#features">Browse Donations</Nav.Link>
+                  <Nav.Link href="/donation">Browse Donations</Nav.Link>
                 </LinkContainer>
+
                 <LinkContainer to="/profile">
-                  <Nav.Link href="#features">
-                    Donations to be picked up
-                  </Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/profile">
-                  <Nav.Link href="#features">My picked Donations</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/profile">
-                  <Nav.Link href="#features">My Profile</Nav.Link>
+                  <Nav.Link href="/profile">My Profile</Nav.Link>
                 </LinkContainer>
                 <Form onSubmit={props.signOut}>
                   <Button className="sign-out btn" type="submit">
@@ -117,23 +110,20 @@ const Navigation = props => {
   } else {
     return (
       <Navbar sticky="top" collapseOnSelect expand="lg" bg="*">
-        <Navbar.Brand>
+        <Navbar.Brand href="/">
           <img
             src={bringLogo}
-            width="100"
+            width="200"
             className="d-inline-block align-top"
             alt="React Bootstrap logo"
           />
         </Navbar.Brand>
         {(!props.user && (
-          <Fragment>
-            <Link className="btn" to="/sign-in">
-              Sign In
-            </Link>
-            <Link className="btn" to="/">
-              Sign Up
-            </Link>
-          </Fragment>
+          <Nav className="justify-content-end" activeKey="/home">
+            <Nav.Item>
+              <Nav.Link href="/sign-in">Log-In</Nav.Link>
+            </Nav.Item>
+          </Nav>
         )) || <div>{this.ShowPageVolunteerOrOrganization()}</div>}
       </Navbar>
     );

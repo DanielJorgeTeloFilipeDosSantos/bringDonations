@@ -38,53 +38,60 @@ export class Profile extends Component {
 
     upload(uploadData)
       .then(user => {
-        console.log(user);
         this.setState({ user });
-        console.log("AFTER UPLOAD", user);
       })
       .catch(error => {
         console.log("Error while uploading the file: ", error);
       });
   };
   ShowPageVolunteerOrOrganization() {
-    console.log(this.props);
     if (this.props.user.role === "User") {
       //---------------------------VOLUNTEER/DONOR!! FOR STYLING---------------------------------
       return (
         <div>
           <h1>Welcome {this.props.user.name}!</h1>
-          <Container>
-            <Link className="btn profile" to="/donation">
-              Donate
-            </Link>
-            <Link className="btn profile" to="/donation/list">
-              Pick up Donation
-            </Link>
-            <Figure className="my-5">
-              <Figure.Image
-                width={200}
-                height={200}
-                alt="userimage"
-                src={this.props.user.imageUrl}
-                rounded
-              />
-            </Figure>
-
-            <Form>
-              <Form.Group>
-                <Form.Control
-                  name="profileImage"
-                  type="file"
-                  onChange={this.handleFileUpload}
-                />
-              </Form.Group>
-            </Form>
-          </Container>
-          <Button>donate</Button>
-          <br></br>
-          <Link to="/howItWorks">
-            <Button>Deliver a donation to a Organization</Button>
-          </Link>
+          <Row className="center">
+            <Col>
+              <Container>
+                <Card style={{ width: "10rem" }}>
+                  <Card.Img src={this.props.user.imageUrl} />
+                  <Form>
+                    <Form.Group>
+                      <Form.Control
+                        name="profileImage"
+                        type="file"
+                        onChange={this.handleFileUpload}
+                      />
+                    </Form.Group>
+                  </Form>
+                </Card>
+              </Container>
+            </Col>
+            <Col>
+              <Container>
+                <Card style={{ width: "30rem" }}>
+                  <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Container>
+              <Link to="/donation">
+                <Button className="pink-btn btn">+ New Donation</Button>
+              </Link>
+              <Link to="/donation/list">
+                <Button className="pink-btn btn">My Donations</Button>
+              </Link>
+              <Link to="/howItWorks">
+                <Button className="pink-btn btn">
+                  Deliver a donation to an Organization
+                </Button>
+              </Link>
+            </Col>
+          </Row>
         </div>
       );
       //---------------------------ORGANIZATION !! FOR STYLING---------------------------------
