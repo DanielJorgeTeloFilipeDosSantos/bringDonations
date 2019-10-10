@@ -35,12 +35,14 @@ class ImageUpload extends Component {
         // console.log('response is: ', response);
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ user });
-        console.log(this.state);
+        // this.props.history.push();
       })
       .catch(error => {
         console.log("Error while uploading the file: ", error);
       });
   };
+
+  componentDidMount() {}
 
   // this method submits the form
   // handleSubmit = event => {
@@ -66,8 +68,9 @@ class ImageUpload extends Component {
             <Form.Control
               name="profileImage"
               type="file"
-              onChange={this.handleFileUpload}
+              onSubmit={this.handleFileUpload}
             />
+            <Button type="submit"> Upload</Button>
 
             {/* <input type="file" onChange={event => this.handleFileUpload(event)} />
           <button type="submit">Upload File</button> */}

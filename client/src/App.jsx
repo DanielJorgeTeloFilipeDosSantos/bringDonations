@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DonationView from "./views/Donation";
 import LocationDonation from "./views/LocationDonation";
+import HomeLogged from "./components/HomeLogged";
 import DetailsDonation from "./views/DetailsDonation";
 import EditDonation from "./views/EditDonation";
+import createDonSucess from "./views/createDonSucess";
 import Map from "./components/map/Map";
 
 import "./App.css";
@@ -31,6 +33,7 @@ import {
 } from "./services/authentication-api";
 import { HowItWorks } from "./views/HowItWorks";
 import { ChooseDonation } from "./views/ChooseDonation";
+import LandingPage from "./components/LandingPage";
 
 export default class App extends Component {
   constructor(props) {
@@ -102,20 +105,21 @@ export default class App extends Component {
               <Switch>
                 {/* here starts the app as a protected route, only acessable if you are NOT logged in  */}
                 <ProtectedRoute
-                  path="/"
                   exact
+                  path="/"
                   verify={this.verifyUnauthenticated}
                   render={props => (
                     <SignUp {...props} exact loadUser={this.loadUser} />
                   )}
                 />
+
                 {/*   goes to /home that is protected and only acessable if you
                 have a session initiated (you are loggedin)    */}
 
                 <Route
-                  path="/profile"
+                  path="/home"
                   render={props => (
-                    <ProfileView
+                    <HomeLogged
                       {...props}
                       exact
                       loadUser={this.loadUser}
@@ -123,8 +127,9 @@ export default class App extends Component {
                     />
                   )}
                 />
+
                 <Route
-                  path="/profile/:id"
+                  path="/profile"
                   render={props => (
                     <ProfileView
                       {...props}
@@ -147,6 +152,18 @@ export default class App extends Component {
 
                 {/*    DONATION FRONT END ROUTES ------------------------------    */}
                 <Route path="/donation" exact component={DonationView} />
+
+                {/* <Route
+                  path="/donation"
+                  render={props => (
+                    <DonationView
+                      {...props}
+                      exact
+                      loadUser={this.loadUser}
+                      user={this.state.user}
+                    />
+                  )}
+                /> */}
 
                 <Route
                   path="/donation/:id/details"
@@ -172,6 +189,11 @@ export default class App extends Component {
                 {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
                 <Route path="/HowItWorks" exact component={HowItWorks} />
                 <Route path="/chooseDon" exact component={ChooseDonation} />
+                <Route
+                  path="/createSuccess"
+                  exact
+                  component={createDonSucess}
+                />
 
                 {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
 

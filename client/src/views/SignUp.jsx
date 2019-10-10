@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import LandingPage from "../components/LandingPage";
 
 import { signUp as signUpService } from "../services/authentication-api";
@@ -54,12 +56,11 @@ export default class SignUp extends Component {
     if (this.state.buttonClicked === "volunteer") {
       return (
         <div>
-          <Container>
-            <h1>Voulunteers and donors</h1>
-          </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-email">Email</Form.Label>
+              <Form.Label htmlFor="sign-up-email">
+                Sign up as a Donor & Volunteer
+              </Form.Label>
               <Form.Control
                 id="sign-up-email"
                 name="email"
@@ -71,18 +72,16 @@ export default class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-name">Name</Form.Label>
               <Form.Control
                 id="sign-up-name"
                 name="name"
                 required
-                placeholder="Name"
+                placeholder="Username"
                 onChange={this.onValueChange}
                 value={this.state.name}
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-password">Password</Form.Label>
               <Form.Control
                 id="sign-up-password"
                 name="password"
@@ -93,19 +92,20 @@ export default class SignUp extends Component {
                 value={this.state.password}
               />
             </Form.Group>
-            <Button type="submit">Sign Up</Button>
+            <Button className="submit-btn" type="submit">
+              Sign Up
+            </Button>
           </Form>
         </div>
       );
     } else if (this.state.buttonClicked === "institution") {
       return (
         <div>
-          <Container>
-            <h1>Institutions</h1>
-          </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-email">Email</Form.Label>
+              <Form.Label htmlFor="sign-up-email">
+                Sign up your Organisation
+              </Form.Label>
               <Form.Control
                 id="sign-up-email"
                 name="email"
@@ -117,18 +117,16 @@ export default class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-name">Name</Form.Label>
               <Form.Control
                 id="sign-up-name"
                 name="name"
                 required
-                placeholder="Name"
+                placeholder="Username"
                 onChange={this.onValueChange}
                 value={this.state.name}
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label htmlFor="sign-up-password">Password</Form.Label>
               <Form.Control
                 id="sign-up-password"
                 name="password"
@@ -139,7 +137,9 @@ export default class SignUp extends Component {
                 value={this.state.password}
               />
             </Form.Group>
-            <Button type="submit">Sign Up</Button>
+            <Button className="submit-btn" type="submit">
+              Sign Up
+            </Button>
           </Form>
         </div>
       );
@@ -173,24 +173,31 @@ export default class SignUp extends Component {
   render() {
     return (
       <div>
-        <LandingPage />
-        <div>
-          <Button
-            onClick={this.buttonClickChangeStateVolunteer}
-            variant="primary"
-          >
-            Volunteers and Donors
-          </Button>
+        <Container className="center">
+          <Row>
+            <Col>
+              <h5 className="center">Sign Up As</h5>
+            </Col>
+          </Row>
+          <Row>
+            <Button
+              className="pink-btn mx-4 mr-2"
+              onClick={this.buttonClickChangeStateVolunteer}
+            >
+              Volunteer
+            </Button>
 
-          <Button
-            onClick={this.buttonClickChangeStateInstitution}
-            variant="primary"
-          >
-            Institutions
-          </Button>
+            <Button
+              className="pink-btn mx-4"
+              onClick={this.buttonClickChangeStateInstitution}
+            >
+              Organisation
+            </Button>
+          </Row>
           {this.state.formSignUp && this.changeButton()}
           {/* {this.changeButton()} */}
-        </div>
+        </Container>
+        <LandingPage />
       </div>
     );
   }

@@ -8,11 +8,11 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import DonationList from "../components/donations/ListDonations";
-//import ImageUpload from "../components/upload/ImageUpload";
+import Image from "react-bootstrap/Image";
+import Media from "react-bootstrap/Media";
 
 import add from "../assets/images/add.svg";
 import charity from "../assets/images/charity.svg";
-import newspaper from "../assets/images/newspaper.svg";
 import settings from "../assets/images/settings.svg";
 import addVolunteer from "../assets/images/user.svg";
 
@@ -24,9 +24,33 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user
+      user: this.props.user,
+      showForm: true
     };
     this.handleFileUpload = this.handleFileUpload.bind(this);
+    this.toggleButton = this.toggleButton.bind(this);
+  }
+
+  toggleButton() {
+    this.setState({
+      showForm: !this.state.showForm
+    });
+  }
+
+  showForm() {
+    if (this.state.showForm === false) {
+      return (
+        <Form>
+          <Form.Group>
+            <Form.Control
+              name="profileImage"
+              type="file"
+              onChange={this.handleFileUpload}
+            />
+          </Form.Group>
+        </Form>
+      );
+    }
   }
 
   handleFileUpload = event => {
@@ -38,120 +62,125 @@ export class Profile extends Component {
 
     upload(uploadData)
       .then(user => {
-        console.log(user);
         this.setState({ user });
-        console.log("AFTER UPLOAD", user);
+        this.toggleButton();
+        this.props.history.push("/profile");
       })
       .catch(error => {
         console.log("Error while uploading the file: ", error);
       });
   };
   ShowPageVolunteerOrOrganization() {
-    console.log(this.props);
     if (this.props.user.role === "User") {
       //---------------------------VOLUNTEER/DONOR!! FOR STYLING---------------------------------
       return (
         <div>
-          <h1>Welcome {this.props.user.name}!</h1>
-          <Container>
-            <Link className="btn profile" to="/donation">
-              Donate
-            </Link>
-            <Link className="btn profile" to="/donation/list">
-              Pick up Donation
-            </Link>
-            <Figure className="my-5">
-              <Figure.Image
-                width={200}
-                height={200}
-                alt="userimage"
-                src={this.props.user.imageUrl}
-                rounded
-              />
-            </Figure>
-
-            <Form>
-              <Form.Group>
-                <Form.Control
-                  name="profileImage"
-                  type="file"
-                  onChange={this.handleFileUpload}
-                />
-              </Form.Group>
-            </Form>
+          <Container className="center">
+            <h3>Welcome {this.props.user.name}!</h3>
           </Container>
-          <Button>donate</Button>
-          <br></br>
-          <Link to="/howItWorks">
-            <Button>Deliver a donation to a Organization</Button>
+
+          <Link to="/donation">
+            <Button className="pink-btn d-flex justify-content-end">
+              + New Donation
+            </Button>
           </Link>
+
+          <Container className="profile-form">
+            <div className="round">
+              <Card.Img className="img" src={this.props.user.imageUrl} />
+            </div>
+
+            <Button className="upload-btn" onClick={this.toggleButton}>
+              Edit Image
+            </Button>
+            {this.showForm()}
+
+            <Container className="profile-div my-4 ">
+              <Link to="/chooseDon">
+                <Button className="request-btn mx-4 mr-2">
+                  Search Donations
+                </Button>
+              </Link>
+              <Link to="/howItWorks">
+                <Button className="request-btn mx-4">Deliver a Donation</Button>
+              </Link>
+            </Container>
+          </Container>
         </div>
       );
       //---------------------------ORGANIZATION !! FOR STYLING---------------------------------
     } else if (this.props.user.role === "Organization") {
       return (
         <div>
-          <Container>
-            <h1>Welcome {this.props.user.name}!</h1>
+          <Container className="center">
+            <h3>Welcome {this.props.user.name}!</h3>
           </Container>
-          <Container style={{ marginTop: "8vh" }}>
-            <Row>
-              <Col>
+          <Container>
+            <Media>
+              <img
+                width={60}
+                height={60}
+                className="mr-3 img-org"
+                src={this.props.user.imageUrl}
+                alt={this.props.user.name}
+              />
+              <Media.Body>
+                <Button className="upload-btn" onClick={this.toggleButton}>
+                  Upload Logo
+                </Button>
+                {this.showForm()}
+              </Media.Body>
+            </Media>
+          </Container>
+
+          {/* <Container className="center">
+            <div>
+              <Card.Img
+                width="30%"
+                height="30%"
+                src={this.props.user.imageUrl}
+              />
+            </div>
+
+            <Button className="upload-image btn" onClick={this.toggleButton}>
+              Upload Image
+            </Button>
+            {this.showForm()}
+          </Container> */}
+
+          {/* <Container className="organisation-icons">
+            <Image src={charity} width="20%" rounded />
+            <Image src={add} width="20%" rounded />
+            <Image src={addVolunteer} width="20%" rounded />
+            <Image src={settings} width="20%" rounded />
+          </Container> */}
+
+          <Container ClassName="d-flex justify-content-center">
+            <Row className="text-center">
+              <Col className="my-4" md={6}>
                 <Link to="/donationOrg">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={charity}
-                    />
-                    <Card.Body>
-                      <Card.Title>See the Donations</Card.Title>
-                    </Card.Body>
-                  </Card>
+                  <Image className="mb-3" src={charity} width="20%" />
+                  <p>Search Donations</p>
                 </Link>
               </Col>
-              <Col>
-                <Link to="/donation">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={add}
-                    />
-                    <Card.Body>
-                      <Card.Title>Sugest Donation</Card.Title>
-                    </Card.Body>
-                  </Card>
+              <Col className="my-4" md={6}>
+                <Link>
+                  <Image className="mb-3" src={add} width="20%" />
+                  <p>Request Donation</p>
                 </Link>
               </Col>
             </Row>
-            <Row>
-              <Col>
-                <Link to="/donation">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={addVolunteer}
-                    />
-                    <Card.Body>
-                      <Card.Title>Add Volunteer</Card.Title>{" "}
-                    </Card.Body>
-                  </Card>
+            <Row className="text-center">
+              <Col className="my-4" md={6}>
+                <Link>
+                  <Image className="mb-3" src={addVolunteer} width="20%" />
+                  <p>Add Volunteer</p>
                 </Link>
               </Col>
-              <Col>
-                <Link to="/donation">
-                  <Card style={{ width: "10rem", border: "none" }}>
-                    <Card.Img
-                      variant="top"
-                      style={{ width: "50%", marginLeft: "25%" }}
-                      src={settings}
-                    />
-                    <Card.Body>
-                      <Card.Title>Edit Profile</Card.Title>
-                    </Card.Body>
-                  </Card>
+              <Col className="my-4" md={6}>
+                <Link>
+                  <Image className="mb-3" src={settings} width="20%" />
+                  <p>Settings</p>
                 </Link>
               </Col>
             </Row>

@@ -4,17 +4,21 @@ body {
   background-repeat: no-repeat;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .center {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
   align-content: center;
 }
 
 .carousel {
-  margin: 80px 20px;
+  margin: 20px;
 }
 
 .image-overlay {
@@ -44,8 +48,18 @@ body {
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
-  padding: 10px 15px;
+  padding: 8px 15px;
   color: white;
+  border-color: #ec5959;
+}
+.pink-btn.btn:hover {
+  background: #b44444;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 8px 15px;
+  color: white;
+  border-color: #b44444;
 }
 
 .sign-out.btn {
@@ -57,19 +71,23 @@ body {
 }
 
 .donation-card {
+  display: flex;
   background-color: rgba(255, 255, 255, 0.8);
   color: rgb(165, 160, 160);
   margin: 30px;
   border: none;
   border-radius: 10px;
+  height: 600px;
 }
 
-.detail {
+.details {
   border-radius: 5px;
+  margin: 0 auto;
 }
 
 .inside-donation-card {
-  padding: 60px;
+  padding: 20px;
+  padding-bottom: 10px;
 }
 
 .donation-card:hover {
@@ -78,26 +96,159 @@ body {
 
 .link-overwrite {
   text-decoration-style: none;
-  color: black;
+  color: white;
 }
 
 .overlay-button {
-  position: absolute;
-  top: 58%;
-  left: 60%;
-}
-
-@media (max-width: 640px) {
-  .overlay-button {
-    position: absolute;
-    top: 35%;
-    left: 30%;
-  }
+  position: relative;
+  top: 50%;
+  left: 70%;
 }
 
 .edit {
+  justify-items: space-between;
   padding: 3px;
   margin: 10px;
   margin-left: 120px;
   font-size: 0.8em;
+}
+
+.logo-tagline {
+  max-width: 50%;
+  margin: 40px;
+}
+
+.form-margin {
+  display: flex;
+  justify-content: center;
+}
+
+.direction {
+  align-self: flex-end;
+  margin: 0 auto;
+  background: #ffd900;
+  border-radius: 10px;
+  padding: 8px 15px;
+  width: auto;
+  color: white;
+  border-color: #ffd900;
+}
+
+@media (max-width: 640px) {
+  .donation-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(165, 160, 160);
+    margin: 30px;
+    border: none;
+    border-radius: 10px;
+    height: 500px;
+  }
+  .overlay-button {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+  }
+  .direction {
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    margin: 0 auto;
+    background: #ffd900;
+    border-radius: 10px;
+    padding: 8px 15px;
+    width: auto;
+    color: white;
+    border-color: #ffd900;
+  }
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.round {
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 60%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+.img-org {
+  border-radius: 50%;
+}
+
+.img {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  min-width: 100%;
+  height: 100%;
+  transform: translate(-40%, -40%);
+}
+
+.upload-image {
+  margin: 10px 110px;
+  padding: 2px;
+}
+
+.upload-btn {
+  padding: 2px;
+  max-width: 80px;
+  margin: 0 auto;
+  font-size: 0.7em;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+}
+.upload-btn:hover {
+  border: 1px solid #8fdbd4;
+  background-color: white;
+  color: #4fc4bc;
+}
+
+.profile-div {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(240, 226, 226, 0.8);
+  padding: 10px;
+  border-radius: 20px;
+  max-height: 60%;
+}
+
+.display-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-btn {
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+}
+.submit-btn:hover {
+  border: 1px solid #8fdbd4;
+  background-color: white;
+  color: #4fc4bc;
+}
+
+.request-btn {
+  background: #4fc4bc;
+
+  border-radius: 10px;
+  margin: 20px;
+  padding: 5px 10px;
+  color: white;
+  border-color: #4fc4bc;
+}
+.request-btn:hover {
+  background: #30746f;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 8px 15px;
+  color: white;
+  border-color: #30746f;
 }

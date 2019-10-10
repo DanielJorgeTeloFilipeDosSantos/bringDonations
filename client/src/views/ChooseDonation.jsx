@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 // import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { list } from "../services/donations";
+import placeholderImg from "../assets/images/peopelorganisation.jpg";
+import { LinkContainer } from "react-router-bootstrap";
 
 export class ChooseDonation extends Component {
   constructor(props) {
@@ -42,8 +47,8 @@ export class ChooseDonation extends Component {
   }
 
   currentLocationClickedMethod(event) {
-    console.log("donation clicked");
-    console.log(event.target.value);
+    // console.log("donation clicked");
+    // console.log(event.target.value);
     const ee = event.target.value;
     console.log("ee", ee);
     //do js to get location from the id
@@ -64,31 +69,68 @@ export class ChooseDonation extends Component {
   render() {
     return (
       <div>
-        <Container>
-          <h1>Choose a donation:</h1>
+        <Container className="center">
+          <h2>Choose a donation</h2>
         </Container>
         <Container>
-          <div>
-            <h3>List of all donations</h3>
+          <div style={{ height: "500px", overflow: "scroll" }}>
             {this.state.donations.map(donation => (
-              <Card key={donation._id}>
-                <Card.Body>
-                  <button
-                    onClick={this.currentLocationClickedMethod}
-                    value={donation._id}
+              <Card className="donation-card" key={donation.donationName}>
+                <Card.Img
+                  style={{ maxHeight: "350px" }}
+                  src={placeholderImg}
+                  alt="Card image"
+                />
+                <Card.ImgOverlay>
+                  <LinkContainer
+                    className="overlay-button link-overwrite pink-btn btn"
+                    to={`/donation/${donation._id}/details`}
                   >
-                    {donation.donationName}
-                  </button>
-                  <Link to={`/donation/${donation._id}`} key={donation._id}>
-                    <Card.Title>{donation.donationName}</Card.Title>
-                  </Link>
-                  <Card.Text>{donation.category}</Card.Text>
-                  <Card.Text>{donation.description}</Card.Text>
-                  {/* <Card.Text>{donation.location}</Card.Text> */}
-                  <Card.Text>Written by {donation._creator.name}</Card.Text>
-                  <Link to={`/donation/${donation._id}/details`}>
-                    <Card.Text>See Details</Card.Text>
-                  </Link>
+                    <Card.Text> ♥ Details</Card.Text>
+                  </LinkContainer>
+                </Card.ImgOverlay>
+
+                {/* <Link
+              className="link-overwrite"
+              to={`/donation/${donation._id}`}
+              key={donation._id}
+            >
+              <Card.Title>{donation.donationName}</Card.Title>
+            </Link> */}
+                <Card.Body>
+                  <div className="inside-donation-card">
+                    <Row>
+                      {/* <Link
+                      to={`/donation/${donation._id}/ details`}
+                      key={donation._id}
+                    >
+                      <Button>{donation.donationName}</Button>
+                    </Link> */}
+                    </Row>
+                    <Row>
+                      <Card.Text>
+                        This Donation is under the Category {donation.category}
+                      </Card.Text>
+                      <Card.Text>
+                        About this Donation: {donation.description}
+                      </Card.Text>
+                      <Card.Text className="mr-5">
+                        <small>Posted by {donation._creator.name}</small>
+                      </Card.Text>
+                    </Row>
+                    <Row>
+                      {/* <LinkContainer to={`/donation/${donation._id}`}> */}
+                      <Button
+                        href={`/donation/${donation._id}`}
+                        className="btn direction"
+                        onClick={this.currentLocationClickedMethod}
+                        value={donation._id}
+                      >
+                        Get direction ➤
+                      </Button>
+                      {/* </LinkContainer> */}
+                    </Row>
+                  </div>
                 </Card.Body>
               </Card>
             ))}
