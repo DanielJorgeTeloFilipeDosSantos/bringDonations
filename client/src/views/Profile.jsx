@@ -119,24 +119,31 @@ export class Profile extends Component {
 
           <Container ClassName="d-flex justify-content-center">
             <Row className="text-center">
-              <Col md={6}>
-                <Image className="mt-3" src={charity} width="30%" rounded />
+              <Col className="my-4" md={6}>
+                <Link to="/donationOrg">
+                  <Image className="mb-3" src={charity} width="20%" />
+                  <p>Search Donations</p>
+                </Link>
               </Col>
-              <Col md={6}>
-                <Image className="mt-3" src={add} width="30%" rounded />
+              <Col className="my-4" md={6}>
+                <Link>
+                  <Image className="mb-3" src={add} width="20%" />
+                  <p>Request Donation</p>
+                </Link>
               </Col>
             </Row>
             <Row className="text-center">
-              <Col md={6}>
-                <Image
-                  className="mt-3"
-                  src={addVolunteer}
-                  width="30%"
-                  rounded
-                />
+              <Col className="my-4" md={6}>
+                <Link>
+                  <Image className="mb-3" src={addVolunteer} width="20%" />
+                  <p>Add Volunteer</p>
+                </Link>
               </Col>
-              <Col md={6}>
-                <Image className="mt-3" src={settings} width="30%" rounded />
+              <Col className="my-4" md={6}>
+                <Link>
+                  <Image className="mb-3" src={settings} width="20%" />
+                  <p>Settings</p>
+                </Link>
               </Col>
             </Row>
           </Container>

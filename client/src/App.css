@@ -4,6 +4,10 @@ body {
   background-repeat: no-repeat;
 }
 
+a {
+  text-decoration: none;
+}
+
 .center {
   display: flex;
   flex-direction: column;
