@@ -111,7 +111,7 @@ class MapDemo extends Component {
                 lat: this.state.location[0].latitude,
                 lng: this.state.location[0].longitude
               }}
-              zoom="14"
+              zoom={14}
             >
               {/* {!this.props.myLocation[0] ? (
             <Marker
