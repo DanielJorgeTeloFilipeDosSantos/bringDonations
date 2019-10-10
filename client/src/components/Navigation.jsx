@@ -80,16 +80,14 @@ const Navigation = props => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
                 <LinkContainer to="/home">
-                  <Nav.Link href="/home">Home</Nav.Link>
+                  <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/donationOrg">
-                  <Nav.Link href="/donationOrg">
-                    Search and Request Donation
-                  </Nav.Link>
+                  <Nav.Link>Search and Request Donation</Nav.Link>
                 </LinkContainer>
 
                 <LinkContainer to="/profile">
-                  <Nav.Link href="/profile">Organisation Profile</Nav.Link>
+                  <Nav.Link>Organisation Profile</Nav.Link>
                 </LinkContainer>
                 <Form onSubmit={props.signOut}>
                   <Button className="sign-out btn" type="submit">

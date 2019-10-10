@@ -123,7 +123,7 @@ export default function VerticalLinearStepper(props) {
         ))}
       </Stepper>
       {activeStep === steps.length && (
-        <div> {props.history.push("/donation")}</div>
+        <div> {props.history.push("/chooseDon")}</div>
       )}
     </div>
   );
