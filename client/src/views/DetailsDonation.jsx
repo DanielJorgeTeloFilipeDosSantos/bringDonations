@@ -6,6 +6,7 @@ import placeholderImg from "../assets/images/childeren.jpg";
 
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -85,20 +86,22 @@ export default class DetailsDonation extends Component {
 
         <Row>
           <Col>
-            <Card className="details" style={{ width: "18rem" }}>
+            <Card className="donation-card details" style={{ width: "18rem" }}>
               <Card.Img src={donation.imageUrl} alt="Card image" />
-              <Card.Body>
+              <Card.Body className=".inside-donation-card">
                 <Card.Title>{donation.donationName}</Card.Title>
-                <Card.Text>
-                  This Donation is under the Category {donation.category}
-                </Card.Text>
-                <Card.Text>
-                  About this Donation: {donation.description}
-                </Card.Text>
+                <ListGroup>
+                  <ListGroup.Item>
+                    A donation of {donation.category}
+                  </ListGroup.Item>
+
+                  <ListGroup.Item>{donation.description}</ListGroup.Item>
+                </ListGroup>
+
                 <Link to={`/donation/${this.props.match.params.id}/edit`}>
-                  <Button className="edit btn">Edit</Button>
+                  <Button className="request-btn">Edit</Button>
                 </Link>
-                <Button onClick={this.deleteDonation} className="btn edit">
+                <Button onClick={this.deleteDonation} className="delete-btn">
                   Delete
                 </Button>
               </Card.Body>

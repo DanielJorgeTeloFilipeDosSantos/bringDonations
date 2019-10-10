@@ -45,6 +45,7 @@ a {
 
 .pink-btn.btn {
   background: #ec5959;
+  z-index: +1;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
@@ -54,7 +55,12 @@ a {
 }
 .pink-btn.btn:hover {
   background: #b44444;
-  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  <<<<<<<HEAD
+=======
+  z-index: +1;
+  >>>>>>>f9f687c92be4ea3af6109ef10a44cddb7115ef7b
+  box-shadow: 0 10px 30px 0
+    rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
   padding: 8px 15px;
@@ -77,7 +83,6 @@ a {
   margin: 30px;
   border: none;
   border-radius: 10px;
-  height: 600px;
 }
 
 .details {
@@ -88,6 +93,7 @@ a {
 .inside-donation-card {
   padding: 20px;
   padding-bottom: 10px;
+  width: 100%;
 }
 
 .donation-card:hover {
@@ -132,6 +138,16 @@ a {
   width: auto;
   color: white;
   border-color: #ffd900;
+}
+.direction:hover {
+  align-self: flex-end;
+  margin: 0 auto;
+  background: #d6b600;
+  border-radius: 10px;
+  padding: 8px 15px;
+  width: auto;
+  color: white;
+  border-color: #d6b600;
 }
 
 @media (max-width: 640px) {
@@ -251,4 +267,22 @@ a {
   padding: 8px 15px;
   color: white;
   border-color: #30746f;
+}
+.delete-btn {
+  background: #ec5959;
+
+  border-radius: 10px;
+  margin: 20px;
+  padding: 5px 10px;
+  color: white;
+  border-color: #ec5959;
+}
+.delete-btn:hover {
+  background: #b44444;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 8px 15px;
+  color: white;
+  border-color: #b44444;
 }
