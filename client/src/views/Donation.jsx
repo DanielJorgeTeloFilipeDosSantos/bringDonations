@@ -96,7 +96,6 @@ export class Donation extends Component {
 
     create(donation)
       .then(donation => {
-        console.log("createeddddddddddddddddd", donation);
         this.toggleButton();
         this.props.history.push("/donation");
       })

@@ -8,7 +8,8 @@ export default class NewBeer extends Component {
     this.state = {
       donationName: "",
       category: "",
-      description: ""
+      description: "",
+      categoryOptions: ["Food", "Clothing", "Furniture", "Other"]
     };
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -45,31 +46,42 @@ export default class NewBeer extends Component {
       <Container>
         <Form onSubmit={this.handleFormSubmit}>
           <Form.Group>
-            <Form.Label>Donation Name</Form.Label>
+            <Form.Label>Edit your Donation</Form.Label>
             <Form.Control
               type="text"
               name="donationName"
-              placeholder="donationName"
+              placeholder="Name your Donationo"
               onChange={this.handleFormChange}
             />
 
-            <Form.Label>Category</Form.Label>
-            <Form.Control
-              type="text"
-              name="category"
-              placeholder="category"
-              onChange={this.handleFormChange}
-            />
+            <Form.Group>
+              <Form.Label htmlFor="choose-category">Category </Form.Label>
+              <Form.Control
+                as="select"
+                placeholder="Choose a Category"
+                type="text"
+                name="category"
+                id="choose-category"
+                onChange={this.handleFormChange}
+                value={this.state.category}
+              >
+                {this.state.categoryOptions.map(category => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </Form.Control>
+            </Form.Group>
 
             <Form.Label>Description</Form.Label>
             <Form.Control
               type="textarea"
               name="description"
-              placeholder="description"
+              placeholder="Give a brief descriptionfor your Donation"
               onChange={this.handleFormChange}
             />
-            <Button variant="primary" type="submit">
-              Submit
+            <Button className="submit-btn my-4" type="submit">
+              Submit Changes
             </Button>
           </Form.Group>
         </Form>
