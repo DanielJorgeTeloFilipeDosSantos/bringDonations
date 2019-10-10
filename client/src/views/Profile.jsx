@@ -98,8 +98,8 @@ export class Profile extends Component {
     } else if (this.props.user.role === "Organization") {
       return (
         <div>
-          <Container>
-            <h1>Welcome {this.props.user.name}!</h1>
+          <Container className="center">
+            <h3>Welcome {this.props.user.name}!</h3>
           </Container>
           <Container style={{ marginTop: "8vh" }}>
             <Row>
