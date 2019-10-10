@@ -43,7 +43,7 @@ body {
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
-  padding: 10px 15px;
+  padding: 8px 15px;
   color: white;
 }
 
@@ -56,11 +56,13 @@ body {
 }
 
 .donation-card {
+  display: flex;
   background-color: rgba(255, 255, 255, 0.8);
   color: rgb(165, 160, 160);
   margin: 30px;
   border: none;
   border-radius: 10px;
+  height: 600px;
 }
 
 .detail {
@@ -68,7 +70,8 @@ body {
 }
 
 .inside-donation-card {
-  padding: 60px;
+  padding: 20px;
+  padding-bottom: 10px;
 }
 
 .donation-card:hover {
@@ -81,17 +84,9 @@ body {
 }
 
 .overlay-button {
-  position: absolute;
-  top: 58%;
-  left: 60%;
-}
-
-@media (max-width: 640px) {
-  .overlay-button {
-    position: absolute;
-    top: 35%;
-    left: 30%;
-  }
+  position: relative;
+  top: 50%;
+  left: 70%;
 }
 
 .edit {
@@ -109,4 +104,43 @@ body {
 .form-margin {
   display: flex;
   justify-content: center;
+}
+
+.direction {
+  align-self: flex-end;
+  margin: 0 auto;
+  background: #ffd900;
+  border-radius: 10px;
+  padding: 8px 15px;
+  width: auto;
+  color: white;
+  border-color: #ffd900;
+}
+
+@media (max-width: 640px) {
+  .donation-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(165, 160, 160);
+    margin: 30px;
+    border: none;
+    border-radius: 10px;
+    height: 500px;
+  }
+  .overlay-button {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+  }
+  .direction {
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    margin: 0 auto;
+    background: #ffd900;
+    border-radius: 10px;
+    padding: 8px 15px;
+    width: auto;
+    color: white;
+    border-color: #ffd900;
+  }
 }
