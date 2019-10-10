@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default class DetailsDonation extends Component {
   constructor(props) {
@@ -79,42 +80,31 @@ export default class DetailsDonation extends Component {
     //   console.log(donation);
     // }
     return (
-      <div>
-        <h1>Details dontaion in here </h1>
+      <div className="display-flex">
+        <h3>Details dontaion in here </h3>
 
-        {/*  ----------Conditionally render this by checking if user is equal to cerator !!! */}
-
-        <Link to={`/donation/${this.props.match.params.id}/edit`}>
-          <Button className="edit btn">Edit</Button>
-        </Link>
-        <Button onClick={this.deleteDonation} className="btn delete">
-          Delete
-        </Button>
-        <Card className="donation-card detail" key={donation.donationName}>
-          <Card.Img src={placeholderImg} alt="Card image" />
-          <Card.ImgOverlay></Card.ImgOverlay>
-          {/* <Link
-              className="link-overwrite"
-              to={`/donation/${donation._id}`}
-              key={donation._id}
-            >
-              <Card.Title>{donation.donationName}</Card.Title>
-            </Link> */}
-          <div className="inside-donation-card">
-            <Row>
-              <Card.Title>{donation.donationName}</Card.Title>
-            </Row>
-            <Row>
-              <Card.Text>
-                This Donation is under the Category {donation.category}
-              </Card.Text>
-              <Card.Text>About this Donation: {donation.description}</Card.Text>
-              {/* <Card.Text>
-                <small>Posted by {donation._creator.name}</small>
-              </Card.Text> */}
-            </Row>
-          </div>
-        </Card>
+        <Row>
+          <Col>
+            <Card className="details" style={{ width: "18rem" }}>
+              <Card.Img src={donation.imageUrl} alt="Card image" />
+              <Card.Body>
+                <Card.Title>{donation.donationName}</Card.Title>
+                <Card.Text>
+                  This Donation is under the Category {donation.category}
+                </Card.Text>
+                <Card.Text>
+                  About this Donation: {donation.description}
+                </Card.Text>
+                <Link to={`/donation/${this.props.match.params.id}/edit`}>
+                  <Button className="edit btn">Edit</Button>
+                </Link>
+                <Button onClick={this.deleteDonation} className="btn edit">
+                  Delete
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </div>
     );
   }
