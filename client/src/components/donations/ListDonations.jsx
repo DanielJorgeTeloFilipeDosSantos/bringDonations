@@ -52,27 +52,7 @@ export default class ListDonations extends Component {
                 </Link>
               </Card.ImgOverlay>
 
-<<<<<<< HEAD
-        {this.state.donations.map(donation => (
-          <Card className="donation-card" key={donation._id}>
-            <Card.Img
-              style={{ maxHeight: "230px" }}
-              src={placeholderImg}
-              alt="Card image"
-            />
-            <Card.ImgOverlay>
-              <Link
-                className="overlay-button link-overwrite pink-btn btn"
-                to={`/donation/${donation._id}/details`}
-              >
-                <Card.Text> ♥ Details</Card.Text>
-              </Link>
-            </Card.ImgOverlay>
-
-            {/* <Link
-=======
               {/* <Link
->>>>>>> e92462ef2d501dda20ff81e4c9da735618de6b96
               className="link-overwrite"
               to={`/donation/${donation._id}`}
               key={donation._id}
