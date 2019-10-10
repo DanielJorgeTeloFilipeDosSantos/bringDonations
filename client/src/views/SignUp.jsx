@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import LandingPage from "../components/LandingPage";
 
 import { signUp as signUpService } from "../services/authentication-api";
 
@@ -172,7 +173,7 @@ export default class SignUp extends Component {
   render() {
     return (
       <div>
-        you put your scroll here paula
+        <LandingPage />
         <div>
           <Button
             onClick={this.buttonClickChangeStateVolunteer}

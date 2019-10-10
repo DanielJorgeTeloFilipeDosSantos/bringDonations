@@ -1,6 +1,7 @@
 body {
   background-image: url("./assets/images/backgroundmint.png");
   color: white;
+  background-repeat: no-repeat;
 }
 
 .center {
@@ -11,24 +12,38 @@ body {
   align-items: stretch;
   align-content: center;
 }
+
+.carousel {
+  margin: 80px 20px;
+}
+
+.image-overlay {
+  background-color: rgba(36, 29, 29, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  max-height: 60%;
+}
+@media (max-width: 640px) {
+  .image-overlay {
+    padding: 5px;
+  }
+  .image-overlay h3 {
+    font-size: 0.8em;
+  }
+  .image-overlay p {
+    font-size: 0.5em;
+  }
+}
+
 .remove-margin-top {
   margin-top: 0;
 }
 
-/* .topbar {
-  height: 10vh;
-  width: -200vh;
-} */
-
-/* .margin-top {
-  margin-top: 100px;
-} */
-
-.profile.btn {
+.pink-btn.btn {
   background: #ec5959;
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  margin: 10px;
+  margin: 20px;
   padding: 10px 15px;
   color: white;
 }
@@ -39,4 +54,50 @@ body {
   border-radius: 10px;
   border: 1px;
   color: white;
+}
+
+.donation-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(165, 160, 160);
+  margin: 30px;
+  border: none;
+  border-radius: 10px;
+}
+
+.detail {
+  border-radius: 5px;
+}
+
+.inside-donation-card {
+  padding: 60px;
+}
+
+.donation-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.link-overwrite {
+  text-decoration-style: none;
+  color: black;
+}
+
+.overlay-button {
+  position: absolute;
+  top: 58%;
+  left: 60%;
+}
+
+@media (max-width: 640px) {
+  .overlay-button {
+    position: absolute;
+    top: 35%;
+    left: 30%;
+  }
+}
+
+.edit {
+  padding: 3px;
+  margin: 10px;
+  margin-left: 120px;
+  font-size: 0.8em;
 }
