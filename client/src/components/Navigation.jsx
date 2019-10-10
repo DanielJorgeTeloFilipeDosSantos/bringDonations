@@ -24,7 +24,7 @@ const Navigation = props => {
             sticky="top"
             variant="dark"
           >
-            <LinkContainer to="/profile">
+            <LinkContainer to="/home">
               <Navbar.Brand>
                 <img
                   src={bringLogoLeaf}
@@ -38,14 +38,14 @@ const Navigation = props => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
                 <LinkContainer to="/home">
-                  <Nav.Link href="/home">Home</Nav.Link>
+                  <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/donation">
-                  <Nav.Link href="/donation">Browse Donations</Nav.Link>
+                  <Nav.Link>Browse Donations</Nav.Link>
                 </LinkContainer>
 
                 <LinkContainer to="/profile">
-                  <Nav.Link href="/profile">My Profile</Nav.Link>
+                  <Nav.Link>My Profile</Nav.Link>
                 </LinkContainer>
                 <Form onSubmit={props.signOut}>
                   <Button className="sign-out btn" type="submit">

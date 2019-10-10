@@ -127,6 +127,7 @@ export default class App extends Component {
                     />
                   )}
                 />
+
                 <Route
                   path="/profile"
                   render={props => (
