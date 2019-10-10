@@ -45,6 +45,7 @@ a {
 
 .pink-btn.btn {
   background: #ec5959;
+  z-index: +1;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
@@ -54,6 +55,7 @@ a {
 }
 .pink-btn.btn:hover {
   background: #b44444;
+  z-index: +1;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
@@ -132,6 +134,16 @@ a {
   width: auto;
   color: white;
   border-color: #ffd900;
+}
+.direction:hover {
+  align-self: flex-end;
+  margin: 0 auto;
+  background: #d6b600;
+  border-radius: 10px;
+  padding: 8px 15px;
+  width: auto;
+  color: white;
+  border-color: #d6b600;
 }
 
 @media (max-width: 640px) {

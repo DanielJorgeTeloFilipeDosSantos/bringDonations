@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 //-------Components---------
 
-import ListDonations from "../components/donations/ListDonations";
+import ChooseDonation from "./ChooseDonation";
 import { create } from "./../services/donations";
 import { donationPic } from "./../services/donationPic";
 import geolocation from "../services/geolocation";
@@ -195,7 +195,7 @@ export class Donation extends Component {
           </Button>
           {this.showForm()}
         </Container>
-        <ListDonations />
+        <ChooseDonation />
       </div>
     );
   }

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { list } from "../../services/donations";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+
+import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 
 //import { Link } from "react-router-dom";
@@ -55,18 +57,16 @@ export default class ListDonations extends Component {
 
               <div className="inside-donation-card">
                 <Row>
-                  <Card.Title>{donation.donationName}</Card.Title>
-                </Row>
-                <Row>
-                  <Card.Text>
-                    This Donation is under the Category {donation.category}
-                  </Card.Text>
-                  <Card.Text>
-                    About this Donation: {donation.description}
-                  </Card.Text>
-                  <Card.Text>
-                    <small>Posted by {donation._creator.name}</small>
-                  </Card.Text>
+                  <ListGroup className="inside-donation-card">
+                    <Card.Title>{donation.donationName}</Card.Title>
+                    <ListGroup.Item>
+                      A donation of {donation.category}
+                    </ListGroup.Item>
+                    <ListGroup.Item>{donation.description}</ListGroup.Item>
+                    <ListGroup.Item>
+                      <small>Posted by{donation._creator.name}</small>
+                    </ListGroup.Item>
+                  </ListGroup>
                 </Row>
               </div>
             </Card>
