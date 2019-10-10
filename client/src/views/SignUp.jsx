@@ -57,7 +57,7 @@ export default class SignUp extends Component {
       return (
         <div>
           <Container>
-            <h1>Volunteer's Sign Up</h1>
+            <h3>Volunteer's Sign Up</h3>
           </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
@@ -103,7 +103,7 @@ export default class SignUp extends Component {
       return (
         <div>
           <Container>
-            <h1>Organisation's Sign Up</h1>
+            <h3>Organisation's Sign Up</h3>
           </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
@@ -178,13 +178,13 @@ export default class SignUp extends Component {
         <Container className="center">
           <Row>
             <Col>
-              <h1 className="center">Sign up As a </h1>
+              <h5 className="center">Sign Up As</h5>
             </Col>
           </Row>
           <Row>
             <Col>
               <Button
-                className="pink-btn mx-4"
+                className="pink-btn mx-2"
                 onClick={this.buttonClickChangeStateVolunteer}
                 variant="primary"
               >

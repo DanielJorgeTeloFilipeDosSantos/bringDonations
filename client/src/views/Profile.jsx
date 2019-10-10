@@ -23,9 +23,33 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user
+      user: this.props.user,
+      showForm: true
     };
     this.handleFileUpload = this.handleFileUpload.bind(this);
+    this.toggleButton = this.toggleButton.bind(this);
+  }
+
+  toggleButton() {
+    this.setState({
+      showForm: !this.state.showForm
+    });
+  }
+
+  showForm() {
+    if (this.state.showForm === false) {
+      return (
+        <Form>
+          <Form.Group>
+            <Form.Control
+              name="profileImage"
+              type="file"
+              onChange={this.handleFileUpload}
+            />
+          </Form.Group>
+        </Form>
+      );
+    }
   }
 
   handleFileUpload = event => {
@@ -38,6 +62,8 @@ export class Profile extends Component {
     upload(uploadData)
       .then(user => {
         this.setState({ user });
+        this.toggleButton();
+        this.props.history.push("/profile");
       })
       .catch(error => {
         console.log("Error while uploading the file: ", error);
@@ -48,57 +74,40 @@ export class Profile extends Component {
       //---------------------------VOLUNTEER/DONOR!! FOR STYLING---------------------------------
       return (
         <div>
-          <h1>Welcome {this.props.user.name}!</h1>
-          <Row className="center">
-            <Col>
-              <Container>
-                <Card style={{ width: "10rem" }}>
-                  <Card.Img src={this.props.user.imageUrl} />
-                  <Form>
-                    <Form.Group>
-                      <Form.Control
-                        name="profileImage"
-                        type="file"
-                        onChange={this.handleFileUpload}
-                      />
-                    </Form.Group>
-                  </Form>
-                </Card>
-              </Container>
-            </Col>
-            <Col>
-              <Container>
-                <Card style={{ width: "30rem" }}>
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Container>
-              <Link to="/donation">
-                <Button className="pink-btn btn">+ New Donation</Button>
-              </Link>
-              <Link to="/donation/list">
-                <Button className="pink-btn btn">My Donations</Button>
-              </Link>
-              <Link to="/howItWorks">
-                <Button className="pink-btn btn">
-                  Deliver a donation to an Organization
-                </Button>
-              </Link>
-            </Col>
-          </Row>
+          <Container className="center">
+            <h3>Welcome {this.props.user.name}!</h3>
+          </Container>
+
+          <Container className="profile-form">
+            <div className="round">
+              <Card.Img className="img" src={this.props.user.imageUrl} />
+            </div>
+
+            <Button className="upload-image btn" onClick={this.toggleButton}>
+              Upload Image
+            </Button>
+            {this.showForm()}
+
+            <Link to="/donation">
+              <Button className="pink-btn btn">+ New Donation</Button>
+            </Link>
+            <Link to="/donation/list">
+              <Button className="pink-btn btn">My Donations</Button>
+            </Link>
+            <Link to="/howItWorks">
+              <Button className="pink-btn btn">
+                Deliver a donation to an Organization
+              </Button>
+            </Link>
+          </Container>
         </div>
       );
       //---------------------------ORGANIZATION !! FOR STYLING---------------------------------
     } else if (this.props.user.role === "Organization") {
       return (
         <div>
-          <Container>
-            <h1>Welcome {this.props.user.name}!</h1>
+          <Container className="center">
+            <h3>Welcome {this.props.user.name}!</h3>
           </Container>
           <Container style={{ marginTop: "8vh" }}>
             <Row>
