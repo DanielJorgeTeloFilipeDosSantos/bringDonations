@@ -96,7 +96,6 @@ export class ChooseDonation extends Component {
               to={`/donation/${donation._id}`}
               key={donation._id}
             >
-              <Card.Title>{donation.donationName}</Card.Title>
             </Link> */}
                 <Card.Body>
                   <div>
