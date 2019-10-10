@@ -12,7 +12,6 @@ import DonationList from "../components/donations/ListDonations";
 
 import add from "../assets/images/add.svg";
 import charity from "../assets/images/charity.svg";
-import newspaper from "../assets/images/newspaper.svg";
 import settings from "../assets/images/settings.svg";
 import addVolunteer from "../assets/images/user.svg";
 
@@ -24,9 +23,33 @@ export class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: this.props.user
+      user: this.props.user,
+      showForm: true
     };
     this.handleFileUpload = this.handleFileUpload.bind(this);
+    this.toggleButton = this.toggleButton.bind(this);
+  }
+
+  toggleButton() {
+    this.setState({
+      showForm: !this.state.showForm
+    });
+  }
+
+  showForm() {
+    if (this.state.showForm === false) {
+      return (
+        <Form>
+          <Form.Group>
+            <Form.Control
+              name="profileImage"
+              type="file"
+              onChange={this.handleFileUpload}
+            />
+          </Form.Group>
+        </Form>
+      );
+    }
   }
 
   handleFileUpload = event => {
@@ -38,61 +61,53 @@ export class Profile extends Component {
 
     upload(uploadData)
       .then(user => {
-        console.log(user);
         this.setState({ user });
-        console.log("AFTER UPLOAD", user);
+        this.toggleButton();
+        this.props.history.push("/profile");
       })
       .catch(error => {
         console.log("Error while uploading the file: ", error);
       });
   };
   ShowPageVolunteerOrOrganization() {
-    console.log(this.props);
     if (this.props.user.role === "User") {
       //---------------------------VOLUNTEER/DONOR!! FOR STYLING---------------------------------
       return (
         <div>
-          <h1>Welcome {this.props.user.name}!</h1>
-          <Container>
-            <Link className="btn profile" to="/donation">
-              Donate
-            </Link>
-            <Link className="btn profile" to="/donation/list">
-              Pick up Donation
-            </Link>
-            <Figure className="my-5">
-              <Figure.Image
-                width={200}
-                height={200}
-                alt="userimage"
-                src={this.props.user.imageUrl}
-                rounded
-              />
-            </Figure>
-
-            <Form>
-              <Form.Group>
-                <Form.Control
-                  name="profileImage"
-                  type="file"
-                  onChange={this.handleFileUpload}
-                />
-              </Form.Group>
-            </Form>
+          <Container className="center">
+            <h3>Welcome {this.props.user.name}!</h3>
           </Container>
-          <Button>donate</Button>
-          <br></br>
-          <Link to="/howItWorks">
-            <Button>Deliver a donation to a Organization</Button>
-          </Link>
+
+          <Container className="profile-form">
+            <div className="round">
+              <Card.Img className="img" src={this.props.user.imageUrl} />
+            </div>
+
+            <Button className="upload-image btn" onClick={this.toggleButton}>
+              Upload Image
+            </Button>
+            {this.showForm()}
+
+            <Link to="/donation">
+              <Button className="pink-btn btn">+ New Donation</Button>
+            </Link>
+            <Link to="/donation">
+              <Button className="pink-btn btn">My Donations</Button>
+            </Link>
+            <Link to="/howItWorks">
+              <Button className="pink-btn btn">
+                Deliver a donation to an Organization
+              </Button>
+            </Link>
+          </Container>
         </div>
       );
       //---------------------------ORGANIZATION !! FOR STYLING---------------------------------
     } else if (this.props.user.role === "Organization") {
       return (
         <div>
-          <Container>
-            <h1>Welcome {this.props.user.name}!</h1>
+          <Container className="center">
+            <h3>Welcome {this.props.user.name}!</h3>
           </Container>
           <Container style={{ marginTop: "8vh" }}>
             <Row>

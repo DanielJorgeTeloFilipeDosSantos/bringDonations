@@ -25,7 +25,7 @@ const schema = new mongoose.Schema({
   },
   imageUrl: {
     type: String,
-    default: "../images/default-user-icon-4.jpg"
+    default: "../../client/src/assets/images/default-profile.gif"
   },
   _donationPost: [
     {

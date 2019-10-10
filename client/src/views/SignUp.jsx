@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import LandingPage from "../components/LandingPage";
 
 import { signUp as signUpService } from "../services/authentication-api";
 
@@ -54,7 +57,7 @@ export default class SignUp extends Component {
       return (
         <div>
           <Container>
-            <h1>Voulunteers and donors</h1>
+            <h3>Volunteer's Sign Up</h3>
           </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
@@ -100,7 +103,7 @@ export default class SignUp extends Component {
       return (
         <div>
           <Container>
-            <h1>Institutions</h1>
+            <h3>Organisation's Sign Up</h3>
           </Container>
           <Form onSubmit={this.signUp}>
             <Form.Group>
@@ -172,24 +175,37 @@ export default class SignUp extends Component {
   render() {
     return (
       <div>
-        you put your scroll here paula
-        <div>
-          <Button
-            onClick={this.buttonClickChangeStateVolunteer}
-            variant="primary"
-          >
-            Volunteers and Donors
-          </Button>
+        <Container className="center">
+          <Row>
+            <Col>
+              <h5 className="center">Sign Up As</h5>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button
+                className="pink-btn mx-2"
+                onClick={this.buttonClickChangeStateVolunteer}
+                variant="primary"
+              >
+                Volunteer
+              </Button>
+            </Col>
 
-          <Button
-            onClick={this.buttonClickChangeStateInstitution}
-            variant="primary"
-          >
-            Institutions
-          </Button>
+            <Col>
+              <Button
+                className="pink-btn btn mx-4"
+                onClick={this.buttonClickChangeStateInstitution}
+                variant="primary"
+              >
+                Organisation
+              </Button>
+            </Col>
+          </Row>
           {this.state.formSignUp && this.changeButton()}
           {/* {this.changeButton()} */}
-        </div>
+        </Container>
+        <LandingPage />
       </div>
     );
   }

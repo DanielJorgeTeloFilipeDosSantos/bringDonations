@@ -1,36 +1,51 @@
 body {
   background-image: url("./assets/images/backgroundmint.png");
   color: white;
+  background-repeat: no-repeat;
 }
 
 .center {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
   align-content: center;
 }
+
+.carousel {
+  margin: 20px;
+}
+
+.image-overlay {
+  background-color: rgba(36, 29, 29, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  max-height: 60%;
+}
+@media (max-width: 640px) {
+  .image-overlay {
+    padding: 5px;
+  }
+  .image-overlay h3 {
+    font-size: 0.8em;
+  }
+  .image-overlay p {
+    font-size: 0.5em;
+  }
+}
+
 .remove-margin-top {
   margin-top: 0;
 }
 
-/* .topbar {
-  height: 10vh;
-  width: -200vh;
-} */
-
-/* .margin-top {
-  margin-top: 100px;
-} */
-
-.profile.btn {
+.pink-btn.btn {
   background: #ec5959;
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  margin: 10px;
-  padding: 10px 15px;
+  margin: 20px;
+  padding: 8px 15px;
   color: white;
+  border-color: #ec5959;
 }
 
 .sign-out.btn {
@@ -39,4 +54,129 @@ body {
   border-radius: 10px;
   border: 1px;
   color: white;
+}
+
+.donation-card {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(165, 160, 160);
+  margin: 30px;
+  border: none;
+  border-radius: 10px;
+  height: 600px;
+}
+
+.detail {
+  border-radius: 5px;
+}
+
+.inside-donation-card {
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
+.donation-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.link-overwrite {
+  text-decoration-style: none;
+  color: white;
+}
+
+.overlay-button {
+  position: relative;
+  top: 50%;
+  left: 70%;
+}
+
+.edit {
+  padding: 3px;
+  margin: 10px;
+  margin-left: 120px;
+  font-size: 0.8em;
+}
+
+.logo-tagline {
+  max-width: 50%;
+  margin: 40px;
+}
+
+.form-margin {
+  display: flex;
+  justify-content: center;
+}
+
+.direction {
+  align-self: flex-end;
+  margin: 0 auto;
+  background: #ffd900;
+  border-radius: 10px;
+  padding: 8px 15px;
+  width: auto;
+  color: white;
+  border-color: #ffd900;
+}
+
+@media (max-width: 640px) {
+  .donation-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(165, 160, 160);
+    margin: 30px;
+    border: none;
+    border-radius: 10px;
+    height: 500px;
+  }
+  .overlay-button {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+  }
+  .direction {
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    margin: 0 auto;
+    background: #ffd900;
+    border-radius: 10px;
+    padding: 8px 15px;
+    width: auto;
+    color: white;
+    border-color: #ffd900;
+  }
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.round {
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 60%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+.img {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  min-width: 100%;
+  height: 100%;
+  transform: translate(-40%, -40%);
+}
+
+.upload-image {
+  margin: 10px 110px;
+  padding: 2px;
+}
+
+.profile-div {
+  background-color: rgba(240, 226, 226, 0.8);
+  padding: 10px;
+  border-radius: 20px;
+  max-height: 60%;
 }
