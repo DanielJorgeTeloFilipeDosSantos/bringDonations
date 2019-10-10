@@ -151,9 +151,9 @@ export default class App extends Component {
                 />
 
                 {/*    DONATION FRONT END ROUTES ------------------------------    */}
-                <Route path="/donation" exact component={DonationView} />
+                {/* <Route path="/donation" exact component={DonationView} /> */}
 
-                {/* <Route
+                <Route
                   path="/donation"
                   render={props => (
                     <DonationView
@@ -163,7 +163,7 @@ export default class App extends Component {
                       user={this.state.user}
                     />
                   )}
-                /> */}
+                />
 
                 <Route
                   path="/donation/:id/details"
