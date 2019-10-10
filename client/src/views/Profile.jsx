@@ -110,6 +110,17 @@ export class Profile extends Component {
             <h3>Welcome {this.props.user.name}!</h3>
           </Container>
 
+          <Container className="center">
+            <div className="round">
+              <Card.Img className="img" src={this.props.user.imageUrl} />
+            </div>
+
+            <Button className="upload-image btn" onClick={this.toggleButton}>
+              Upload Image
+            </Button>
+            {this.showForm()}
+          </Container>
+
           {/* <Container className="organisation-icons">
             <Image src={charity} width="20%" rounded />
             <Image src={add} width="20%" rounded />
