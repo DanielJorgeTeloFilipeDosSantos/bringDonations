@@ -120,14 +120,14 @@ export class ChooseDonation extends Component {
                     </Row>
                     <Row>
                       {/* <LinkContainer to={`/donation/${donation._id}`}> */}
-                      <Button
-                        href={`/donation/${donation._id}`}
+                      <Link
+                        to={`/donation/${donation._id}`}
                         className="btn direction"
-                        onClick={this.currentLocationClickedMethod}
+                        //onClick={this.currentLocationClickedMethod}
                         value={donation._id}
                       >
                         Get direction ➤
-                      </Button>
+                      </Link>
                       {/* </LinkContainer> */}
                     </Row>
                   </div>
