@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { list } from "../services/donations";
 import placeholderImg from "../assets/images/peopelorganisation.jpg";
 import { LinkContainer } from "react-router-bootstrap";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export class ChooseDonation extends Component {
   constructor(props) {
@@ -78,7 +79,7 @@ export class ChooseDonation extends Component {
               <Card className="donation-card" key={donation.donationName}>
                 <Card.Img
                   style={{ maxHeight: "350px" }}
-                  src={placeholderImg}
+                  src={donation.imageUrl}
                   alt="Card image"
                 />
                 <Card.ImgOverlay>
@@ -98,25 +99,18 @@ export class ChooseDonation extends Component {
               <Card.Title>{donation.donationName}</Card.Title>
             </Link> */}
                 <Card.Body>
-                  <div className="inside-donation-card">
+                  <div>
                     <Row>
-                      {/* <Link
-                      to={`/donation/${donation._id}/ details`}
-                      key={donation._id}
-                    >
-                      <Button>{donation.donationName}</Button>
-                    </Link> */}
-                    </Row>
-                    <Row>
-                      <Card.Text>
-                        This Donation is under the Category {donation.category}
-                      </Card.Text>
-                      <Card.Text>
-                        About this Donation: {donation.description}
-                      </Card.Text>
-                      <Card.Text className="mr-5">
-                        <small>Posted by {donation._creator.name}</small>
-                      </Card.Text>
+                      <ListGroup className="inside-donation-card">
+                        <Card.Title>{donation.donationName}</Card.Title>
+                        <ListGroup.Item>
+                          A donation of {donation.category}
+                        </ListGroup.Item>
+                        <ListGroup.Item>{donation.description}</ListGroup.Item>
+                        <ListGroup.Item>
+                          <small>Posted by{donation._creator.name}</small>
+                        </ListGroup.Item>
+                      </ListGroup>
                     </Row>
                     <Row>
                       {/* <LinkContainer to={`/donation/${donation._id}`}> */}

@@ -77,7 +77,6 @@ a {
   margin: 30px;
   border: none;
   border-radius: 10px;
-  height: 600px;
 }
 
 .details {
@@ -88,6 +87,7 @@ a {
 .inside-donation-card {
   padding: 20px;
   padding-bottom: 10px;
+  width: 100%;
 }
 
 .donation-card:hover {
@@ -251,4 +251,22 @@ a {
   padding: 8px 15px;
   color: white;
   border-color: #30746f;
+}
+.delete-btn {
+  background: #ec5959;
+
+  border-radius: 10px;
+  margin: 20px;
+  padding: 5px 10px;
+  color: white;
+  border-color: #ec5959;
+}
+.delete-btn:hover {
+  background: #b44444;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 8px 15px;
+  color: white;
+  border-color: #b44444;
 }
