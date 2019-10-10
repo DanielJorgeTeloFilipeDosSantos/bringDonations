@@ -29,9 +29,9 @@ const upload = multer({ storage });
 
 router.post("/pic", upload.single("imageUrl"), (req, res) => {
   console.log("route caght");
-  const { url } = req.file.url;
+  const { url } = req.file;
   console.log("route1", req);
-  res.json({ type: "success", data: { url } });
+  res.json({ type: "success", data: url });
   console.log("route2", req.file);
 });
 

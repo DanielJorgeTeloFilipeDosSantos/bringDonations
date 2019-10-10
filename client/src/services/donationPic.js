@@ -9,8 +9,8 @@ export const donationPic = file => {
     profileApi
       .post("/pic", file)
       .then(response => {
-        resolve(response.data.data.user);
-        console.log("UPLOAD", response.data);
+        resolve(response.data.data);
+        console.log("UPLOAD", response.data.data);
       })
       .catch(error => {
         reject(error);
