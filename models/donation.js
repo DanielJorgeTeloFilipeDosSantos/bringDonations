@@ -18,7 +18,7 @@ const donationSchema = new mongoose.Schema(
     },
     imageUrl: {
       type: String,
-      default: ""
+      default: "../images/default-user-icon-4.jpg"
     },
     _creator: {
       type: ObjectId,

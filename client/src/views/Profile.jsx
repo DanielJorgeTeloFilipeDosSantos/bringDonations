@@ -12,7 +12,6 @@ import DonationList from "../components/donations/ListDonations";
 
 import add from "../assets/images/add.svg";
 import charity from "../assets/images/charity.svg";
-import newspaper from "../assets/images/newspaper.svg";
 import settings from "../assets/images/settings.svg";
 import addVolunteer from "../assets/images/user.svg";
 

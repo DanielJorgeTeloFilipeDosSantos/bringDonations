@@ -3,11 +3,15 @@ import React, { Component } from "react";
 //-------React---------
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 //-------Components---------
 
 import ListDonations from "../components/donations/ListDonations";
 import { create } from "./../services/donations";
+import { donationPic } from "./../services/donationPic";
 import geolocation from "../services/geolocation";
+import { Link } from "react-router-dom";
 
 export class Donation extends Component {
   constructor() {
@@ -18,7 +22,8 @@ export class Donation extends Component {
       category: "Food",
       description: "",
       location: "",
-      imageUrl: "",
+      imageUrl:
+        "https://steamuserimages-a.akamaihd.net/ugc/943937261175229610/F69ADE744E3FE50B387C86B6883A4D49F4BFAE91/",
       categoryOptions: ["Food", "Clothing", "Furniture", "Other"],
       showForm: true
     };
@@ -26,6 +31,7 @@ export class Donation extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.toggleButton = this.toggleButton.bind(this);
     this.showForm = this.showForm.bind(this);
+    this.handleFileUpload = this.handleFileUpload.bind(this);
   }
 
   componentDidMount() {
@@ -62,16 +68,58 @@ export class Donation extends Component {
       });
   }
 
+  //----------------------------------------- upload picture donation ---------------------------------------------
+
   toggleButton() {
     this.setState({
       showForm: !this.state.showForm
     });
   }
 
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     user: this.props.user
+  //   };
+  //   this.handleFileUpload = this.handleFileUpload.bind(this);
+  // }
+
+  handleFileUpload = event => {
+    event.preventDefault();
+    console.log("The file to be uploaded is: ", event.target.files[0]);
+    const uploadData = new FormData();
+    uploadData.append("imageUrl", event.target.files[0]);
+    console.log("handleFileUploadddddddd", uploadData);
+    donationPic(uploadData)
+      .then(url => {
+        this.setState({ imageUrl: url });
+        console.log("stateeeeee", this.state.imageUrl);
+      })
+      .catch(error => {
+        console.log("Error while uploading the file: ", error);
+      });
+  };
+
+  //--------------------------------------------------- upload picture donation --------------------------------------------------
+
   showForm() {
     if (this.state.showForm === false) {
       return (
         <Form onSubmit={this.onFormSubmit}>
+          <Container>
+            <Card style={{ width: "10rem" }}>
+              <Card.Img src={this.state.imageUrl} />
+              <Form>
+                <Form.Group>
+                  <Form.Control
+                    name="profileImage"
+                    type="file"
+                    onChange={this.handleFileUpload}
+                  />
+                </Form.Group>
+              </Form>
+            </Card>
+          </Container>
           <Form.Group>
             <Form.Label>Name your Donation</Form.Label>
             <Form.Control
@@ -82,7 +130,6 @@ export class Donation extends Component {
               onChange={this.handleNameChange}
             />
           </Form.Group>
-
           <Form.Group>
             <Form.Label htmlFor="choose-category">Category </Form.Label>
             <Form.Control
@@ -101,7 +148,6 @@ export class Donation extends Component {
               ))}
             </Form.Control>
           </Form.Group>
-
           {/* <Form.Group>
             <Form.Label>Pick a Category</Form.Label>
             <Form.Control
@@ -112,7 +158,6 @@ export class Donation extends Component {
               onChange={this.handleNameChange}
             />
           </Form.Group> */}
-
           <Form.Group>
             <Form.Label>Give a brief description to your donation</Form.Label>
             <Form.Control
@@ -123,9 +168,11 @@ export class Donation extends Component {
               onChange={this.handleNameChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Create a donation
-          </Button>
+          <Link to="/createSuccess">
+            <Button variant="primary" type="submit">
+              Create a donation
+            </Button>
+          </Link>
           {this.props.children}
         </Form>
       );
@@ -133,6 +180,7 @@ export class Donation extends Component {
   }
 
   render() {
+    console.log("sattee2", this.state);
     return (
       <div>
         <Button onClick={this.toggleButton}>Add a Donation</Button>

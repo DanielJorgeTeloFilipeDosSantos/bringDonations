@@ -41,8 +41,12 @@ export default class ListDonations extends Component {
         <h3>Search Donations</h3>
 
         {this.state.donations.map(donation => (
-          <Card className="donation-card" key={donation.donationName}>
-            <Card.Img maxHeiht="20px" src={placeholderImg} alt="Card image" />
+          <Card className="donation-card" key={donation._id}>
+            <Card.Img
+              style={{ maxHeight: "230px" }}
+              src={placeholderImg}
+              alt="Card image"
+            />
             <Card.ImgOverlay>
               <Link
                 className="overlay-button link-overwrite pink-btn btn"

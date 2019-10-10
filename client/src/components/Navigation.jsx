@@ -37,7 +37,7 @@ const Navigation = props => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
-                <LinkContainer to="/">
+                <LinkContainer to="/profile">
                   <Nav.Link href="/">Home</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/donation">

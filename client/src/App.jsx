@@ -4,6 +4,7 @@ import DonationView from "./views/Donation";
 import LocationDonation from "./views/LocationDonation";
 import DetailsDonation from "./views/DetailsDonation";
 import EditDonation from "./views/EditDonation";
+import createDonSucess from "./views/createDonSucess";
 import Map from "./components/map/Map";
 
 import "./App.css";
@@ -150,7 +151,19 @@ export default class App extends Component {
                 />
 
                 {/*    DONATION FRONT END ROUTES ------------------------------    */}
-                <Route path="/donation" exact component={DonationView} />
+                {/* <Route path="/donation" exact component={DonationView} /> */}
+
+                <Route
+                  path="/donation"
+                  render={props => (
+                    <DonationView
+                      {...props}
+                      exact
+                      loadUser={this.loadUser}
+                      user={this.state.user}
+                    />
+                  )}
+                />
 
                 <Route
                   path="/donation/:id/details"
@@ -176,6 +189,11 @@ export default class App extends Component {
                 {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
                 <Route path="/HowItWorks" exact component={HowItWorks} />
                 <Route path="/chooseDon" exact component={ChooseDonation} />
+                <Route
+                  path="/createSuccess"
+                  exact
+                  component={createDonSucess}
+                />
 
                 {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
 
