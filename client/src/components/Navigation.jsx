@@ -10,7 +10,6 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 
 import bringLogoLeaf from "../assets/images/BringLeaf.png";
-import Home from "../assets/images/home.svg";
 
 const Navigation = props => {
   if (props.user) {
