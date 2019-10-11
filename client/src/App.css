@@ -265,6 +265,32 @@ a {
   color: white;
   border-color: #30746f;
 }
+
+.map-button {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  z-index: 1;
+  background: #4fc4bc;
+  border-radius: 10px;
+  padding: 15px 30px;
+  color: white;
+  border-color: #4fc4bc;
+  transition: all 0.2s ease-in-out;
+}
+.map-button:hover {
+  background: #60ebe1;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  z-index: 1;
+  border-radius: 10px;
+  padding: 15px 30px;
+  color: whitesmoke;
+  border-color: #60ebe1;
+  transform: scale(1.1);
+}
 .delete-btn {
   background: #ec5959;
 

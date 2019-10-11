@@ -8,6 +8,7 @@ import { load2 } from "../../services/getlocationdb";
 import ErrorBoundary from "../../views/ErrorBoundary";
 import { withRouter } from "react-router";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 class MapDemo extends Component {
   constructor(props) {
@@ -84,7 +85,9 @@ class MapDemo extends Component {
     console.log("render this.state.location2", this.state.location2);
     return (
       <div>
-        <Button className="overlay-button pink-btn">BUTTON</Button>
+        <Link to="/home">
+          <Button className="map-button">✔ Delivered</Button>
+        </Link>
         <ErrorBoundary>
           <div
             style={{
@@ -97,7 +100,7 @@ class MapDemo extends Component {
             <div style={{ position: "fixed-bottom" }}>adsadasd</div>
             <div
               className="map-wrapper"
-              style={{ width: "100vw", height: "120vh" }}
+              style={{ width: "100vw", height: "120vh", zIndex: "-1" }}
             >
               {!this.state.location[0] ? (
                 <div

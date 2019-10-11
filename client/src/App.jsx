@@ -113,10 +113,8 @@ export default class App extends Component {
                     <SignUp {...props} exact loadUser={this.loadUser} />
                   )}
                 />
-
                 {/*   goes to /home that is protected and only acessable if you
                 have a session initiated (you are loggedin)    */}
-
                 <Route
                   path="/home"
                   render={props => (
@@ -128,7 +126,6 @@ export default class App extends Component {
                     />
                   )}
                 />
-
                 <Route
                   path="/profile"
                   render={props => (
@@ -140,9 +137,7 @@ export default class App extends Component {
                     />
                   )}
                 />
-
                 {/* here starts the app as a protected route*/}
-
                 <ProtectedRoute
                   path="/sign-in"
                   verify={this.verifyUnauthenticated}
@@ -150,10 +145,8 @@ export default class App extends Component {
                     <SignIn {...props} exact loadUser={this.loadUser} />
                   )}
                 />
-
                 {/*    DONATION FRONT END ROUTES ------------------------------    */}
                 <Route path="/donation" exact component={DonationView} />
-
                 {/* <Route
                   path="/donation"
                   render={props => (
@@ -165,34 +158,24 @@ export default class App extends Component {
                     />
                   )}
                 /> */}
-
                 <Route
                   path="/donation/:id/details"
                   exact
                   component={DetailsDonation}
                 />
-
                 <Route
                   path="/donation/:id/edit"
                   exact
                   component={EditDonation}
                 />
-
                 <Route
                   path="/donation/:id"
                   exact
                   render={props => <Map {...props} loadUser={this.loadUser} />}
                 />
-
-<Route
-                  path="/a"
-                  exact
-                  component={Map3} />}
-                />
-
+                <Route path="/a" exact component={Map3} />} />
                 {/*    ORGANIZATION FRONT END ROUTES ------------------------------    */}
                 <Route path="/donationOrg" exact component={OrgDonationView} />
-
                 {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
                 <Route path="/HowItWorks" exact component={HowItWorks} />
                 <Route path="/chooseDon" exact component={ChooseDonation} />
@@ -201,9 +184,7 @@ export default class App extends Component {
                   exact
                   component={createDonSucess}
                 />
-
                 {/*    DO A DONATION FRONT END ROUTES ------------------------------    */}
-
                 <Route path="/error/:code" component={ErrorView} />
                 <Redirect path="/" to="/error/404" />
               </Switch>
