@@ -1,10 +1,10 @@
-
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
 
 body {
   background-image: url("./assets/images/backgroundmint.png");
   color: white;
   background-repeat: no-repeat;
-
+  font-family: "Nunito", sans-serif;
 }
 
 a {
@@ -161,7 +161,7 @@ a {
   .overlay-button {
     position: absolute;
     top: 35%;
-    left: 60%;
+    left: 50%;
   }
   .direction {
     margin: 0 auto;
