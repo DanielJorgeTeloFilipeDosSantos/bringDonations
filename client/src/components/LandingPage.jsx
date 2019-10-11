@@ -24,10 +24,10 @@ const LandingPage = () => {
           <img className="d-block w-100" src={foodImg} alt="First slide" />
           <Carousel.Caption>
             <div className="image-overlay">
-              <h3>Every Donation makes a difference</h3>
+              <h3>Every Donation makes a Difference!</h3>
               <p>
                 No matter if Food, Clothing or Furnitue. We know that every
-                small donation can make big difference to someone elses life .
+                small donation can make big difference to someone else's life .
                 We at Bring are offering you the platform to make donations
                 easier.
               </p>
@@ -42,8 +42,8 @@ const LandingPage = () => {
               <p>
                 Help us as a Volunteer and give back to the Community in your
                 very own way. With our app you can give by posting your
-                donations or colunteering to pick them up and deliver them to
-                the corresponding Organisations.
+                donations or volunteer to pick them up and deliver them to the
+                corresponding Organisations.
               </p>
             </div>
           </Carousel.Caption>
