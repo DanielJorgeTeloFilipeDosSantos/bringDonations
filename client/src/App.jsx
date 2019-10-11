@@ -26,6 +26,7 @@ import ErrorView from "./views/Error";
 
 import ProfileView from "./views/Profile";
 import OrgDonationView from "./views/OrgDonationView";
+import Map3 from "./views/Map3";
 
 import {
   verify as verifyService,
@@ -181,6 +182,12 @@ export default class App extends Component {
                   path="/donation/:id"
                   exact
                   render={props => <Map {...props} loadUser={this.loadUser} />}
+                />
+
+<Route
+                  path="/a"
+                  exact
+                  component={Map3} />}
                 />
 
                 {/*    ORGANIZATION FRONT END ROUTES ------------------------------    */}

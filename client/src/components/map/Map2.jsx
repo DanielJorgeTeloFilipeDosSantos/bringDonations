@@ -10,14 +10,11 @@ class MapDemo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
-      location: [],
-      location2: ""
     };
 
     this.center = {
-      lat: this.state.location.latitude,
-      lng: this.state.location.longitude
+      lat: 38.8107959,
+      lng: -9.2529825
     };
 
     this.bounds = {
@@ -59,42 +56,27 @@ class MapDemo extends Component {
           className="map-wrapper"
           style={{ width: "100vw", height: "120vh" }}
         >
-          {!this.state.location[0] ? (
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: "50vh"
-              }}
-            >
-              <div>
-                <h2>Finding a Donation...</h2>
-                <img src={logo3} alt="Logo" />
-              </div>
-            </div>
-          ) : (
             <HereMap
               appId="PqzDeV7k7c2Udy6g2Fvc"
               appCode="PWIfIjZYX7_LIxXbrXyjCw"
               useHTTPS={true}
               center={{
-                lat: this.state.location[0].latitude,
-                lng: this.state.location[0].longitude
+                lat: 38.7507989,
+                lng: -9.162986799999999
               }}
               zoom={14}
             >
               <Marker
-                lat={this.state.location[0].latitude}
-                lng={this.state.location[0].longitude}
+                lat={38.7507989}
+                lng={-9.162986799999999}
               >
                 <div style={{ transform: "translate(-50%, -100%)" }}>
                   <img src={logo} width="90vw" height="90vh" alt="Logo" />
                 </div>
               </Marker>
               <Marker
-                lat={this.state.location2.latitude}
-                lng={this.state.location2.longitude}
+                lat={38.8307959}
+                lng={-9.2429825}
               >
                 <div style={{ transform: "translate(-50%, -100%)" }}>
                   <img src={logo2} width="90vw" height="90vh" alt="Logo" />
@@ -103,12 +85,12 @@ class MapDemo extends Component {
               <PathFinder
                 waypoints={[
                   {
-                    lat: this.state.location2.latitude,
-                    lng: this.state.location2.longitude
+                    lat: 38.7507989,
+                    lng: -9.162986799999999
                   },
                   {
-                    lat: this.state.location[0].latitude,
-                    lng: this.state.location[0].longitude
+                    lat: 38.8307959,
+                    lng: -9.2429825
                   }
                 ]}
                 style={{
@@ -117,7 +99,6 @@ class MapDemo extends Component {
                 }}
               />
             </HereMap>
-          )}
         </div>
       </div>
     );
