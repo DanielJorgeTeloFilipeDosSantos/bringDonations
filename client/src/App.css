@@ -55,7 +55,6 @@ a {
 }
 .pink-btn.btn:hover {
   background: #b44444;
-
   z-index: +1;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -103,9 +102,9 @@ a {
 }
 
 .overlay-button {
-  position: relative;
-  top: 50%;
-  left: 70%;
+  position: absolute;
+  top: 35%;
+  left: 60%;
 }
 
 .edit {
@@ -156,8 +155,8 @@ a {
   }
   .overlay-button {
     position: absolute;
-    top: 25%;
-    left: 50%;
+    top: 35%;
+    left: 60%;
   }
   .direction {
     margin: 0 auto;
@@ -277,4 +276,8 @@ a {
   padding: 8px 15px;
   color: white;
   border-color: #b44444;
+}
+
+.img-fit-card {
+  object-fit: cover;
 }

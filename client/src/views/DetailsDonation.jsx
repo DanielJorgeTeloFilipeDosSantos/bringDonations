@@ -75,13 +75,12 @@ export default class DetailsDonation extends Component {
   }
 
   render() {
-    //console.log(this.state.donation._creator);
-    const user = this.state.user;
+    // const user = this.state.user;
     const donation = this.state.donation;
 
-    if (this.state.user._id === this.state.donation._creator._id) {
-      return <h1>WORKING</h1>;
-    }
+    // if (this.state.user._id === this.state.donation._creator._id) {
+    //   return <h1>WORKING</h1>;
+    // }
 
     return (
       <div className="display-flex">

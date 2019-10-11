@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
 import { list } from "../services/donations";
 import placeholderImg from "../assets/images/peopelorganisation.jpg";
@@ -78,7 +79,8 @@ export class ChooseDonation extends Component {
             {this.state.donations.map(donation => (
               <Card className="donation-card" key={donation.donationName}>
                 <Card.Img
-                  style={{ height: "200px" }}
+                  className="img-fit-card"
+                  style={{ height: "28vh" }}
                   src={donation.imageUrl}
                   alt="Card image"
                 />
