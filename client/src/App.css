@@ -58,7 +58,6 @@ a {
 }
 .pink-btn.btn:hover {
   background: #b44444;
-
   z-index: +1;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -106,9 +105,9 @@ a {
 }
 
 .overlay-button {
-  position: relative;
-  top: 50%;
-  left: 70%;
+  position: absolute;
+  top: 35%;
+  left: 60%;
 }
 
 .edit {
@@ -130,7 +129,6 @@ a {
 }
 
 .direction {
-  align-self: flex-end;
   margin: 0 auto;
   background: #ffd900;
   border-radius: 10px;
@@ -138,6 +136,7 @@ a {
   width: auto;
   color: white;
   border-color: #ffd900;
+  z-index: +1;
 }
 .direction:hover {
   align-self: flex-end;
@@ -148,6 +147,7 @@ a {
   width: auto;
   color: white;
   border-color: #d6b600;
+  z-index: +1;
 }
 
 @media (max-width: 640px) {
@@ -157,17 +157,13 @@ a {
     margin: 30px;
     border: none;
     border-radius: 10px;
-    height: 500px;
   }
   .overlay-button {
     position: absolute;
-    top: 25%;
-    left: 50%;
+    top: 35%;
+    left: 60%;
   }
   .direction {
-    position: absolute;
-    top: 85%;
-    left: 10%;
     margin: 0 auto;
     background: #ffd900;
     border-radius: 10px;
@@ -175,6 +171,7 @@ a {
     width: auto;
     color: white;
     border-color: #ffd900;
+    z-index: +1;
   }
 }
 
@@ -285,4 +282,8 @@ a {
   padding: 8px 15px;
   color: white;
   border-color: #b44444;
+}
+
+.img-fit-card {
+  object-fit: cover;
 }

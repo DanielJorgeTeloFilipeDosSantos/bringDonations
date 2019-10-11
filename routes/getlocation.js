@@ -10,7 +10,7 @@ const Donation = require("../models/donation");
 
 router.get("/:id", (req, res, next) => {
   Donation.findById(req.params.id)
-    // .populate("_creator")
+    .populate("_creator")
     .then(donation => {
       res.json({ type: "success", data: donation.location });
     })
