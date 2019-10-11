@@ -185,16 +185,14 @@ export class Donation extends Component {
   }
 
   render() {
-    console.log("sattee2", this.state);
     return (
       <div>
-        <Container>
-          <Button className="direction" onClick={this.toggleButton}>
-            {" "}
-            + Donation
-          </Button>
-          {this.showForm()}
-        </Container>
+        <Button className="direction center my-2" onClick={this.toggleButton}>
+          {" "}
+          + New Donation
+        </Button>
+        {this.showForm()}
+
         <ChooseDonation />
       </div>
     );

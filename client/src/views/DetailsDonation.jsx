@@ -15,8 +15,8 @@ export default class DetailsDonation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donation: ""
-      //user: null
+      donation: "",
+      user: null
     };
     this.displayDonation = this.displayDonation.bind(this);
     this.deleteDonation = this.deleteDonation.bind(this);
@@ -49,7 +49,7 @@ export default class DetailsDonation extends Component {
 
   componentDidMount() {
     this.displayDonation();
-    //this.loadUser();
+    this.loadUser();
   }
 
   componentDidUpdate(previousProps, previousState) {
@@ -64,8 +64,9 @@ export default class DetailsDonation extends Component {
   loadUser() {
     verifyService()
       .then(user => {
+        console.log(user);
         this.setState({
-          user
+          user: user
         });
       })
       .catch(error => {
@@ -75,14 +76,16 @@ export default class DetailsDonation extends Component {
 
   render() {
     //console.log(this.state.donation._creator);
-    //console.log(this.props);
+    const user = this.state.user;
     const donation = this.state.donation;
-    // if (this.props.user._id !== donation._creator._id) {
-    //   console.log(donation);
-    // }
+
+    if (this.state.user._id === this.state.donation._creator._id) {
+      return <h1>WORKING</h1>;
+    }
+
     return (
       <div className="display-flex">
-        <h3>Details dontaion in here </h3>
+        <h3>Donation Details</h3>
 
         <Row>
           <Col>
@@ -101,6 +104,7 @@ export default class DetailsDonation extends Component {
                 <Link to={`/donation/${this.props.match.params.id}/edit`}>
                   <Button className="request-btn">Edit</Button>
                 </Link>
+
                 <Button onClick={this.deleteDonation} className="delete-btn">
                   Delete
                 </Button>

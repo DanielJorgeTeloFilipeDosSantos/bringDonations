@@ -127,7 +127,6 @@ a {
 }
 
 .direction {
-  align-self: flex-end;
   margin: 0 auto;
   background: #ffd900;
   border-radius: 10px;
@@ -154,7 +153,6 @@ a {
     margin: 30px;
     border: none;
     border-radius: 10px;
-    height: 500px;
   }
   .overlay-button {
     position: absolute;
@@ -162,9 +160,6 @@ a {
     left: 50%;
   }
   .direction {
-    position: absolute;
-    top: 85%;
-    left: 10%;
     margin: 0 auto;
     background: #ffd900;
     border-radius: 10px;

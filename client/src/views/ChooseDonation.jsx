@@ -107,7 +107,7 @@ export class ChooseDonation extends Component {
                         </ListGroup.Item>
                         <ListGroup.Item>{donation.description}</ListGroup.Item>
                         <ListGroup.Item>
-                          <small>Posted by{donation._creator.name}</small>
+                          <small>Posted by {donation._creator.name}</small>
                         </ListGroup.Item>
                       </ListGroup>
                     </Row>
