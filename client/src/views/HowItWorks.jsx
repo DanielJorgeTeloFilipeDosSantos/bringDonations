@@ -9,7 +9,15 @@ export class HowItWorks extends Component {
     return (
       <div>
         <Container>
-          <h1>How it works</h1>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              margin: "10px"
+            }}
+          >
+            <h1>How it works</h1>
+          </div>
         </Container>
         <Container>
           <Stepper history={this.props.history} />
