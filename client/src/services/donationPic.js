@@ -1,6 +1,6 @@
 import axios from "axios";
 const profileApi = axios.create({
-  baseURL: "/donationpic"
+  baseURL: "/api/donationpic"
 });
 
 export const donationPic = file => {

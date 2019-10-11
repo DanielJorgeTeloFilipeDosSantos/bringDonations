@@ -52,11 +52,11 @@ app.use(
 app.use(deserializeUserMiddleware);
 
 app.use("/api", apiRouter);
-app.use("api/donation", donationRouter);
+app.use("/api/donation", donationRouter);
 app.use("/test", testRouter);
-app.use("api/upload", profileRouter);
-app.use("api/getlocation", getlocationRouter);
-app.use("/donationpic", donationPicRouter);
+app.use("/api/upload", profileRouter);
+app.use("/api/getlocation", getlocationRouter);
+app.use("/api/donationpic", donationPicRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "./client/build/index.html"));

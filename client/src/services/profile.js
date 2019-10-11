@@ -1,6 +1,6 @@
 import axios from "axios";
 const profileApi = axios.create({
-  baseURL: "api/upload"
+  baseURL: "/api/upload"
 });
 
 export const upload = file => {
