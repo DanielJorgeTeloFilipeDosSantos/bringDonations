@@ -55,12 +55,9 @@ a {
 }
 .pink-btn.btn:hover {
   background: #b44444;
-  <<<<<<<HEAD
-=======
+
   z-index: +1;
-  >>>>>>>f9f687c92be4ea3af6109ef10a44cddb7115ef7b
-  box-shadow: 0 10px 30px 0
-    rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   margin: 20px;
   padding: 8px 15px;
