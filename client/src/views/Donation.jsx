@@ -122,37 +122,37 @@ export class Donation extends Component {
               </Form>
             </Card>
           </Container>
-
-          <Form onSubmit={this.onFormSubmit}>
-            <Form.Group>
-              <Form.Label>Name your Donation</Form.Label>
-              <Form.Control
-                type="text"
-                name="donationName"
-                placeholder="Donation Name"
-                value={this.state.donationName}
-                onChange={this.handleNameChange}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label htmlFor="choose-category">Category </Form.Label>
-              <Form.Control
-                as="select"
-                placeholder="Choose a Category"
-                type="text"
-                name="category"
-                id="choose-category"
-                onChange={this.handleNameChange}
-                value={this.state.category}
-              >
-                {this.state.categoryOptions.map(category => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
-            {/* <Form.Group>
+          <Container>
+            <Form onSubmit={this.onFormSubmit}>
+              <Form.Group>
+                <Form.Label>Name your Donation</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="donationName"
+                  placeholder="Donation Name"
+                  value={this.state.donationName}
+                  onChange={this.handleNameChange}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label htmlFor="choose-category">Category </Form.Label>
+                <Form.Control
+                  as="select"
+                  placeholder="Choose a Category"
+                  type="text"
+                  name="category"
+                  id="choose-category"
+                  onChange={this.handleNameChange}
+                  value={this.state.category}
+                >
+                  {this.state.categoryOptions.map(category => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+              {/* <Form.Group>
             <Form.Label>Pick a Category</Form.Label>
             <Form.Control
               type="text"
@@ -162,23 +162,28 @@ export class Donation extends Component {
               onChange={this.handleNameChange}
             />
           </Form.Group> */}
-            <Form.Group>
-              <Form.Label>Give a brief description to your donation</Form.Label>
-              <Form.Control
-                type="text"
-                name="description"
-                placeholder="Add a description"
-                value={this.state.description}
-                onChange={this.handleNameChange}
-              />
-            </Form.Group>
-            {/* <Link to="/createSuccess"> */}
-            <Button className="submit-btn" type="submit">
-              Post
-            </Button>
-            {/* </Link> */}
-            {this.props.children}
-          </Form>
+              <Form.Group>
+                <Form.Label>
+                  Give a brief description to your donation
+                </Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows="3"
+                  type="textarea"
+                  name="description"
+                  placeholder="Add a description"
+                  value={this.state.description}
+                  onChange={this.handleNameChange}
+                />
+              </Form.Group>
+              {/* <Link to="/createSuccess"> */}
+              <Button className="submit-btn" type="submit">
+                Post
+              </Button>
+              {/* </Link> */}
+              {this.props.children}
+            </Form>
+          </Container>
         </div>
       );
     }
