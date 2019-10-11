@@ -84,6 +84,7 @@ class MapDemo extends Component {
           marginTop: "-20vh"
         }}
       >
+        <div style={{ position: "fixed-bottom" }}>adsadasd</div>
         <div
           className="map-wrapper"
           style={{ width: "100vw", height: "120vh" }}
@@ -98,7 +99,7 @@ class MapDemo extends Component {
               }}
             >
               <div>
-                <h2>Finding a Donation</h2>
+                <h2>Finding a Donation...</h2>
                 <img src={logo3} alt="Logo" />
               </div>
             </div>
@@ -113,27 +114,6 @@ class MapDemo extends Component {
               }}
               zoom={14}
             >
-              {/* {!this.props.myLocation[0] ? (
-            <Marker
-              lat={this.props.location.latitude}
-              lng={this.props.location.longitude}
-            >
-              <div style={{ transform: "translate(-50%, -100%)" }}>
-                <img src={logo2} width="90vw" height="90vh" alt="Logo" />
-              </div>
-            </Marker>
-          ) : (
-            <div>
-              <Marker
-                lat={this.props.myLocation[0].latitude}
-                lng={this.props.myLocation[0].longitude}
-              >
-                <div style={{ transform: "translate(-50%, -100%)" }}>
-                  <img src={logo} width="90vw" height="90vh" alt="Logo" />
-                </div>
-              </Marker>
-            </div>
-          )} */}
               <Marker
                 lat={this.state.location[0].latitude}
                 lng={this.state.location[0].longitude}
@@ -150,61 +130,6 @@ class MapDemo extends Component {
                   <img src={logo2} width="90vw" height="90vh" alt="Logo" />
                 </div>
               </Marker>
-
-              {/* <Polyline
-            dataPoints={[52, 48, 100, 42, 77, 100]}
-            strokeColor="#HexCode"
-            lineWidth={3}
-            onPolylineDrawn={this.onPolylineDrawn}
-          /> */}
-
-              {/* <Polygon
-            dataPoints={[52, 48, 100, 42, 77, 100]}
-            fillColor="#HexCode"
-            strokeColor="#HexCode"
-            lineWidth={3}
-            onPolylineDrawn={this.onPolygonDrawn}
-          /> */}
-
-              {/* <Circle
-            center={this.center}
-            radius={1000}
-            fillColor="#HexCode"
-            strokeColor="#HexCode"
-            onCircleDrawn={this.onCircleDrawn}
-          /> */}
-
-              {/* <Rectangle
-            bounds={this.bounds}
-            fillColor="#HexCode"
-            strokeColor="#HexCode"
-            onRectangleDrawn={this.onRectangleDrawn}
-          /> */}
-
-              {/* <PathFinder
-            waypoints={[
-              { lat: 52.516, lng: 13.3779 },
-              { lat: 52.5206, lng: 13.3862 }
-            ]}
-          /> */}
-
-              {/* {!this.props.myLocation[0] ? (
-            console.log("not location")
-          ) : (
-            <PathFinder
-              waypoints={[
-                {
-                  lat: this.props.location.latitude,
-                  lng: this.props.location.longitude
-                },
-                { lat: 52.519, lng: 13.4162 }
-              ]}
-              style={{
-                lineWidth: 7,
-                strokeColor: "rgb(65,105,225)"
-              }}
-            />
-          )} */}
               <PathFinder
                 waypoints={[
                   {
