@@ -30,7 +30,7 @@ export class Profile extends Component {
     this.handleFileUpload = this.handleFileUpload.bind(this);
     this.toggleButton = this.toggleButton.bind(this);
   }
-
+  //WORKING VERSION
   toggleButton() {
     this.setState({
       showForm: !this.state.showForm
