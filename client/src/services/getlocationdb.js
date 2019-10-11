@@ -1,6 +1,6 @@
 import axios from "axios";
 const localApi = axios.create({
-  baseURL: "/getlocation"
+  baseURL: "api/getlocation"
 });
 
 export const load2 = id => {

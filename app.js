@@ -52,10 +52,10 @@ app.use(
 app.use(deserializeUserMiddleware);
 
 app.use("/api", apiRouter);
-app.use("/donation", donationRouter);
+app.use("api/donation", donationRouter);
 app.use("/test", testRouter);
-app.use("/upload", profileRouter);
-app.use("/getlocation", getlocationRouter);
+app.use("api/upload", profileRouter);
+app.use("api/getlocation", getlocationRouter);
 app.use("/donationpic", donationPicRouter);
 
 app.get("*", (req, res) => {
