@@ -6,6 +6,7 @@ import logo3 from "./bringGif4.gif";
 import geolocation from "../../services/geolocation";
 import { load2 } from "../../services/getlocationdb";
 import ErrorBoundary from "../../views/ErrorBoundary";
+import { withRouter } from "react-router";
 
 class MapDemo extends Component {
   constructor(props) {
@@ -58,6 +59,10 @@ class MapDemo extends Component {
     this.displayDonation();
   }
 
+  onClickd() {
+    console.log("buttoncliced");
+  }
+
   onPolylineDrawn = () => {
     console.log("polyline drawn");
   };
@@ -73,6 +78,8 @@ class MapDemo extends Component {
   onRectangleDrawn = () => {
     console.log("rectangle drawn");
   };
+
+
 
   render() {
     console.log("render this.state.location2", this.state.location2);
@@ -157,4 +164,4 @@ class MapDemo extends Component {
   }
 }
 
-export default MapDemo;
+export default withRouter(MapDemo);
