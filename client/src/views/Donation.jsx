@@ -97,7 +97,7 @@ export class Donation extends Component {
     create(donation)
       .then(donation => {
         this.toggleButton();
-        this.props.history.push("/donation");
+        this.props.history.push("/createSuccess");
       })
       .catch(error => {
         console.log(error);

@@ -13,10 +13,42 @@ export class createDonSucess extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center"
+        }}
+      >
         {" "}
-        <h1>You created a donation</h1>
-        <img src={logo3} alt="Logo" />
+        <br></br>
+        <br></br>
+        <div
+          style={{
+            width: "80vw",
+            heigh: "80vh"
+          }}
+        >
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <div>
+            <h3 style={{ marginBottom: "8vh" }}>You created a Donation</h3>
+          </div>
+          <div>
+            <img
+              src={logo3}
+              style={{
+                backgroundColor: "white",
+                width: "50vw",
+                borderRadius: "50%",
+                marginLeft: "12vw"
+              }}
+              alt="Logo"
+            />
+          </div>
+        </div>
+        <br></br>
       </div>
     );
   }

@@ -5,6 +5,7 @@ import logo2 from "./OrgLocationIcon.svg";
 import logo3 from "./bringGif4.gif";
 import geolocation from "../../services/geolocation";
 import { load2 } from "../../services/getlocationdb";
+import ErrorBoundary from "../../views/ErrorBoundary";
 
 class MapDemo extends Component {
   constructor(props) {
@@ -76,90 +77,84 @@ class MapDemo extends Component {
   render() {
     console.log("render this.state.location2", this.state.location2);
     return (
-      <div
-        style={{
-          backgroundColor: "#f4f8fa",
-          width: "100vw",
-          height: "200vh",
-          marginTop: "-20vh"
-        }}
-      >
-        <div style={{ position: "fixed-bottom" }}>adsadasd</div>
+      <ErrorBoundary>
         <div
-          className="map-wrapper"
-          style={{ width: "100vw", height: "120vh" }}
+          style={{
+            backgroundColor: "#f4f8fa",
+            width: "100vw",
+            height: "200vh",
+            marginTop: "-20vh"
+          }}
         >
-          {!this.state.location[0] ? (
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: "50vh"
-              }}
-            >
-              <div>
-                <h2>Finding a Donation...</h2>
-                <img src={logo3} alt="Logo" />
-              </div>
-            </div>
-          ) : (
-            <HereMap
-              appId="PqzDeV7k7c2Udy6g2Fvc"
-              appCode="PWIfIjZYX7_LIxXbrXyjCw"
-              useHTTPS={true}
-              center={{
-                lat: this.state.location[0].latitude,
-                lng: this.state.location[0].longitude
-              }}
-              zoom={14}
-            >
-              <Marker
-                lat={this.state.location[0].latitude}
-                lng={this.state.location[0].longitude}
-              >
-                <div style={{ transform: "translate(-50%, -100%)" }}>
-                  <img src={logo} width="90vw" height="90vh" alt="Logo" />
-                </div>
-              </Marker>
-              <Marker
-                lat={this.state.location2.latitude}
-                lng={this.state.location2.longitude}
-              >
-                <div style={{ transform: "translate(-50%, -100%)" }}>
-                  <img src={logo2} width="90vw" height="90vh" alt="Logo" />
-                </div>
-              </Marker>
-              <PathFinder
-                waypoints={[
-                  {
-                    lat: this.state.location2.latitude,
-                    lng: this.state.location2.longitude
-                  },
-                  {
-                    lat: this.state.location[0].latitude,
-                    lng: this.state.location[0].longitude
-                  }
-                ]}
+          <div style={{ position: "fixed-bottom" }}>adsadasd</div>
+          <div
+            className="map-wrapper"
+            style={{ width: "100vw", height: "120vh" }}
+          >
+            {!this.state.location[0] ? (
+              <div
                 style={{
-                  lineWidth: 7,
-                  strokeColor: "rgb(65,105,225)"
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: "50vh"
                 }}
-              />
-            </HereMap>
-          )}
+              >
+                <div>
+                  <h2>Finding a Donation...</h2>
+                  <img src={logo3} alt="Logo" />
+                </div>
+              </div>
+            ) : (
+              <HereMap
+                appId="PqzDeV7k7c2Udy6g2Fvc"
+                appCode="PWIfIjZYX7_LIxXbrXyjCw"
+                useHTTPS={true}
+                center={{
+                  lat: this.state.location[0].latitude,
+                  lng: this.state.location[0].longitude
+                }}
+                zoom={14}
+              >
+                <Marker
+                  lat={this.state.location[0].latitude}
+                  lng={this.state.location[0].longitude}
+                >
+                  <div style={{ transform: "translate(-50%, -100%)" }}>
+                    <img src={logo} width="90vw" height="90vh" alt="Logo" />
+                  </div>
+                </Marker>
+                <Marker
+                  lat={this.state.location2.latitude}
+                  lng={this.state.location2.longitude}
+                >
+                  <div style={{ transform: "translate(-50%, -100%)" }}>
+                    <img src={logo2} width="90vw" height="90vh" alt="Logo" />
+                  </div>
+                </Marker>
+                <PathFinder
+                  waypoints={[
+                    {
+                      lat: this.state.location2.latitude,
+                      lng: this.state.location2.longitude
+                    },
+                    {
+                      lat: this.state.location[0].latitude,
+                      lng: this.state.location[0].longitude
+                    }
+                  ]}
+                  style={{
+                    lineWidth: 7,
+                    strokeColor: "rgb(65,105,225)"
+                  }}
+                />
+              </HereMap>
+            )}
+          </div>
         </div>
-      </div>
+      </ErrorBoundary>
     );
   }
 }
 
 export default MapDemo;
-
-// {!this.props.user ? (
-//   this.props.history.push("/")
-// ) : (
-//   <div>
-//     <h1>Welcome {this.props.user.name}!</h1>
-//   </div>
-// )}
